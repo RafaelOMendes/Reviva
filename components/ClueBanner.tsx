@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { Colors } from '../constants/colors';
 
 interface ClueBannerProps {
@@ -10,7 +10,9 @@ export function ClueBanner({ clue }: ClueBannerProps) {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>DICA</Text>
-      <Text style={styles.clueText}>{clue}</Text>
+      <ScrollView showsVerticalScrollIndicator={false} bounces={false}>
+        <Text style={styles.clueText}>{clue}</Text>
+      </ScrollView>
     </View>
   );
 }
@@ -19,7 +21,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.primary,
     marginHorizontal: 16,
-    marginVertical: 10,
     borderRadius: 14,
     paddingVertical: 14,
     paddingHorizontal: 20,
@@ -28,20 +29,21 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 4,
+    maxHeight: 180, // Limita a altura caso tenha 3 dicas longas
   },
   label: {
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: '700',
     color: 'rgba(255,255,255,0.7)',
     letterSpacing: 1.5,
-    marginBottom: 4,
+    marginBottom: 6,
     fontFamily: 'PlusJakartaSans_700Bold',
   },
   clueText: {
-    fontSize: 14,
-    fontWeight: '400',
+    fontSize: 18,
+    fontWeight: '600',
     color: Colors.textLight,
-    lineHeight: 20,
-    fontFamily: 'PlusJakartaSans_400Regular',
+    lineHeight: 26,
+    fontFamily: 'PlusJakartaSans_600SemiBold',
   },
 });

@@ -32,7 +32,7 @@ interface KeyProps {
 }
 
 function Key({ label, onPress, isSpecial, keyWidth, keyHeight, flex }: KeyProps) {
-  const fontSize = Math.max(11, Math.min(16, keyWidth * 0.42));
+  const fontSize = Math.max(16, Math.min(24, keyWidth * 0.5));
 
   return (
     <TouchableOpacity
@@ -79,8 +79,8 @@ export function Keyboard({ onKeyPress, onBackspace, onEnter }: KeyboardProps) {
   const availableWidth = width - H_PADDING * 2;
   const keyWidth = Math.floor((availableWidth - KEY_GAP * (KEYS_PER_ROW - 1)) / KEYS_PER_ROW);
 
-  // Altura da tecla proporcional à altura da tela (menor em telas pequenas)
-  const keyHeight = Math.min(50, Math.max(36, height * 0.062));
+  // Altura da tecla um pouco maior para facilitar o toque
+  const keyHeight = Math.min(65, Math.max(45, height * 0.075));
 
   const handleKey = useCallback((k: string) => () => onKeyPress(k), [onKeyPress]);
 
