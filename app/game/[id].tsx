@@ -75,6 +75,7 @@ export default function GameScreen() {
                 activeRow={game.activeRow}
                 activeCol={game.activeCol}
                 correctRows={game.correctRows}
+                lockedCells={game.lockedCells}
                 onCellPress={game.selectCell}
               />
             </Animated.View>

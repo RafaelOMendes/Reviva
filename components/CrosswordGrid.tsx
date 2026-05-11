@@ -19,6 +19,7 @@ interface CrosswordGridProps {
   activeRow: number;
   activeCol: number;
   correctRows: boolean[];
+  lockedCells: boolean[][];
   onCellPress: (row: number, col: number) => void;
 }
 
@@ -27,11 +28,12 @@ interface CellProps {
   isActive: boolean;
   isActiveRow: boolean;
   isCorrect: boolean;
+  isLocked: boolean;
   size: number;
   onPress: () => void;
 }
 
-function Cell({ letter, isActive, isActiveRow, isCorrect, size, onPress }: CellProps) {
+function Cell({ letter, isActive, isActiveRow, isCorrect, isLocked, size, onPress }: CellProps) {
   const flashAnim = useRef(new Animated.Value(0)).current;
 
   // Flash verde ao acertar
@@ -60,6 +62,10 @@ function Cell({ letter, isActive, isActiveRow, isCorrect, size, onPress }: CellP
     baseBgColor = Colors.cellCorrect;
     borderColor = Colors.cellCorrect;
     textColor = Colors.cellCorrectText;
+  } else if (isLocked) {
+    baseBgColor = '#E2E8F0';
+    borderColor = '#CBD5E1';
+    textColor = Colors.primary;
   } else if (isActive) {
     baseBgColor = Colors.cellBackground;
     borderColor = Colors.primary;
@@ -78,8 +84,8 @@ function Cell({ letter, isActive, isActiveRow, isCorrect, size, onPress }: CellP
 
   return (
     <TouchableOpacity
-      activeOpacity={0.8}
-      onPress={onPress}
+      activeOpacity={isLocked ? 1 : 0.8}
+      onPress={isLocked ? undefined : onPress}
     >
       <Animated.View
         style={[
@@ -117,6 +123,7 @@ export function CrosswordGrid({
   activeRow,
   activeCol,
   correctRows,
+  lockedCells,
   onCellPress,
 }: CrosswordGridProps) {
   const { width, height } = useWindowDimensions();
@@ -158,6 +165,7 @@ export function CrosswordGrid({
               isActive={rowIdx === activeRow && colIdx === activeCol}
               isActiveRow={rowIdx === activeRow && !correctRows[rowIdx]}
               isCorrect={correctRows[rowIdx]}
+              isLocked={lockedCells?.[rowIdx]?.[colIdx] || false}
               size={cellSize}
               onPress={handlePress(rowIdx, colIdx)}
             />

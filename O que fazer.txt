@@ -6,3 +6,9 @@ uma palavra vertical por fase
 aumentar o número de fases
 fazer as palavras virem do back
 montar o back
+salvar o estado da fase
+
+quando apertar na dica bloquear a celula
+
+
+analizar a possibilidade de fases e temas parecido com candycrush

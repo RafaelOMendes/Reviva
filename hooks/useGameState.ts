@@ -14,6 +14,7 @@ export interface GameState {
   gameStatus: GameStatus;
   hintLevels: number[];        // Quantas dicas de texto já foram reveladas por linha (0 a 2)
   timer: number;
+  lockedCells: boolean[][];    // Células bloqueadas (reveladas por dica)
 }
 
 export interface GameActions {
@@ -42,6 +43,9 @@ export function useGameState(puzzleId: string): GameState & GameActions {
   const [gameStatus, setGameStatus] = useState<GameStatus>('playing');
   const [hintLevels, setHintLevels] = useState<number[]>(Array(ROWS).fill(0));
   const [timer, setTimer] = useState(0);
+  const [lockedCells, setLockedCells] = useState<boolean[][]>(() => 
+    Array.from({ length: ROWS }, () => Array(COLS).fill(false))
+  );
   
   const { savePuzzleProgress } = useProgress();
 
@@ -145,17 +149,36 @@ export function useGameState(puzzleId: string): GameState & GameActions {
     const letter = key.toUpperCase();
     if (!/^[A-ZÇ]$/.test(letter)) return;
 
+    let targetCol = activeCol;
+    if (lockedCells[activeRow][targetCol]) {
+        while (targetCol < COLS && lockedCells[activeRow][targetCol]) {
+            targetCol++;
+        }
+        if (targetCol >= COLS) return; // Não há espaço livre
+    }
+
     setUserGrid((prev) => {
       const newGrid = prev.map((r) => [...r]);
-      newGrid[activeRow][activeCol] = letter;
+      newGrid[activeRow][targetCol] = letter;
+      
+      const isCompleted = checkRow(activeRow, newGrid);
+
+      if (!isCompleted) {
+          let nextCol = targetCol + 1;
+          while (nextCol < COLS && lockedCells[activeRow][nextCol]) {
+              nextCol++;
+          }
+          if (nextCol < COLS) {
+              setActiveCol(nextCol);
+          } else if (targetCol !== activeCol) {
+              setActiveCol(targetCol);
+          }
+      }
+
       processGridUpdate(newGrid);
       return newGrid;
     });
-
-    if (activeCol < COLS - 1 && !correctRows[activeRow]) {
-      setActiveCol((c) => c + 1);
-    }
-  }, [activeRow, activeCol, correctRows, gameStatus, COLS, processGridUpdate]);
+  }, [activeRow, activeCol, correctRows, gameStatus, COLS, processGridUpdate, lockedCells, checkRow]);
 
   const handleBackspace = useCallback(() => {
     if (gameStatus !== 'playing') return;
@@ -163,19 +186,27 @@ export function useGameState(puzzleId: string): GameState & GameActions {
 
     setUserGrid((prev) => {
       const newGrid = prev.map((r) => [...r]);
-      if (newGrid[activeRow][activeCol] !== '') {
-        newGrid[activeRow][activeCol] = '';
-      } else if (activeCol > 0) {
-        newGrid[activeRow][activeCol - 1] = '';
-        setActiveCol((c) => c - 1);
+      let colToClear = -1;
+
+      if (!lockedCells[activeRow][activeCol] && newGrid[activeRow][activeCol] !== '') {
+        colToClear = activeCol;
+      } else {
+        let prevCol = activeCol - 1;
+        while (prevCol >= 0 && lockedCells[activeRow][prevCol]) {
+          prevCol--;
+        }
+        if (prevCol >= 0) {
+          colToClear = prevCol;
+        }
+      }
+
+      if (colToClear !== -1) {
+        newGrid[activeRow][colToClear] = '';
+        setActiveCol(colToClear);
       }
       return newGrid;
     });
-
-    if (userGrid[activeRow][activeCol] === '' && activeCol > 0) {
-      setActiveCol((c) => c - 1);
-    }
-  }, [activeRow, activeCol, correctRows, gameStatus, userGrid]);
+  }, [activeRow, activeCol, correctRows, gameStatus, lockedCells]);
 
   const handleEnter = useCallback(() => {
     if (gameStatus !== 'playing') return;
@@ -200,9 +231,10 @@ export function useGameState(puzzleId: string): GameState & GameActions {
 
   const selectCell = useCallback((row: number, col: number) => {
     if (correctRows[row]) return;
+    if (lockedCells[row][col]) return;
     setActiveRow(row);
     setActiveCol(col);
-  }, [correctRows]);
+  }, [correctRows, lockedCells]);
 
   const useHint = useCallback(() => {
     if (gameStatus !== 'playing' || correctRows[activeRow]) return;
@@ -243,19 +275,28 @@ export function useGameState(puzzleId: string): GameState & GameActions {
            processGridUpdate(newGrid);
            return newGrid;
         });
+
+        setLockedCells(prev => {
+           const newLocked = prev.map(r => [...r]);
+           for (const c of colsToReveal) {
+               newLocked[activeRow][c] = true;
+           }
+           return newLocked;
+        });
       }
     }
-  }, [activeRow, correctRows, gameStatus, hintLevels, COLS, userGrid, SOLUTION, processGridUpdate]);
+  }, [activeRow, correctRows, gameStatus, hintLevels, COLS, userGrid, SOLUTION, processGridUpdate, lockedCells]);
 
   const resetGame = useCallback(() => {
     setUserGrid(createEmptyGrid());
+    setLockedCells(Array.from({ length: ROWS }, () => Array(COLS).fill(false)));
     setActiveRow(0);
     setActiveCol(0);
     setCorrectRows(Array(ROWS).fill(false));
     setHintLevels(Array(ROWS).fill(0));
     setGameStatus('playing');
     setTimer(0);
-  }, [createEmptyGrid, ROWS]);
+  }, [createEmptyGrid, ROWS, COLS]);
 
   return {
     puzzle,
@@ -266,6 +307,7 @@ export function useGameState(puzzleId: string): GameState & GameActions {
     gameStatus,
     hintLevels,
     timer,
+    lockedCells,
     handleKeyPress,
     handleBackspace,
     handleEnter,
