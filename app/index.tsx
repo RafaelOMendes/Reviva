@@ -1,149 +1,143 @@
-import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { useEffect, useRef } from 'react';
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Animated, Easing, Dimensions } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Colors } from '../constants/colors';
-import { PUZZLES } from '../constants/puzzleData';
-import { useProgress } from '../hooks/useProgress';
+import { StatusBar } from 'expo-status-bar';
 
-function formatTime(seconds: number) {
-  const m = Math.floor(seconds / 60).toString().padStart(2, '0');
-  const s = (seconds % 60).toString().padStart(2, '0');
-  return `${m}:${s}`;
-}
+const { width } = Dimensions.get('window');
 
-export default function MenuScreen() {
+export default function SplashScreen() {
   const router = useRouter();
-  const { progress, loading } = useProgress();
 
-  const handleSelectPuzzle = (id: string) => {
-    router.push(`/game/${id}`);
+  // Valores das animações
+  const titleAnim = useRef(new Animated.Value(0)).current;
+  const owlAnim = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    // Animação flutuante para o Título (vai para cima e para baixo)
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(titleAnim, {
+          toValue: -12, // sobe 12 pixels
+          duration: 1800,
+          easing: Easing.inOut(Easing.sin),
+          useNativeDriver: true,
+        }),
+        Animated.timing(titleAnim, {
+          toValue: 0, // volta para a posição original
+          duration: 1800,
+          easing: Easing.inOut(Easing.sin),
+          useNativeDriver: true,
+        })
+      ])
+    ).start();
+
+    // Animação de respiração (aumentar e diminuir levemente) para a Coruja
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(owlAnim, {
+          toValue: 1.04, // aumenta 4%
+          duration: 2200,
+          easing: Easing.inOut(Easing.sin),
+          useNativeDriver: true,
+        }),
+        Animated.timing(owlAnim, {
+          toValue: 1, // volta ao normal
+          duration: 2200,
+          easing: Easing.inOut(Easing.sin),
+          useNativeDriver: true,
+        })
+      ])
+    ).start();
+  }, [titleAnim, owlAnim]);
+
+  const handleStart = () => {
+    router.push('/levels');
   };
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.title}>Reviva</Text>
-          <Text style={styles.subtitle}>Selecione um Puzzle</Text>
-        </View>
+    <ImageBackground 
+      source={require('../assets/images/background.png')} 
+      style={styles.background}
+      resizeMode="cover"
+    >
+      <StatusBar style="light" />
 
-        {!loading && (
-          <FlatList
-            data={PUZZLES}
-            keyExtractor={(item) => item.id}
-            contentContainerStyle={styles.listContent}
-            renderItem={({ item }) => {
-              const pData = progress[item.id];
-              const isCompleted = pData?.completed;
+      {/* Título Animado */}
+      <Animated.Image 
+        source={require('../assets/images/title.png')}
+        style={[
+          styles.titleImage,
+          { transform: [{ translateY: titleAnim }] }
+        ]}
+        resizeMode="contain"
+      />
 
-              return (
-                <TouchableOpacity
-                  style={[styles.card, isCompleted && styles.cardCompleted]}
-                  activeOpacity={0.8}
-                  onPress={() => handleSelectPuzzle(item.id)}
-                >
-                  <View style={styles.cardHeader}>
-                    <Text style={[styles.cardTitle, isCompleted && styles.textCompleted]}>
-                      {item.title}
-                    </Text>
-                    {isCompleted && (
-                      <Text style={styles.badgeEmoji}>✅</Text>
-                    )}
-                  </View>
-                  
-                  <View style={styles.cardFooter}>
-                    <Text style={styles.difficulty}>
-                      Dificuldade: {item.difficulty}
-                    </Text>
-                    {isCompleted && pData.timeSpent > 0 && (
-                      <Text style={styles.stats}>
-                        Tempo: {formatTime(pData.timeSpent)}
-                      </Text>
-                    )}
-                  </View>
-                </TouchableOpacity>
-              );
-            }}
-          />
-        )}
+      {/* Coruja Animada */}
+      <Animated.Image 
+        source={require('../assets/images/owl.png')}
+        style={[
+          styles.owlImage,
+          { transform: [{ scale: owlAnim }] }
+        ]}
+        resizeMode="contain"
+      />
+
+      {/* Botão Começar */}
+      <View style={styles.footerContainer}>
+        <TouchableOpacity 
+          style={styles.button} 
+          activeOpacity={0.8}
+          onPress={handleStart}
+        >
+          <Text style={styles.buttonText}>COMEÇAR</Text>
+        </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  safeArea: {
+  background: {
     flex: 1,
-    backgroundColor: Colors.background,
-  },
-  container: {
-    flex: 1,
-    paddingHorizontal: 20,
-  },
-  header: {
-    marginTop: 24,
-    marginBottom: 32,
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: '700',
-    color: Colors.primary,
-    fontFamily: 'PlusJakartaSans_700Bold',
-  },
-  subtitle: {
-    fontSize: 16,
-    color: Colors.textMedium,
-    marginTop: 8,
-    fontFamily: 'PlusJakartaSans_400Regular',
-  },
-  listContent: {
-    paddingBottom: 40,
-    gap: 16,
-  },
-  card: {
-    backgroundColor: Colors.gridBackground,
-    borderRadius: 16,
-    padding: 20,
-    borderWidth: 2,
-    borderColor: 'transparent',
-  },
-  cardCompleted: {
-    borderColor: Colors.primary,
-    backgroundColor: '#E8F1F0',
-  },
-  cardHeader: {
-    flexDirection: 'row',
+    width: '100%',
+    height: '100%',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
   },
-  cardTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: Colors.textDark,
-    fontFamily: 'PlusJakartaSans_700Bold',
+  titleImage: {
+    width: width * 0.85,
+    height: 180,
+    marginTop: 60,
+  },
+  owlImage: {
+    width: width * 0.8,
     flex: 1,
+    marginBottom: 20,
   },
-  textCompleted: {
-    color: Colors.primary,
+  footerContainer: {
+    marginBottom: 60,
+    width: '100%',
+    paddingHorizontal: 40,
   },
-  badgeEmoji: {
-    fontSize: 18,
+  button: {
+    backgroundColor: '#FFC107', // Amarelo
+    paddingVertical: 20,
+    borderRadius: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 3,
+    borderColor: '#FFF',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 8,
   },
-  cardFooter: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  difficulty: {
-    fontSize: 14,
-    color: Colors.textMedium,
-    fontFamily: 'PlusJakartaSans_600SemiBold',
-  },
-  stats: {
-    fontSize: 14,
-    color: Colors.textMedium,
-    fontFamily: 'PlusJakartaSans_400Regular',
+  buttonText: {
+    fontSize: 24,
+    fontWeight: '800',
+    color: '#003366', // Azul escuro para o texto do botão
+    fontFamily: 'PlusJakartaSans_700Bold',
+    letterSpacing: 1.5,
   },
 });
