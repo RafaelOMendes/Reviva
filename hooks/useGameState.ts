@@ -56,14 +56,52 @@ export function useGameState(puzzleId: string): GameState & GameActions {
     return () => clearInterval(interval);
   }, [gameStatus]);
 
-  // Sons
-  const playSound = async (type: 'correct' | 'wrong' | 'win') => {
-    try {
-      console.log(`[Sound] Playing: ${type}`);
-    } catch (error) {
-      console.log('Error playing sound', error);
+  // Refs para armazenar as instâncias pré-carregadas dos sons
+  const startSound = useRef<Audio.Sound | null>(null);
+  const correctSound = useRef<Audio.Sound | null>(null);
+  const winSound = useRef<Audio.Sound | null>(null);
+
+  // Pré-carregamento dos sons
+  useEffect(() => {
+    async function loadSounds() {
+      try {
+        const [start, correct, win] = await Promise.all([
+          Audio.Sound.createAsync(require('../assets/sounds/start.mp3')),
+          Audio.Sound.createAsync(require('../assets/sounds/correct.mp3')),
+          Audio.Sound.createAsync(require('../assets/sounds/win.mp3'))
+        ]);
+        startSound.current = start.sound;
+        correctSound.current = correct.sound;
+        winSound.current = win.sound;
+
+        // Toca o som de início logo que termina de carregar
+        await start.sound.playAsync();
+      } catch (error) {
+        console.log('Error loading sounds:', error);
+      }
     }
-  };
+    loadSounds();
+
+    // Cleanup: descarrega os sons ao sair da tela
+    return () => {
+      startSound.current?.unloadAsync();
+      correctSound.current?.unloadAsync();
+      winSound.current?.unloadAsync();
+    };
+  }, []);
+
+  // Função para tocar o som instantaneamente (sem recarregar)
+  const playSound = useCallback(async (type: 'correct' | 'wrong' | 'win') => {
+    try {
+      if (type === 'correct' && correctSound.current) {
+        await correctSound.current.replayAsync();
+      } else if (type === 'win' && winSound.current) {
+        await winSound.current.replayAsync();
+      }
+    } catch (error) {
+      console.log('Error playing sound:', error);
+    }
+  }, []);
 
   const checkRow = useCallback((row: number, grid: string[][]): boolean => {
     return grid[row].join('') === SOLUTION[row].join('');
@@ -76,13 +114,13 @@ export function useGameState(puzzleId: string): GameState & GameActions {
     if (checkRow(activeRow, newGrid)) {
       newCorrectRows[activeRow] = true;
       setCorrectRows(newCorrectRows);
-      playSound('correct');
 
       if (newCorrectRows.every(Boolean)) {
         setGameStatus('won');
         playSound('win');
         savePuzzleProgress(puzzle.id, { completed: true, hintsUsed: 0, timeSpent: timer });
       } else {
+        playSound('correct');
         const nextRow = newCorrectRows.findIndex((c, i) => i > activeRow && !c);
         if (nextRow !== -1) {
           setActiveRow(nextRow);

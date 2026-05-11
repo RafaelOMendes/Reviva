@@ -53,7 +53,7 @@ export default function GameScreen() {
     <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
       <View style={styles.container}>
         <Header
-          onBack={() => router.replace('/')}
+          onBack={() => router.replace('/levels')}
           onUseHint={game.useHint}
           timer={game.timer}
         />
@@ -107,7 +107,7 @@ export default function GameScreen() {
             </Text>
             <TouchableOpacity
               style={styles.modalButton}
-              onPress={() => router.replace('/')}
+              onPress={() => router.replace('/levels')}
               activeOpacity={0.85}
             >
               <Text style={styles.modalButtonText}>Voltar ao Menu</Text>
