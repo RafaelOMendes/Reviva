@@ -33,6 +33,7 @@ export default function GameScreen() {
   // hook recebe o id do puzzle (fallback para level-1 se não tiver)
   const game = useGameState((id as string) || 'level-1');
   const bounceAnim = useRef(new Animated.Value(1)).current;
+  const scrollViewRef = useRef<ScrollView>(null);
 
   // triggerBounce não é mais estritamente necessário aqui, a animação vai para o Cell
   // O nível atual da dica (0 a 2)
@@ -60,16 +61,25 @@ export default function GameScreen() {
 
         <View style={styles.mainArea}>
           <View style={styles.gridWrapper}>
-            <Animated.View style={{ transform: [{ scale: bounceAnim }] }}>
-              <CrosswordGrid
-                userGrid={game.userGrid}
-                activeRow={game.activeRow}
-                activeCol={game.activeCol}
-                correctRows={game.correctRows}
-                lockedCells={game.lockedCells}
-                onCellPress={game.selectCell}
-              />
-            </Animated.View>
+            <ScrollView 
+              ref={scrollViewRef}
+              style={{ flex: 1, width: '100%' }}
+              contentContainerStyle={{ flexGrow: 1, alignItems: 'center', paddingVertical: 20 }}
+              showsVerticalScrollIndicator={false}
+              bounces={false}
+            >
+              <Animated.View style={{ transform: [{ scale: bounceAnim }], margin: 'auto' }}>
+                <CrosswordGrid
+                  userGrid={game.userGrid}
+                  activeRow={game.activeRow}
+                  activeCol={game.activeCol}
+                  correctRows={game.correctRows}
+                  lockedCells={game.lockedCells}
+                  onCellPress={game.selectCell}
+                  scrollViewRef={scrollViewRef}
+                />
+              </Animated.View>
+            </ScrollView>
           </View>
 
           <View style={styles.bannerWrapper}>

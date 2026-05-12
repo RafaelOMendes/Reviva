@@ -20,6 +20,7 @@ interface CrosswordGridProps {
   correctRows: boolean[];
   lockedCells: boolean[][];
   onCellPress: (row: number, col: number) => void;
+  scrollViewRef?: React.RefObject<any>;
 }
 
 interface CellProps {
@@ -124,6 +125,7 @@ export function CrosswordGrid({
   correctRows,
   lockedCells,
   onCellPress,
+  scrollViewRef,
 }: CrosswordGridProps) {
   const { width, height } = useWindowDimensions();
   
@@ -144,6 +146,17 @@ export function CrosswordGrid({
   
   // Garante que o tamanho não seja negativo nem grande demais, e escolhe o menor para caber na tela
   const cellSize = Math.max(10, Math.min(widthCellSize, heightCellSize));
+
+  // Efeito para rolar automaticamente até a linha ativa
+  useEffect(() => {
+    if (scrollViewRef?.current) {
+      const yOffset = GRID_H_PADDING + activeRow * (cellSize + CELL_GAP);
+      // Tenta centralizar a linha ativa com base no availableHeight
+      const scrollPosition = Math.max(0, yOffset - availableHeight / 2 + cellSize / 2);
+      
+      scrollViewRef.current.scrollTo({ y: scrollPosition, animated: true });
+    }
+  }, [activeRow, cellSize, availableHeight, scrollViewRef]);
 
   const handlePress = useCallback(
     (row: number, col: number) => () => onCellPress(row, col),
