@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import { Colors } from '../constants/colors';
 
-const ROW_NUMBER_WIDTH = 22;
 const GRID_H_PADDING = 12;
 const GRID_MARGIN = 16;
 const CELL_GAP = 4;
@@ -134,7 +133,7 @@ export function CrosswordGrid({
   const ROWS = userGrid.length;
 
   const availableWidth =
-    width - GRID_MARGIN * 2 - GRID_H_PADDING * 2 - ROW_NUMBER_WIDTH - CELL_GAP * (COLS - 1);
+    width - GRID_MARGIN * 2 - GRID_H_PADDING * 2 - CELL_GAP * (COLS - 1);
     
   // Estimativa de altura: Altura total - (Header ~70 + Teclado ~40-50% da largura + Margens/Banner ~200)
   const estimatedOtherElementsHeight = Math.min(width * 0.5, height * 0.4) + 200;
@@ -155,9 +154,6 @@ export function CrosswordGrid({
     <View style={[styles.container, { marginHorizontal: GRID_MARGIN }]}>
       {userGrid.map((row, rowIdx) => (
         <View key={rowIdx} style={styles.row}>
-          <View style={styles.rowNumberContainer}>
-            <Text style={styles.rowNumber}>{rowIdx + 1}</Text>
-          </View>
           {row.map((letter, colIdx) => (
             <Cell
               key={`${rowIdx}-${colIdx}`}
@@ -192,16 +188,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: CELL_GAP,
     alignItems: 'center',
-  },
-  rowNumberContainer: {
-    width: ROW_NUMBER_WIDTH,
-    alignItems: 'flex-end',
-    paddingRight: 4,
-  },
-  rowNumber: {
-    fontSize: 10,
-    color: Colors.textMedium,
-    fontWeight: '600',
-    fontFamily: 'PlusJakartaSans_600SemiBold',
   },
 });
