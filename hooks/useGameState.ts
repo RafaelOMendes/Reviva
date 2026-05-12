@@ -64,7 +64,6 @@ export function useGameState(puzzleId: string): GameState & GameActions {
 
 
     // Refs para armazenar as instâncias pré-carregadas dos sons
-    const startSound = useRef<Audio.Sound | null>(null);
     const correctSound = useRef<Audio.Sound | null>(null);
     const winSound = useRef<Audio.Sound | null>(null);
 
@@ -72,17 +71,12 @@ export function useGameState(puzzleId: string): GameState & GameActions {
     useEffect(() => {
         async function loadSounds() {
             try {
-                const [start, correct, win] = await Promise.all([
-                    Audio.Sound.createAsync(require('../assets/sounds/start.mp3')),
+                const [correct, win] = await Promise.all([
                     Audio.Sound.createAsync(require('../assets/sounds/correct.mp3')),
                     Audio.Sound.createAsync(require('../assets/sounds/win.mp3'))
                 ]);
-                startSound.current = start.sound;
                 correctSound.current = correct.sound;
                 winSound.current = win.sound;
-
-                // Toca o som de início logo que termina de carregar
-                playSound('start');
             } catch (error) {
                 console.log('Error loading sounds:', error);
             }
@@ -91,19 +85,17 @@ export function useGameState(puzzleId: string): GameState & GameActions {
 
         // Cleanup: descarrega os sons ao sair da tela
         return () => {
-            startSound.current?.unloadAsync();
             correctSound.current?.unloadAsync();
             winSound.current?.unloadAsync();
         };
     }, []); // Dependência vazia, vai usar o playSound do render inicial, mas playSound não tem dependências de estado problemáticas aqui
 
     // Função para tocar o som instantaneamente e abaixar a música de fundo
-    const playSound = useCallback(async (type: 'correct' | 'wrong' | 'win' | 'start') => {
+    const playSound = useCallback(async (type: 'correct' | 'wrong' | 'win') => {
         try {
             let soundToPlay: Audio.Sound | null = null;
             if (type === 'correct') soundToPlay = correctSound.current;
             else if (type === 'win') soundToPlay = winSound.current;
-            else if (type === 'start') soundToPlay = startSound.current;
 
             if (soundToPlay) {
                 // Abaixa a música de fundo
