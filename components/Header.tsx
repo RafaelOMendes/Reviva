@@ -12,6 +12,8 @@ interface HeaderProps {
   onBack?: () => void;
   onUseHint?: () => void;
   timer?: number;
+  title?: string;
+  progressText?: string;
 }
 
 function formatTime(seconds: number) {
@@ -20,7 +22,7 @@ function formatTime(seconds: number) {
   return `${m}:${s}`;
 }
 
-export function Header({ onBack, onUseHint, timer = 0 }: HeaderProps) {
+export function Header({ onBack, onUseHint, timer = 0, title = 'Reviva', progressText }: HeaderProps) {
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -34,7 +36,10 @@ export function Header({ onBack, onUseHint, timer = 0 }: HeaderProps) {
       </TouchableOpacity>
 
       <View style={styles.centerContainer}>
-        <Text style={styles.title}>Reviva</Text>
+        <Text style={styles.title} numberOfLines={1}>{title}</Text>
+        {progressText ? (
+          <Text style={styles.progress}>{progressText}</Text>
+        ) : null}
         <Text style={styles.timer}>{formatTime(timer)}</Text>
       </View>
 
@@ -79,16 +84,25 @@ const styles = StyleSheet.create({
   },
   centerContainer: {
     alignItems: 'center',
+    flex: 1,
+    paddingHorizontal: 10,
   },
   title: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: '700',
     color: Colors.textDark,
     letterSpacing: 0.5,
     fontFamily: 'PlusJakartaSans_700Bold',
+    textAlign: 'center',
   },
   timer: {
     fontSize: 16,
+    color: Colors.textMedium,
+    fontFamily: 'PlusJakartaSans_600SemiBold',
+    marginTop: 2,
+  },
+  progress: {
+    fontSize: 12,
     color: Colors.textMedium,
     fontFamily: 'PlusJakartaSans_600SemiBold',
     marginTop: 2,

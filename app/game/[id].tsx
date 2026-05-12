@@ -38,11 +38,9 @@ export default function GameScreen() {
   // O nível atual da dica (0 a 2)
   const hintLevel = game.hintLevels[game.activeRow] || 0;
   const wordClues = game.puzzle?.words[game.activeRow]?.clues || [];
-  const currentClue = wordClues.slice(0, hintLevel + 1).join('\n\n');
+  const activeClues = wordClues.slice(0, hintLevel + 1);
 
   const isLandscape = width > height;
-  const sectionHeaderMb = isLandscape ? 6 : 12;
-  const sectionHeaderMt = isLandscape ? 2 : 4;
 
   const modalFontTitle = Math.min(28, width * 0.07);
   const modalPadding = Math.min(32, width * 0.08);
@@ -53,21 +51,14 @@ export default function GameScreen() {
     <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
       <View style={styles.container}>
         <Header
+          title={game.puzzle.title}
+          progressText={`${game.correctRows.filter(Boolean).length}/${game.puzzle.rows} palavras`}
           onBack={() => router.replace('/levels')}
           onUseHint={game.useHint}
           timer={game.timer}
         />
 
         <View style={styles.mainArea}>
-          <View style={[styles.sectionHeader, { marginBottom: sectionHeaderMb, marginTop: sectionHeaderMt }]}>
-            <Text style={styles.sectionTitle}>{game.puzzle.title}</Text>
-            <View style={styles.progressBadge}>
-              <Text style={styles.progressText}>
-                {game.correctRows.filter(Boolean).length}/{game.puzzle.rows}
-              </Text>
-            </View>
-          </View>
-
           <View style={styles.gridWrapper}>
             <Animated.View style={{ transform: [{ scale: bounceAnim }] }}>
               <CrosswordGrid
@@ -82,7 +73,7 @@ export default function GameScreen() {
           </View>
 
           <View style={styles.bannerWrapper}>
-            <ClueBanner clue={currentClue} />
+            <ClueBanner clues={activeClues} />
           </View>
         </View>
 
@@ -142,32 +133,6 @@ const styles = StyleSheet.create({
   },
   bannerWrapper: {
     marginVertical: 4,
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-  },
-  sectionTitle: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: Colors.textMedium,
-    letterSpacing: 0.8,
-    textTransform: 'uppercase',
-    fontFamily: 'PlusJakartaSans_700Bold',
-  },
-  progressBadge: {
-    backgroundColor: Colors.activeRow,
-    borderRadius: 14,
-    paddingHorizontal: 12,
-    paddingVertical: 4,
-  },
-  progressText: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: Colors.primary,
-    fontFamily: 'PlusJakartaSans_700Bold',
   },
   modalOverlay: {
     flex: 1,
