@@ -1,0 +1,2408 @@
+{
+  "temas": [
+    {
+      "nome": "A Cozinha e a Fome",
+      "assuntos": [
+        {
+          "nome": "Temperando a Vida",
+          "palavra_oculta": "TEMPERO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 6,
+          "indice_coluna_oculta": 2,
+          "palavras": [
+            {
+              "palavra": "BATATA",
+              "dicas": ["Tubérculo que faz um purê delicioso", "Acompanha o frango de domingo", "Pode ser frita em rodelas ou palitos"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "QUEIJO",
+              "dicas": ["Comida de mineiro", "Feito com leite coalhado", "O rato adora comer"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "COMIDA",
+              "dicas": ["O que enche a barriga", "Quando é de mãe, é a melhor do mundo", "O almoço ou a janta"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "EMPADA",
+              "dicas": ["Salgadinho de massa podre", "Vem na forminha de alumínio", "Pode ser de frango ou palmito"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "CREMES",
+              "dicas": ["Sopas bem grossas", "Sobremesas de pavê", "Feitos com muito leite e amido"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "CARNES",
+              "dicas": ["Compradas no açougue", "Essenciais no churrasco", "Picanha, alcatra e costela"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "ADOCAR",
+              "dicas": ["Colocar açúcar no café", "Deixar a sobremesa mais doce", "O contrário de salgar"],
+              "indice_letra_oculta": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "No Tempo da Escola",
+      "assuntos": [
+        {
+          "nome": "Materiais e Aulas",
+          "palavra_oculta": "CADERNO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "COLAS",
+              "dicas": ["Grudam o papel", "Tinham cheirinho de menta antigamente", "Líquido branco no tubo"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "AULAS",
+              "dicas": ["O que vamos assistir na escola", "Tocava o sinal para começar", "Podem ser de matemática ou história"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "DEVER",
+              "dicas": ["A tarefa de casa", "Obrigação do aluno", "Se não fizesse, levava bronca"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "EXAME",
+              "dicas": ["Prova final de avaliação", "Causava frio na barriga", "Teste de conhecimentos"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "REGUA",
+              "dicas": ["Serve para sublinhar e medir", "Geralmente de madeira ou plástico", "Tem centímetros marcados"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "NOTAS",
+              "dicas": ["Apareciam no boletim", "De 0 a 10", "As vermelhas eram o terror dos pais"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OBRAS",
+              "dicas": ["Livros clássicos lidos na escola", "Trabalhos de grandes autores", "Machado de Assis escrevia muitas"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "Vaidade e Costumes",
+      "assuntos": [
+        {
+          "nome": "No Banheiro e Quarto",
+          "palavra_oculta": "PERFUME",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 6,
+          "indice_coluna_oculta": 3,
+          "palavras": [
+            {
+              "palavra": "ROUPAS",
+              "dicas": ["Ficam guardadas no armário", "A gente veste todo dia", "Precisam ser passadas a ferro"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "CABELO",
+              "dicas": ["Penteado com brilhantina ou laquê", "Cresce na cabeça", "Os idosos costumam ter fios brancos"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "VIDROS",
+              "dicas": ["Frascos de Leite de Rosas", "Material do espelho", "Quebram fácil se caírem no chão"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "PERFIL",
+              "dicas": ["O rosto visto de lado", "Contorno da pessoa", "Pose clássica para fotografias antigas"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "PELUDO",
+              "dicas": ["Quem tem muitos pelos", "O casaco de pele de inverno", "Como um cachorrinho fofinho"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "CREMES",
+              "dicas": ["Passados no rosto antes de dormir", "Deixam a pele macia", "Produtos de beleza em potes"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "COLETE",
+              "dicas": ["Peça de roupa sem mangas", "Usado pelos homens por cima da camisa", "Aquece o peito no frio"],
+              "indice_letra_oculta": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "A Vida na Rua",
+      "assuntos": [
+        {
+          "nome": "O Comércio de Bairro",
+          "palavra_oculta": "MERCADO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 6,
+          "indice_coluna_oculta": 1,
+          "palavras": [
+            {
+              "palavra": "AMIGOS",
+              "dicas": ["Os bons vizinhos da rua", "Com quem dividimos um cafezinho", "Companheiros de uma vida"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "VENDAS",
+              "dicas": ["Pequenos armazéns de esquina", "Onde se comprava com caderneta", "Estabelecimentos com balcão de madeira"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "PRECOS",
+              "dicas": ["Os valores dos produtos", "A dona de casa sempre pedia para baixar", "Marcados nas etiquetas"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "ACUCAR",
+              "dicas": ["Comprado em sacos grandes", "Adoça a vida e os bolos", "Faz formiga aparecer"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "SACOLA",
+              "dicas": ["Antigamente era de tecido ou palha", "Levada no braço para fazer feira", "Guarda as compras para trazer para casa"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "IDOSOS",
+              "dicas": ["Pessoas que têm muita sabedoria", "Possuem cabelos brancos de experiência", "Nossos queridos avós"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "BOTICA",
+              "dicas": ["O nome antigo da farmácia", "Onde se faziam os remédios manipulados", "Cheirava a xarope e éter"],
+              "indice_letra_oculta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "As Brincadeiras",
+      "assuntos": [
+        {
+          "nome": "Pique e Alegria",
+          "palavra_oculta": "FESTA",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "FORNO",
+              "dicas": ["A mãe mandava ficar perto quando fazia frio", "Aquecedor de ambiente antigo", "Onde se assa o bolo"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ESTAR",
+              "dicas": ["Onde a visita ficava", "Verbo de presença", "Sala principal da casa"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SALTO",
+              "dicas": ["No sapato das moças elegantes", "Brincadeira de pular corda", "Tirar os dois pés do chão"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "TRENS",
+              "dicas": ["Brinquedos de lata na linha", "Faziam piuí", "Passavam na estação da cidade"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ALVOS",
+              "dicas": ["Onde a gente tenta acertar", "Brancos de neve", "No jogo de dardo"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "Saúde e Curas",
+      "assuntos": [
+        {
+          "nome": "Chás e Benzeduras",
+          "palavra_oculta": "REMEDIO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 6,
+          "indice_coluna_oculta": 2,
+          "palavras": [
+            {
+              "palavra": "XAROPE",
+              "dicas": ["Líquido doce para curar a tosse", "Muitas vezes feito de guaco ou mel", "Tomado em colheradas"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "CHEIRO",
+              "dicas": ["O aroma forte do eucalipto", "A fragrância do chá fervendo", "O que o nariz sente"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "POMADA",
+              "dicas": ["Unguento passado nos machucados", "Minâncora era a mais famosa", "Esfregada na pele para aliviar a dor"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "JOELHO",
+              "dicas": ["Articulação da perna", "Onde as crianças sempre ralavam", "Dói quando a chuva vai chegar"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "MEDICO",
+              "dicas": ["O doutor que vinha em casa com a maleta", "Profissional de jaleco branco", "Aquele que prescreve a receita"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "ALIVIO",
+              "dicas": ["Sensação boa quando a dor vai embora", "Um suspiro de paz", "O que a compressa quente traz"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "SUORES",
+              "dicas": ["Quando a febre baixava, eles apareciam", "Transpiração na testa", "Molhavam a camisa de tanto brincar"],
+              "indice_letra_oculta": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "Arte e Música",
+      "assuntos": [
+        {
+          "nome": "A Velha Radiola",
+          "palavra_oculta": "CANTORA",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 6,
+          "indice_coluna_oculta": 3,
+          "palavras": [
+            {
+              "palavra": "DANCAR",
+              "dicas": ["O que os casais faziam nos bailes", "Balançar o corpo no ritmo", "Dois pra lá, dois pra cá"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "ENSAIO",
+              "dicas": ["Treino antes da apresentação final", "Prática da banda ou do teatro", "Para não fazer feio no palco"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "ELENCO",
+              "dicas": ["O grupo de atores de uma radionovela", "Todo o time de artistas", "Aparecem nos créditos do filme"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "GESTOS",
+              "dicas": ["Movimentos com as mãos e o corpo", "A expressão do artista no palco", "Ajudam a contar a história na atuação"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "BAIOES",
+              "dicas": ["Ritmo consagrado por Luiz Gonzaga", "Tocados com sanfona, triângulo e zabumba", "Músicas tradicionais do nordeste"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "SOPROS",
+              "dicas": ["Técnica para tocar flauta e trompete", "Vento que sai da boca do músico", "Instrumentos de metal ou madeira"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "PARADA",
+              "dicas": ["A '... de Sucessos' do rádio", "As músicas mais tocadas da semana", "Lista com os maiores sucessos"],
+              "indice_letra_oculta": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "A Cozinha Antiga",
+      "assuntos": [
+        {
+          "nome": "O que tem na mesa",
+          "palavra_oculta": "TOALHAS",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "TABUA",
+              "dicas": ["Pedaço de madeira para fatiar carne", "Usada em cima da pia", "Onde se pica o tomate"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OLEOS",
+              "dicas": ["Líquidos amarelos usados para fritar", "Antigamente vinham em latas de soja", "Não misturam com água"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ARROZ",
+              "dicas": ["Companheiro inseparável do feijão", "Fica soltinho na panela", "Grão branquinho"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "LEITE",
+              "dicas": ["Vinha na garrafa de vidro na porta", "Ferve rápido e derrama no fogão", "Tirado da vaca de manhã"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "HORTA",
+              "dicas": ["Lugar no fundo do quintal", "Onde se planta couve e cebolinha", "Dá verduras frescas"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "AMORA",
+              "dicas": ["Frutinha que mancha a roupa e as mãos", "Dá em árvore", "Ótima para fazer geleia roxa"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SUCOS",
+              "dicas": ["Refrescos servidos na jarra", "Bebida gelada para o almoço", "Muitas vezes feitos de pózinho ou fruta"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Frutas do quintal",
+          "palavra_oculta": "POMARES",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "PINHA",
+              "dicas": ["Fruta de casca verde que parece escamas", "Tem muita semente preta", "Também conhecida como fruta-do-conde"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OLIVA",
+              "dicas": ["De onde se extrai o azeite", "Fruto da oliveira", "Parecida com a azeitona"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "MAMAO",
+              "dicas": ["Fruta doce servida no café da manhã", "Ajuda o intestino a funcionar", "Tem papaia ou formosa"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "AMORA",
+              "dicas": ["Dá em galhos farpados às vezes", "Sabor azedinho-doce", "Escurece os dentes ao comer no pé"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "RAMOS",
+              "dicas": ["Onde as frutas nascem na árvore", "Pedaços de folhas de hortelã", "Galhos finos"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ERVAS",
+              "dicas": ["Plantas rasteiras", "Usadas para chás medicinais", "Boldo, cidreira e camomila"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SAFRA",
+              "dicas": ["Época de colher as frutas", "Quando a produção é farta", "A grande colheita do ano"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "O preparo da comida",
+          "palavra_oculta": "RECEITA",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "RALAR",
+              "dicas": ["Ato de passar o queijo no utensílio de metal", "Desfiar a cenoura para a salada", "Quando o joelho machuca no chão, é a mesma palavra"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "EXATO",
+              "dicas": ["A medida perfeita do fermento", "Quando o relógio marca a hora pontual", "Sem faltar nem sobrar"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "CALDO",
+              "dicas": ["Água temperada do cozimento", "Sopinha rala para esquentar no frio", "O do feijão tem que engrossar"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ERVAS",
+              "dicas": ["Temperos verdes na panela", "O cheiro-verde e a salsinha", "Colhidas na horta"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ISCAS",
+              "dicas": ["Tirinhas finas de bife acebolado", "Petiscos de peixe frito", "O que se usa para pescar"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "TORTA",
+              "dicas": ["Pode ser de frango ou palmito no almoço", "Assada num tabuleiro no forno", "Aquilo que não está reto"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ASSAR",
+              "dicas": ["Colocar o pernil no forno", "Fazer o pão de queijo", "Deixar dourar com o calor"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Vasilhas e panelas",
+          "palavra_oculta": "PANELAS",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "PRATO",
+              "dicas": ["Utensílio redondo e raso ou fundo", "Onde se serve o almoço", "De porcelana ou de vidro Duralex"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ARROZ",
+              "dicas": ["Sobrou da panela de ontem", "Grãos brancos que incham ao cozinhar", "Vai para a panela de pressão com alho"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "NATAS",
+              "dicas": ["Ficam boiando em cima do leite fervido", "Muito usadas para fazer manteiga caseira", "Creme de leite muito grosso"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "EXTRA",
+              "dicas": ["A porção a mais que a gente repete", "Algo que vem além do normal", "O azeite virgem de melhor qualidade"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "LUVAS",
+              "dicas": ["Usadas para pegar a panela quente", "Evitam queimar a mão no forno", "Feitas de tecido grosso"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "AGUAS",
+              "dicas": ["Enchem as panelas para o cozimento", "Para lavar toda a louça da pia", "Caem da torneira"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SOPAS",
+              "dicas": ["Feitas no caldeirão em dias frios", "Caldo com macarrão e legumes", "Comidas com colher funda"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "A hora do lanche",
+          "palavra_oculta": "BOMBONS",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "BOLOS",
+              "dicas": ["Podem ser de fubá ou de cenoura", "Assam em forma com furo no meio", "Servem no café da tarde"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OLEOS",
+              "dicas": ["Ingredientes para untar a forma", "Deixam a massa do pão mais fofa", "Azeites"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "MASSA",
+              "dicas": ["O que se sova para fazer pão", "Antes de virar macarrão, é feita de farinha", "A base da pizza"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "BULES",
+              "dicas": ["De onde se serve o café ou o chá", "Têm bico fino e alça", "Normalmente ficam de porcelana ou ágata na mesa"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OSSOS",
+              "dicas": ["O que sobra da coxa de frango", "O cachorro adora roer", "Tirados da carne antes do lanche"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "NOZES",
+              "dicas": ["Castanhas duras para quebrar", "Muito comuns nas festas de natal", "Vão no bolo de maçã"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SUCOS",
+              "dicas": ["Bebidas de caju e maracujá", "Acompanham o lanche da tarde", "Preparados na jarra com açúcar"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Utensílios e Alimentos da Cozinha",
+          "palavra_oculta": "SALEIRO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 4,
+          "palavras": [
+            {
+              "palavra": "COPOS",
+              "dicas": ["Onde se serve o refresco", "Alguns eram de vidro de geleia", "Ficam na cristaleira ou no escorredor"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "MASSA",
+              "dicas": ["Mistura de farinha de trigo", "Rolada com o rolo de madeira", "Faz pastel e macarrão"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "FUNIL",
+              "dicas": ["Usado para passar líquido para garrafa fina", "Largo em cima, estreito embaixo", "Ajuda a não derramar o café na garrafa térmica"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "CARNE",
+              "dicas": ["Vem enrolada no papel pardo do açougue", "Moída para fazer almôndegas", "A mistura do prato"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "CAQUI",
+              "dicas": ["Fruta vermelha de outono", "Parece um tomate doce", "Se não tiver maduro, amarra a boca"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "ASSAR",
+              "dicas": ["Processo que acontece dentro do forno", "Deixar a torta cozinhando com calor seco", "Fazer o pernil dourar"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "FORNO",
+              "dicas": ["Compartimento embaixo do fogão", "Precisa de fósforo para acender", "Fica muito quente quando em uso"],
+              "indice_letra_oculta": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "A Casa e o Quintal",
+      "assuntos": [
+        {
+          "nome": "Onde descansamos",
+          "palavra_oculta": "QUARTOS",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "QUILO",
+              "dicas": ["Medida de peso antiga", "No armazém pedia um ... de feijão", "Corresponde a mil gramas"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "USADO",
+              "dicas": ["Algo que já serviu muito e não é novo", "Roupa que passa de irmão mais velho", "Artigo de brechó ou antiquário"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "AREIA",
+              "dicas": ["Montinho que as crianças brincavam no quintal", "Usada pelo pedreiro para cimento", "Trazida da praia nos sapatos"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "REDES",
+              "dicas": ["Armadas na varanda para balançar", "Boas para cochilar na tarde de domingo", "Têm franjas nas bordas"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "TETOS",
+              "dicas": ["As coberturas de cada cômodo da casa", "Ficam em cima das nossas cabeças", "Onde se penduram os lustres"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OBRAS",
+              "dicas": ["Construções que fazem sujeira", "Reformas no puxadinho da casa", "Envolvem tijolo, pá e cimento"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SALAS",
+              "dicas": ["Onde ficava a poltrona do vovô", "Cômodos para receber as visitas", "Tinham tapetes e sofás pesados"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "A limpeza da casa",
+          "palavra_oculta": "LAVAGEM",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "LAVAR",
+              "dicas": ["Esfregar a roupa no tanque", "Tirar a sujeira do chão", "O que se faz com a louça do almoço"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "AGUAS",
+              "dicas": ["Usadas em baldes com sabão", "Enxaguam o quintal esfregado", "Vêm da mangueira"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "VELAS",
+              "dicas": ["Acendiam quando faltava luz", "Feitas de cera", "Derretem iluminando a casa"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ALVOS",
+              "dicas": ["Os lençóis quando ficavam limpinhos", "Brancos como a neve após usar anil", "Cores das paredes recém-pintadas"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "GOTAS",
+              "dicas": ["Pingos que caem da torneira mal fechada", "Chuva que bate na vidraça", "Restos de água no varal"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ENCHE",
+              "dicas": ["O que a água faz com o balde", "Completar a bacia até a borda", "Deixar transbordar"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "MOLAS",
+              "dicas": ["Peças do colchão antigo", "Pregadores velhos tinham e saltavam", "O que faz pular"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Roupas no varal",
+          "palavra_oculta": "CAMISAS",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "CINTO",
+              "dicas": ["Prende a calça para não cair", "Acessório de couro masculino", "A fivela pode ser de metal"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ALVAS",
+              "dicas": ["Como as roupas de algodão purinhas ficam", "Bem brancas sob o sol", "Peças limpas sem nenhuma mancha"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "MEIAS",
+              "dicas": ["Calçam os pés no inverno", "Algumas iam até o joelho", "De lã ou de náilon"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ILHAS",
+              "dicas": ["Porções de terra cercadas de mar", "Lugar distante para onde sonhavam viajar", "As bordadas nos quadros das toalhas"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SAIAS",
+              "dicas": ["Roupas rodadas femininas", "Têm bainhas que balançam com o vento", "Eram plissadas ou de pregas"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ANEIS",
+              "dicas": ["Tirados dos dedos antes de lavar roupa", "Joias de ouro no dedo anelar", "Alianças de compromisso"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SEDAS",
+              "dicas": ["Tecidos muito macios e finos", "Davam trabalho para passar a ferro", "Roupas de festas noturnas"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Animais ao redor",
+          "palavra_oculta": "ANIMAIS",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "ANJOS",
+              "dicas": ["Protetores invisíveis da casa", "Quadro que ficava acima da cama", "Têm asas brancas na imaginação"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "NINHO",
+              "dicas": ["Casinha do passarinho na árvore", "Feito de gravetos e barro", "Onde o João-de-barro mora"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ISCAS",
+              "dicas": ["Colocadas na ratoeira", "Pedaços de queijo para pegar roedores", "Comidas para atrair bichos"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "MULAS",
+              "dicas": ["Animais de carga na roça", "Puxavam carroças antigas", "Teimosas como elas só"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ARARA",
+              "dicas": ["Pássaro grande e colorido", "Tem um bico muito forte", "Grita muito alto no sítio"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "IGUAL",
+              "dicas": ["Dois cachorrinhos irmãos idênticos", "Algo que não tem diferença", "Semelhante"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SAPOS",
+              "dicas": ["Bichos que coaxam à noite", "Gostam de pular no quintal em dias de chuva", "As crianças tinham medo da urina deles"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "O jardim",
+          "palavra_oculta": "PLANTAS",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "PODAR",
+              "dicas": ["Cortar os galhos da árvore com tesoura grande", "Cuidar da roseira para crescer forte", "Trabalho do jardineiro"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "LIRIO",
+              "dicas": ["Flor branca muito bonita e elegante", "Costuma enfeitar altares", "Tem cheiro suave e formato de sino"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ADUBO",
+              "dicas": ["Misturado na terra para alimentar as plantas", "Fertilizante natural do quintal", "Esterco ou restos orgânicos"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "NARDO",
+              "dicas": ["Planta que produz perfume clássico", "Erva aromática valiosa na antiguidade", "O óleo perfumado mencionado na bíblia"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "TERRA",
+              "dicas": ["Onde se afundam as sementes", "Sujar as mãos mexendo no vaso", "O cheiro bom quando começa a chover"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ATRIO",
+              "dicas": ["Entrada principal de construções antigas", "O pátio interno cercado", "Lugar espaçoso antes da porta da casa grande"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SALSA",
+              "dicas": ["Tempero verde em maços", "Planta que também tem nome de ritmo de dança", "Dá sabor às sopas"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Coisas de Casa",
+          "palavra_oculta": "FAMILIA",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 2,
+          "palavras": [
+            {
+              "palavra": "SOFAS",
+              "dicas": ["Móveis pesados da sala", "Revestidos de courino ou tecido grosso", "Onde sentamos para ver TV"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "PRATO",
+              "dicas": ["Louça rasa para refeições", "Muitos têm bordinhas floridas", "De Duralex que nunca quebra"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "CAMAS",
+              "dicas": ["Onde deitamos para dormir", "Tinham cabeceiras de madeira ou ferro", "Forradas com colchas bordadas"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "CAIXA",
+              "dicas": ["Recipiente para guardar costuras", "Onde ficavam os retratos antigos", "Pode ser de sapato de papelão"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "ROLOS",
+              "dicas": ["Cilindros de madeira para abrir massa", "Espumas para pintar paredes", "Como o papel higiênico é guardado"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "MEIAS",
+              "dicas": ["Aquecem o pé no inverno frio", "Tinha gente que remendava o calcanhar", "Muitas vezes ganhas de presente de natal"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "CHAVE",
+              "dicas": ["Abre o cadeado e a porta", "Pesada e cheia de dentes antigamente", "Fica no chaveiro no bolso"],
+              "indice_letra_oculta": 2
+            }
+          ]
+        },
+        {
+          "nome": "A Natureza e o Quintal",
+          "palavra_oculta": "SAUDADE",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 1,
+          "palavras": [
+            {
+              "palavra": "ASTRO",
+              "dicas": ["O sol que bate de tarde", "Corpo celeste no céu", "A lua cheia clareando o telhado"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "PATOS",
+              "dicas": ["Aves que andam rebolando", "Bichos que nadam na lagoa", "Fazem 'quá, quá'"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "NUVEM",
+              "dicas": ["Ficam brancas e fofas no céu", "Escurecem antes da tempestade", "Parecem algodão doce"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "IDADE",
+              "dicas": ["O tempo de vida de uma árvore grande", "O número de aniversários passados", "Traz os cabelos grisalhos"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "BARCO",
+              "dicas": ["Feito de papel para flutuar na enxurrada", "Embarcação pequena com remo", "Cruza o rio devagar"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "ADUBO",
+              "dicas": ["A terrinha preta e rica em vitaminas", "Garante que a horta floresça", "Fertilizante natural dos canteiros"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "CERCA",
+              "dicas": ["Divide o quintal do vizinho", "Pode ser feita de madeira e arame", "As galinhas pulavam ela"],
+              "indice_letra_oculta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "O Centro da Cidade",
+      "assuntos": [
+        {
+          "nome": "Lugares de encontro",
+          "palavra_oculta": "IGREJAS",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "IDOLO",
+              "dicas": ["A figura admirada por muitos", "Aquele santo ou cantor famoso venerado", "Alguém que arrasta multidões"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "GUIAS",
+              "dicas": ["Lista telefônica gigante de páginas amarelas", "Ajudam os cegos na travessia", "Manuais que mostram a direção"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "RODAS",
+              "dicas": ["O que movia as carroças", "Grupos de conversas nas praças", "Pneus de veículos"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "EIXOS",
+              "dicas": ["Peças que ligam as rodas do bonde", "O centro principal de onde tudo gira", "A avenida que corta a cidade"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "JOGOS",
+              "dicas": ["Disputas de dominó nas praças", "Partidas de bocha de domingo", "Apostas e tabuleiros nos bancos"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ALTAR",
+              "dicas": ["Onde o padre fica durante a missa", "Lugar principal dentro do templo", "Onde as noivas sobem de vestido branco"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SINOS",
+              "dicas": ["Badaladas no alto das torres", "Anunciam a hora do Ângelus no fim da tarde", "Tocados no fim da missa"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Compras de antigamente",
+          "palavra_oculta": "BAZARES",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "BANCA",
+              "dicas": ["Onde vendiam os jornais na esquina", "Tinha gibis, revistas e figurinhas", "Tinha cobertura de zinco"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ARTES",
+              "dicas": ["Trabalhos de artesanato vendidos na feira", "Pinturas de quadros para a parede", "Habilidades de criar coisas bonitas"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ZELAR",
+              "dicas": ["Cuidar muito bem da loja", "Atender os clientes com atenção", "Verbo de manter o ambiente arrumado"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ANEIS",
+              "dicas": ["Joias vendidas pelo ourives", "Enfeites circulares para os dedos", "Alguns têm pedras preciosas"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "RENDA",
+              "dicas": ["Tecido cheio de buraquinhos e detalhes vendido no armarinho", "Artesanato bordado", "Dinheiro que a venda dá no final do mês"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "EXIBE",
+              "dicas": ["O que a vitrine faz com a roupa", "Mostra os produtos para o lado de fora", "Verbo de exibir orgulhoso"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SOLAS",
+              "dicas": ["Bases do sapato consertadas no sapateiro", "A parte de baixo dos pés", "Gastam de tanto caminhar"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Lidando com o dinheiro",
+          "palavra_oculta": "RECIBOS",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "REAIS",
+              "dicas": ["A moeda atual do Brasil", "Eram cruzeiros e cruzados, hoje são...", "Dinheiro legítimo, que não é falso"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "EUROS",
+              "dicas": ["Dinheiro do continente europeu", "Moeda valiosa que não tínhamos antigamente", "Usada em viagens à Itália e Portugal"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "COFRE",
+              "dicas": ["Caixa pesada de aço trancada", "Aquele porquinho de gesso quebrado", "Escondia as economias da família"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "IDEIA",
+              "dicas": ["Plano brilhante para ganhar uns trocados", "Pensamento que acende uma luzinha", "O que se tem antes de abrir um negócio"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "BANCO",
+              "dicas": ["Instituição com porta giratória e fila", "Onde se guarda o dinheiro na poupança", "Assento de madeira da praça"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OUROS",
+              "dicas": ["Metais preciosos muito amarelados", "Riquezas guardadas a sete chaves", "Um dos naipes do baralho"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SALDO",
+              "dicas": ["O que sobra na conta bancária", "Pode ficar negativo e dar dor de cabeça", "O valor final após pagar as contas"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Cartas e mensagens",
+          "palavra_oculta": "CORREIO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "CARTA",
+              "dicas": ["Papel escrito à mão e dobrado", "Leva um selo na parte de fora do envelope", "Mensagem de amor ou notícias para a família"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OBRAS",
+              "dicas": ["Os pacotes grandes entregues na cidade", "Trabalhos complexos e pesados", "Feitas por construtores"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "RODAS",
+              "dicas": ["Pneus da bicicleta do entregador", "Aquilo que o carteiro girava no veículo", "Movimentam os transportes de encomendas"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ROTAS",
+              "dicas": ["Os caminhos que o mensageiro faz", "Itinerários das estradas", "Planos de viagem no mapa"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ENVIA",
+              "dicas": ["O que o remetente faz na agência", "Despacha um telegrama", "Mandou para frente, ele..."],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "INDIO",
+              "dicas": ["Nome comum dado a muitas ruas e avenidas", "Povo nativo originário", "Aquele com arco e flecha na história"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ONTEM",
+              "dicas": ["O dia que já passou", "A carta devia ter chegado...", "Tempo verbal do passado"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Indo de um lado a outro",
+          "palavra_oculta": "VEICULO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "VAGAO",
+              "dicas": ["Parte do trem engatada onde vão os passageiros", "Compartimento de carga na ferrovia", "Onde o bilheteiro furava as passagens"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "EIXOS",
+              "dicas": ["Sustentam as quatro rodas", "Partes retas do chassi", "No fusquinha ficavam baixos"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "IATES",
+              "dicas": ["Barcos de luxo muito chiques", "Embarcações grandes para os ricos no mar", "Transportes na água para lazer"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "CARRO",
+              "dicas": ["Um fusca, um corcel ou um opala", "Automóvel de 4 portas", "Transporte da família na estrada"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "USADO",
+              "dicas": ["O automóvel de segunda mão", "Veículo que já teve dono antes", "Aquele que a gente compra no repasse"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "LINHA",
+              "dicas": ["O trajeto que o ônibus ou trem faz diariamente", "Rota do transporte coletivo", "Fios do bonde em cima da rua"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ONDAS",
+              "dicas": ["Agitação da água ao viajar de barco", "Asfalto muito ruim tem muitas", "Marola no litoral"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Passeios e a Vida na Cidade",
+          "palavra_oculta": "VIAGENS",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 3,
+          "palavras": [
+            {
+              "palavra": "TREVO",
+              "dicas": ["Caminho que se divide na estrada", "Plantinha que dá sorte se tiver quatro folhas", "Entroncamento na rodovia"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "PRAIA",
+              "dicas": ["Lugar com areia e água salgada", "Destino das férias de verão", "Onde pegamos sol de guarda-sol"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "MINAS",
+              "dicas": ["Lugar que dá muito queijo e pão de queijo", "Estado brasileiro das montanhas", "Explorações de carvão ou ouro no subsolo"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "LARGO",
+              "dicas": ["Oposto de estreito", "O '...' de São Francisco, por exemplo, como praça aberta", "Ruas muito espaçosas"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "HOTEL",
+              "dicas": ["Onde dormimos quando estamos passeando", "Tem portaria e serviço de quarto", "Hospedagem chique"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "PERNA",
+              "dicas": ["Membro do corpo usado para caminhar longas distâncias", "Fica cansada depois de muita caminhada no centro", "Começa na coxa e vai até o pé"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "BOLSA",
+              "dicas": ["A tiracolo, guarda os documentos", "As senhoras carregam embaixo do braço", "Onde se leva a carteira e o espelhinho"],
+              "indice_letra_oculta": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "Artes e Lazer",
+      "assuntos": [
+        {
+          "nome": "Trabalhos manuais",
+          "palavra_oculta": "TECIDOS",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "TECER",
+              "dicas": ["Verbo de entrelaçar os fios", "Produzir lã na roca", "O que a aranha faz na teia"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "EXATO",
+              "dicas": ["Corte de roupa sem sobras", "O tamanho que encaixa perfeito", "Preciso no centímetro da fita métrica"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "CORTE",
+              "dicas": ["Feito com a tesoura grande no pano", "Talho na camisa para acertar o modelo", "A primeira etapa do alfaiate"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ILHOS",
+              "dicas": ["Buraquinho de metal por onde passa o cadarço", "Anel no calçado ou cinto", "Acabamento arredondado no pano"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "DEDAL",
+              "dicas": ["Encaixado no polegar para empurrar agulha", "Protetor metálico do costureiro", "Impede que o dedo se fure costurando"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OBRAS",
+              "dicas": ["Peças finalizadas pelas tricoteiras", "Trabalhos de arte e bordados", "Feitos caprichados de manualidades"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SEDAS",
+              "dicas": ["Fios de origem do bicho-da-seda", "Panos luxuosos para fazer echarpes", "Têm um brilho lindíssimo e leve"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Som e ritmo",
+          "palavra_oculta": "MUSICAS",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "MARCA",
+              "dicas": ["O que o maestro faz com a batuta no andamento", "Pisa no chão ditando o ritmo", "O selo da gravadora no disco de vinil"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "UNHAS",
+              "dicas": ["O violeiro às vezes as deixa crescer para tocar melhor", "Usadas para dedilhar as cordas do violão", "Nas pontas dos dedos"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SONAR",
+              "dicas": ["Emitir barulho e vibração", "O verbo arcaico para tocar alto", "Propagar o som"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "INOVA",
+              "dicas": ["O músico que inventa um ritmo diferente", "Faz coisas que ninguém fez antes", "Traz uma ideia moderna para o som"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "COROS",
+              "dicas": ["Muitas vozes cantando juntas", "Grupos na missa aos domingos", "Reforço vocal no refrão das canções"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "AULAS",
+              "dicas": ["Práticas para aprender a tocar piano ou flauta", "Momentos para ler partituras com o professor", "Treinos de canto"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SOPRO",
+              "dicas": ["Instrumentos como trompete e flauta doce exigem esse ato", "Vento que sai dos pulmões", "Força usada para apagar velas ou tocar clarinete"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Bailes e alegria",
+          "palavra_oculta": "FESTEJA",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "FESTA",
+              "dicas": ["Comemoração cheia de gente alegre", "Onde há bolo e guaraná", "Momento de baile noturno"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ENTRA",
+              "dicas": ["Quando a pessoa chega no salão de baile ela...", "Passa da porta para dentro", "Verbo de chegar no ambiente"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SALAO",
+              "dicas": ["Lugar espaçoso onde ocorrem as grandes danças", "Espaço amplo com lustre", "Onde a orquestra toca no fundo"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "TOCAR",
+              "dicas": ["O que a banda faz com os instrumentos", "Colocar a agulha na vitrola para... a música", "Tirar som da sanfona"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ECOAR",
+              "dicas": ["O som da música batendo nas paredes", "Reverberar o barulho e vozes", "Quando o grito volta de longe"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "JOVEM",
+              "dicas": ["A idade dos corações apaixonados nos bailes da juventude", "Aquele que ainda não envelheceu", "A moça ou o rapaz na matinê"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "AMIGO",
+              "dicas": ["O parceiro inseparável da diversão", "Quem te chama pra dançar na rodinha", "Companheiro para dividir um brinde"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "O cinema e as estrelas",
+          "palavra_oculta": "ATRIZES",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "ARTES",
+              "dicas": ["O cinema é considerado a sétima...", "Expressões criativas e peças de teatro", "Obras lindíssimas nas telas"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "TELAS",
+              "dicas": ["Pano branco gigante no cinema onde o filme passa", "Antes eram em preto e branco", "As molduras com pinturas a óleo"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "RADIO",
+              "dicas": ["O aparelho de válvulas que narrava radionovelas", "A caixinha mágica que tocava bolero", "Transmite som por antenas AM e FM"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "IDOLO",
+              "dicas": ["O galã dos filmes de faroeste", "Ator famosíssimo do cinema mudo", "O cantor que todas queriam ver de perto"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ZERAR",
+              "dicas": ["Começar tudo do início num rolo de filme", "O cronômetro volta ao começo", "Limpar tudo para o próximo show"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "EXIBE",
+              "dicas": ["O que a televisão faz com o programa na sala", "Mostra o talento do artista", "O projetor faz isso com a imagem na parede"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SONOS",
+              "dicas": ["Quando as luzes apagavam no cinema e a pessoa dormia, dava...", "Cochilos na poltrona do cine-teatro", "Sinal de cansaço"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Jogos de mesa",
+          "palavra_oculta": "BARALHO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "BLEFE",
+              "dicas": ["Ato de fingir no pôquer que tem cartas boas", "Mentirinha da jogatina", "Cara de paisagem com jogo ruim na mão"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "APOIO",
+              "dicas": ["Mesa forrada de verde para apoiar o dominó", "A torcida do amigo que está de fora", "Lugar onde se jogam as fichas"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "REGRA",
+              "dicas": ["A lei principal do truco", "Normas que não se pode quebrar durante a partida", "Se burlar, é expulsão da mesa"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ALVOS",
+              "dicas": ["Buracos da sinuca no bar", "Pontos e almejos do jogador", "Onde a flechinha dos dardos tem que bater"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "LANCE",
+              "dicas": ["O movimento da peça de xadrez", "A jogada do mestre", "Apostar no escuro na rodada"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "HONRA",
+              "dicas": ["Apostada com o fio do bigode antigamente", "Jogar limpo sem roubar cartas", "O orgulho do ganhador honesto"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OUROS",
+              "dicas": ["Naipe vermelho que parece um balãozinho achatado", "As moedas de aposta de mentirinha", "As riquezas acumuladas no banco"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "Pessoas e Bem-estar",
+      "assuntos": [
+        {
+          "nome": "No rosto",
+          "palavra_oculta": "SORRISO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "SENHO",
+              "dicas": ["O franzir da testa quando se está preocupado", "O ato de arquear a sobrancelha em dúvida", "Marca de braveza no rosto"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OLHOS",
+              "dicas": ["As janelas da alma humana", "Têm pestanas e cores variadas", "Por onde enxergamos a beleza da vida"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ROSTO",
+              "dicas": ["A face de uma pessoa", "Onde fica o nariz e a boca", "Reflete se estamos tristes ou felizes"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "RUGAS",
+              "dicas": ["Marcas de muita história de vida na pele", "As linhazinhas de expressão dos idosos", "O 'pé de galinha' no canto do olho"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "IDADE",
+              "dicas": ["Número de anos vividos", "Vem acompanhada da sabedoria", "Na terceira ... dizem que aproveitamos mais"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SONOS",
+              "dicas": ["Deixam bolsas e olheiras nos olhos se forem poucos", "Momentos de repouso", "Dormidas de beleza"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ORAIS",
+              "dicas": ["Problemas resolvidos pelo dentista", "As medicações tomadas pela boca", "Conversas ditas verbalmente"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Profissionais da saúde",
+          "palavra_oculta": "MEDICOS",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "MAGOS",
+              "dicas": ["Aqueles que tiram dor com as mãos em lendas", "Curandeiros muito sábios da antiguidade", "Os três Reis que visitaram o presépio"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "EXIME",
+              "dicas": ["Atestado que livra o paciente de trabalhar", "Verbo que liberta de culpa e obrigação", "Quando o profissional te isenta de esforço físico"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "DONOS",
+              "dicas": ["Os farmacêuticos antigamente eram os ... das boticas", "Proprietários da clínica de repouso", "Aqueles que mandam no consultório"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "IRMAO",
+              "dicas": ["Profissional de saúde que cuida de nós como da família", "Parente nascido dos mesmos pais", "Enfermeiro no hospital antigo às vezes era freira ou..."],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "CHEFE",
+              "dicas": ["O médico supervisor do hospital", "Aquele que manda no plantão da noite", "O orientador das enfermeiras-chefe"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OBRAS",
+              "dicas": ["Grandes ações de caridade dos hospitais", "Construções de pavilhões para atendimento", "Missões da Cruz Vermelha"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "SABIO",
+              "dicas": ["O velhinho conhecedor de todos os chás da roça", "Aquele médico experiente cheio de conselhos", "Inteligente que sabe ouvir o paciente"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Relações familiares",
+          "palavra_oculta": "PARENTE",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "PRIMO",
+              "dicas": ["Filho da minha tia ou tio", "O companheiro de infância e festas de família", "Membro divertido nas brincadeiras do quintal"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "AVISA",
+              "dicas": ["O que a mãe faz antes de dar o castigo: 'Eu te...'", "Manda telegrama da chegada da visita", "Comunica as novidades familiares"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "RAMOS",
+              "dicas": ["Os braços e divisões da árvore genealógica familiar", "Pedaços da família de outras cidades", "Parte da folhagem da árvore"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ENTES",
+              "dicas": ["Os entes-queridos que já nos deixaram", "As pessoas preciosas e vitais de nossa vida", "Seres humanos da nossa casa"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "NORAS",
+              "dicas": ["Esposas dos meus filhos amados", "As avós testavam o tempero delas", "Ganham sogras como segundas mães"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "TITIO",
+              "dicas": ["Irmão do papai ou da mamãe chamado com carinho", "Aquele que estraga a gente dando doces às escondidas", "O solteirão bondoso da família"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ETAPA",
+              "dicas": ["O ciclo do casamento nas gerações familiares", "Fase da vida entre infância e vida adulta", "O passo importante para o crescimento de cada um"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "A botica caseira (chás e curas)",
+          "palavra_oculta": "REMEDIO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "RAMOS",
+              "dicas": ["Punhados de arruda para afastar mau-olhado", "Galhinhos de alecrim jogados no banho", "Partes verdes da erva curativa"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ERVAS",
+              "dicas": ["Folhas mágicas curativas", "Boldo que alivia barriga estufada", "Cidreira que acalma os ânimos"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "MENTA",
+              "dicas": ["Sabor ardido que esfria a garganta e abre o peito", "Folhinha parente da hortelã", "Pastilhas famosas na tosse comprida"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "EXTRA",
+              "dicas": ["A dose forte a mais de chá quente antes de deitar", "O xarope mais poderoso da farmácia", "O óleo de mamona puro e concentrado"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "DOSES",
+              "dicas": ["O que se tomava de óleo de rícino de colherzinha", "As gotinhas pingadas de remédio no copo de água", "Porções exatas marcadas pelo doutor"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "IODOS",
+              "dicas": ["Frasquinhos escuros que ardiam quando caíam no machucado", "Líquido amarelo avermelhado e forte no joelho", "Tinturas desinfetantes dos velhos tempos"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OLEOS",
+              "dicas": ["Extrações de semente de linhaça para passar na ferida", "Substância de massagem nas juntas que doíam", "Gorduras vegetais nos vidrinhos"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        },
+        {
+          "nome": "Objetos de uso pessoal",
+          "palavra_oculta": "RELOGIO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "RENDA",
+              "dicas": ["Tecido cheio de arabescos nas camisolas luxuosas", "Bordado chique no punho ou gola", "Artesanato delicado trazido de viagens"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "EXATO",
+              "dicas": ["Quando o cuco dá o badalo bem ao meio dia", "Tamanho milimétrico de uma aliança polida", "Precisão certeira no corte do cabelo"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "LENCO",
+              "dicas": ["Pedaço de tecido quadrado guardado no bolso masculino", "Tirado para secar o suor do rosto de tarde", "Muitas vezes perfumado de lavanda"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OUROS",
+              "dicas": ["Metais preciosos do anel no dedo", "Cordão amarelado brilhante no pescoço do vô", "Valor de joias da herança de família"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "GORRO",
+              "dicas": ["Touca de lã posta na cabeça em junho e julho", "Protege as orelhas dos ventos cortantes", "Tricotado em ponta ou com pompom"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "IDEIA",
+              "dicas": ["O que está na cabeça brilhante em baixo do chapéu de feltro", "Pensamento inovador sobre penteados", "Planos imaginados"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OBRAS",
+              "dicas": ["Trabalhos esculpidos como pequenos broches e camafeus", "Enfeites manuais usados no casaco de domingo", "Criações de ourivesaria"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "A Vida na Fazenda de Antigamente",
+      "assuntos": [
+        {
+          "nome": "Escadinha da Roça",
+          "palavra_oculta": "CANTIGA",
+          "formato_acrostico": "escada_diagonal",
+          "tamanho_palavras_horizontais": 7,
+          "indice_coluna_oculta": null,
+          "palavras": [
+            {
+              "palavra": "CADEIRA",
+              "dicas": ["Móvel de palha ou madeira com quatro pernas", "Ficava na calçada ou na roda da fogueira", "Onde o avô sentava para contar histórias e 'causos'"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "FAZENDA",
+              "dicas": ["A grande propriedade rural com vacas e cavalos", "Onde tinha curral e cheiro de terra molhada", "Nome popular dado a pedaços grandes de tecido"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "PINTURA",
+              "dicas": ["As cores renovadas na parede da casa com cal", "Como as moças faziam no rosto antes do baile no galpão", "As paisagens lindas da roça nos quadros rústicos"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "VESTIDO",
+              "dicas": ["A roupa florida de chita das prendas nas festas do interior", "Tinha saias rodadas que balançavam", "Traje de gala domingueiro da mulher"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "DOCEIRA",
+              "dicas": ["A senhora famosa na cidade que mexia o tacho de abóbora", "Mulher que enrolava compotas para os casamentos", "A especialista em cocadas e figos em caldas deliciosos"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "BARRIGA",
+              "dicas": ["A parte redonda que enchemos com os panelões de comida de roça", "Ronca muito quando a panela de ferro está no fogão a lenha fervendo", "Fica dolorida de tanto dar gargalhada no forró de chiqueiro"],
+              "indice_letra_oculta": 5
+            },
+            {
+              "palavra": "LARANJA",
+              "dicas": ["Fruta cítrica e amarela colhida direto do pomar", "Chupada no gomo debaixo da sombra quente", "Tirada do galho de tarde pra acompanhar refresco com pão de queijo"],
+              "indice_letra_oculta": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "Transportes e Viagens Antigas",
+      "assuntos": [
+        {
+          "nome": "Estação de Trem",
+          "palavra_oculta": "ESTACAO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 7,
+          "indice_coluna_oculta": 1,
+          "palavras": [
+            {
+              "palavra": "RETORNO",
+              "dicas": ["A volta para casa de trem", "Bilhete de ida e ...", "Chegar novamente na estação de origem"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "ESPERAR",
+              "dicas": ["Ficar aguardando na plataforma", "O que se faz quando o trem atrasa", "Sentado no banco olhando o relógio da parede"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "ATRASOS",
+              "dicas": ["Quando o trem não chega na hora certa", "Motivo de reclamação dos passageiros", "Faziam as pessoas perderem compromissos"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "MALETAS",
+              "dicas": ["As bagagens de mão", "Muitas eram feitas de couro duro e resistente", "Carregadas pelos viajantes na pressa"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "ECOANDO",
+              "dicas": ["O som do apito na estação", "Barulho que se repete no saguão grande", "A voz do locutor nas caixas de som"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "PARADAS",
+              "dicas": ["As estações menores no meio do caminho", "Momentos em que o maquinista freia", "Onde sobem novos passageiros do interior"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "BOLETOS",
+              "dicas": ["Os papéis das passagens", "Comprados com moedas na bilheteria", "Conferidos e furados pelo cobrador no vagão"],
+              "indice_letra_oculta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "Profissões do Passado",
+      "assuntos": [
+        {
+          "nome": "Trabalhadores da Rua",
+          "palavra_oculta": "CARTEIRO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "CARTA",
+              "dicas": ["O que ele entregava de porta em porta", "Vinham com um selo na parte de fora", "A principal correspondência escrita à mão"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "AVISO",
+              "dicas": ["Recado urgente deixado no portão", "Telegrama de última hora", "Notícia importante que chega de repente"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ROTAS",
+              "dicas": ["Os caminhos que ele faz todo dia", "As ruas percorridas a pé no sol quente", "O trajeto das entregas do bairro"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "TARDE",
+              "dicas": ["Período depois do almoço", "Hora que ele passava com a bolsa de couro", "Quando o sol começa a baixar"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ENVIA",
+              "dicas": ["O que o remetente faz lá na agência", "Ato de despachar um telegrama", "Manda para frente a encomenda"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "IGUAL",
+              "dicas": ["Dois selos repetidos na coleção", "Correspondência com o mesmo remetente", "Sem nenhuma diferença"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "RENDA",
+              "dicas": ["Dinheiro do final do mês de muito trabalho", "Trabalho manual enviado em pacotes via sedex antigo", "Tecido furadinho que vinha por encomenda"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ONTEM",
+              "dicas": ["O dia que já passou", "A notícia que devia ter chegado...", "Tempo verbal indicando o passado"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "Comunicação e Entretenimento",
+      "assuntos": [
+        {
+          "nome": "A Magia do Rádio",
+          "palavra_oculta": "NOVELAS",
+          "formato_acrostico": "escada_diagonal",
+          "tamanho_palavras_horizontais": 7,
+          "indice_coluna_oculta": null,
+          "palavras": [
+            {
+              "palavra": "NOTICIA",
+              "dicas": ["A grande novidade contada na frequência AM", "Informação séria do Repórter Esso", "As fofocas sobre a vida dos astros"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ROMANCE",
+              "dicas": ["A linda história de amor contada na rádio", "O namoro narrado com emoção no microfone", "Casal apaixonado da trama inventada"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "OUVINTE",
+              "dicas": ["A pessoa fiel que liga o aparelho na tomada", "Quem escuta a programação todos os dias", "Aquele que manda cartas para a emissora local"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "DIRETOS",
+              "dicas": ["Transmissões ao vivo, sem gravação", "Programas que não têm cortes na fita", "Conversas sem muitos rodeios"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "FAMILIA",
+              "dicas": ["A turma que se reunia ao redor do rádio à noite", "Pais, mães e filhos escutando o capítulo", "O grupo grande que mora na mesma casa"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "SEMANAS",
+              "dicas": ["O tempo que a trama demorava para acabar", "Períodos de sete dias cada", "Havia o costume de acompanhar os episódios por várias..."],
+              "indice_letra_oculta": 5
+            },
+            {
+              "palavra": "ABRACOS",
+              "dicas": ["Eram mandados pelo locutor para os fãs", "Cumprimentos carinhosos e apertados", "Gestos de carinho enviados no ar para os aniversariantes"],
+              "indice_letra_oculta": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "Festas e Tradições",
+      "assuntos": [
+        {
+          "nome": "Noite de São João",
+          "palavra_oculta": "FOGUEIRA",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 6,
+          "indice_coluna_oculta": 4,
+          "palavras": [
+            {
+              "palavra": "ESTUFA",
+              "dicas": ["Aquece o salão da festa no frio de junho", "Forninho elétrico ou a gás antigo para os doces", "Mantém o quentão aquecido longe do fogo"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "CANTOR",
+              "dicas": ["O grande animador do palco no arraial", "Quem solta a voz no microfone pra quadrilha", "O sertanejo que tocava a moda de viola"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "FRANGO",
+              "dicas": ["A ave inteira assada que era cobiçada no bingo", "Prato servido com farofa na barraquinha", "O galo mais jovem assado na brasa"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "LINGUA",
+              "dicas": ["A fofoca solta da comadre durante a festa", "O que a gente queima quando o caldo está fervendo", "O órgão do corpo que sente o gosto doce da paçoca"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "PASTEL",
+              "dicas": ["Frito na hora na barraca agitada da festa", "Salgado de massa crocante cheio de carne moída", "Fica muito cheio de vento às vezes na mordida"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "PAPEIS",
+              "dicas": ["Usados em dobraduras para as bandeirinhas coloridas", "Cortados cuidadosamente para enfeitar a quadrilha", "Material fino das sedas dos balões luminosos"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "ESPERA",
+              "dicas": ["Ficar na fila demorada da barraca do beijo", "A ansiedade forte pelo início da quadrilha", "O ato de aguardar a vez na pescaria"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "DANCAS",
+              "dicas": ["A famosa quadrilha animada e o forró", "Os passos ritmados no salão paroquial de madeira", "Dois pra lá, dois pra cá no compasso caipira"],
+              "indice_letra_oculta": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "A Moda de Antigamente",
+      "assuntos": [
+        {
+          "nome": "Roupas e Acessórios",
+          "palavra_oculta": "VESTIDO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 6,
+          "indice_coluna_oculta": 2,
+          "palavras": [
+            {
+              "palavra": "GAVETA",
+              "dicas": ["Onde se guardam as meias de lã e as roupas íntimas", "Compartimento debaixo do guarda-roupa que puxamos", "Tem um puxador redondo de metal ou madeira escura"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "PREGAS",
+              "dicas": ["As dobras passadas a ferro pesado nas saias", "Detalhes costurados que dão volume extra à roupa", "Vincos feitos com muito cuidado e atenção na costura"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "CASACO",
+              "dicas": ["Vestido sempre por cima da camisa no dia frio", "Muitas vezes feito de lã batida ou veludo espesso", "Peça pesada de alfaiataria para o inverno rigoroso"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "BOTOES",
+              "dicas": ["Eles passam nas casinhas para fechar a camisa apertada", "Podem ser de madrepérola brilhante ou de plástico", "São pregados com agulha e linha quando caem no chão"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "CAIXAS",
+              "dicas": ["Onde vinham os chapéus elegantes da loja", "Lugar onde se guardam os sapatos no fundo do armário", "Recipientes quadrados e grandes de papelão amarrados"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "MODELO",
+              "dicas": ["O desenho chique na revista de moldes da costureira", "O manequim elegante parado na vitrine da cidade", "A forma, o estilo ou o corte final de uma roupa"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "PRONTA",
+              "dicas": ["A roupa quando a costureira finalmente termina a bainha", "A senhora bem vestida e arrumada para o baile da noite", "Uma peça que não precisa mais de nenhuma prova ou ajustes"],
+              "indice_letra_oculta": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "Meios de Transporte e Ruas",
+      "assuntos": [
+        {
+          "nome": "Pelas calçadas da vida",
+          "palavra_oculta": "PASSEIO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 1,
+          "palavras": [
+            {
+              "palavra": "APITO",
+              "dicas": ["O som estridente do guarda de trânsito na rua", "Instrumento metálico de sopro que faz barulho agudo", "Era um aviso muito claro para o carro parar no cruzamento"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "PASSO",
+              "dicas": ["Cada pisada lenta e ritmada na calçada", "A medida exata do caminhar", "O ritmo leve e sem pressa das tardes de domingo"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "USINA",
+              "dicas": ["Fábrica muito grande para onde os operários iam caminhando", "Lugar cheio de máquinas que gera energia para a cidade", "Construção imensa com chaminés altas soltando fumaça"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "USADO",
+              "dicas": ["O sapato apertado de segunda mão que era do irmão", "Algo que não é novo e compramos mais barato na feira", "Um fusquinha que já teve outro dono antes"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "PEDRA",
+              "dicas": ["O calçamento irregular de paralelepípedo bem antigo", "Tropeçar nela machuca muito o dedão do pé", "Material muito duro e pesado que formava as ruas centrais"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "PISOS",
+              "dicas": ["O chão vermelho e muito encerado dos casarões", "O asfalto liso ou o cimento grosso das calçadas", "As superfícies duras onde a gente caminha e escorrega"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "PONTE",
+              "dicas": ["Estrutura forte de concreto que atravessa o rio na cidade", "A passagem estreita de madeira sobre a água", "O caminho suspenso que liga um bairro distante ao outro"],
+              "indice_letra_oculta": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "Infância e Brincadeiras",
+      "assuntos": [
+        {
+          "nome": "Jogos de Rua",
+          "palavra_oculta": "CRIANCA",
+          "formato_acrostico": "escada_diagonal",
+          "tamanho_palavras_horizontais": 7,
+          "indice_coluna_oculta": null,
+          "palavras": [
+            {
+              "palavra": "CORRIDA",
+              "dicas": ["A brincadeira exaustiva de pega-pega quarteirão afora", "Disputa ofegante para ver quem chega primeiro no poste", "Uma atividade que fazia suar muito e cansar rápido"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "BRINCAR",
+              "dicas": ["A ação e obrigação principal dos pequenos no meio da rua", "Se divertir na terra até a mãe gritar chamando para entrar", "O verbo que é o completo oposto de trabalhar ou estudar"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "LEITURA",
+              "dicas": ["Ler os velhos gibis sentados na calçada debaixo do sol", "Aprender as letras e as palavras mágicas dos quadrinhos", "Um passatempo tranquilo e imaginativo com livros de história"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "BOLACHA",
+              "dicas": ["O lanche super rápido mastigado entre as brincadeiras", "As famosas e simples marcas Maria e Maizena no leite", "Aquele biscoito doce de pacote que quebrava muito fácil"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "MENINOS",
+              "dicas": ["Os garotos levados que jogavam bola de meia na rua", "A turma bagunceira de moleques do bairro", "Eram os guris atrevidos que viviam de calça curta e joelho ralado"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "BALANCO",
+              "dicas": ["O brinquedo simples pendurado no galho da árvore com corda", "Tábua de madeira onde a pessoa ia para frente e para trás", "Fazia dar muito frio na barriga quando ia rápido e alto"],
+              "indice_letra_oculta": 5
+            },
+            {
+              "palavra": "AMARELA",
+              "dicas": ["Pode ser o diminutivo da brincadeira com números riscados de giz", "O jogo de pular num pé só que começa na 'terra' e termina no 'céu'", "A cor viva da gema do ovo e dos cachos das flores de Ipê"],
+              "indice_letra_oculta": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "Trabalhos da Roça",
+      "assuntos": [
+        {
+          "nome": "Plantação e Colheita",
+          "palavra_oculta": "LAVOURA",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 6,
+          "indice_coluna_oculta": 3,
+          "palavras": [
+            {
+              "palavra": "COELHO",
+              "dicas": ["O bichinho peludo que comia as cenouras frescas da horta", "Tem as orelhas bem grandes e o nariz que se mexe", "É um animal do campo muito rápido que dá grandes saltos"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "GOIABA",
+              "dicas": ["Fruta doce e perfumada com miolo bem vermelho ou às vezes branco", "Tem bicho que a gente tira pra comer no pé da árvore", "Excelente fruta para fazer cascão e a famosa geleia cristalizada"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "CRAVOS",
+              "dicas": ["Flores muito bonitas e com um cheiro bem forte no canteiro", "Aquela especiaria escura e cheirosa espetada no doce de mamão verde", "Diz a cantiga infantil popular que ele brigou fortemente com a Rosa"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "MOCOTO",
+              "dicas": ["O caldo forte e muito quente feito pacientemente com a pata do boi", "Uma comida caipira e forte que dá a energia necessária para a roça", "Parece uma gelatina natural, porém é muito salgada e temperada"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "SEGURA",
+              "dicas": ["A mão calejada que prende muito firme a ferramenta no roçado", "A ação fundamental de não deixar a corda e o cavalo arisco fugir", "É o verbo que representa o exato oposto de soltar ou afrouxar"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "CURRAL",
+              "dicas": ["Lugar onde as vacas leiteiras ficam presas e fechadas para ordenha", "Cercado construído de madeira bruta na fazenda ou no sítio", "Tem um cheiro marcante, forte e com muito estrume no chão de terra"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "ENXADA",
+              "dicas": ["A ferramenta de metal pesada usada debaixo do sol para carpir o mato", "O agricultor forte a usa num movimento firme para virar a terra", "Tem um cabo longo e comprido feito de madeira lixada pelo uso"],
+              "indice_letra_oculta": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "A Música do Povo",
+      "assuntos": [
+        {
+          "nome": "Sertanejo e Viola",
+          "palavra_oculta": "VIOLEIRO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 5,
+          "indice_coluna_oculta": 0,
+          "palavras": [
+            {
+              "palavra": "VOZES",
+              "dicas": ["Os cantos bem afinados no tom da verdadeira dupla sertaneja raiz", "Sons poderosos que saem da garganta na cantoria de fim de tarde", "Fazem o belo coro afinado na varanda e não precisam de microfone"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "IMPAR",
+              "dicas": ["O talento de quem toca sem errar nenhuma nota é único, é...", "O tipo de número que na matemática não se divide em duas metades iguais", "Algo muito especial, diferente de tudo e absolutamente sem igual"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OUVIR",
+              "dicas": ["Ato de prestar atenção calmamente nas modas antigas em silêncio", "Usar e apurar os ouvidos na varanda para sentir a música caipira", "Apreciar profundamente o chiado do som que vem do rádio a pilha"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "LENHA",
+              "dicas": ["Os pedaços de pau seco que queimam devagarinho e aquecem a fogueira", "Matéria usada no fogão da cozinha caipira para esquentar o café e a água", "Madeira que foi cortada arduamente e rachada com o uso de um machado"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "EPOCA",
+              "dicas": ["Dizem os idosos cheios de saudade: 'no meu tempo, na minha...'", "Aquele período bom, tranquilo e dourado que infelizmente não volta", "A chamada e saudosa era de ouro das transmissões de rádio no país"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "ISOLA",
+              "dicas": ["Se a fazenda fica no meio do mato muito longe da cidade, ela te...", "Ficar muito solitário, quietinho e sozinho no imenso pasto verde", "A ação dolorida e silenciosa de separar fortemente ou distanciar tudo"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "RITMO",
+              "dicas": ["A batida forte e o dedilhado animado das cordas da viola caipira", "O andamento ligeiro daquela música sertaneja gostosa de dançar", "Muitas vezes é fortemente marcado com a bota ou botina batendo no chão"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "OCASO",
+              "dicas": ["Aquele momento alaranjado no finalzinho da tarde sossegada na fazenda", "Palavra romântica ou poética que define e representa o pôr do sol", "Hora exata que o trabalho árduo acabava e a boa cantoria de roda começava"],
+              "indice_letra_oculta": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "Objetos Esquecidos",
+      "assuntos": [
+        {
+          "nome": "A Luz da Noite",
+          "palavra_oculta": "LAMPIAO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 7,
+          "indice_coluna_oculta": 4,
+          "palavras": [
+            {
+              "palavra": "ESTALOS",
+              "dicas": ["O barulho que a lenha faz no fogo", "Sons secos da madeira queimando", "Pequenos estouros na lareira de tijolos"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "LAMPADA",
+              "dicas": ["O que Thomas Edison inventou", "Substituiu as velas e o querosene com o tempo", "Tem um filamento de vidro brilhante e quente"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "QUEIMAR",
+              "dicas": ["O que não se pode deixar acontecer com o arroz na panela", "Transformar a lenha em cinzas após a fogueira", "Ação destrutiva do fogo na palha seca"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "XAROPES",
+              "dicas": ["Garrafadas doces para curar a tosse durante a madrugada", "Remédios caseiros antigos feitos com muito açúcar", "O de guaco era muito amargo, mas curava a garganta"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "ILUMINA",
+              "dicas": ["O que a lua cheia faz no quintal em noite sem nuvens", "Ação de clarear a rua escura com o lampião", "O poste antigo da rua ... o caminho de pedras"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "PASSADO",
+              "dicas": ["O tempo que não volta mais e deixa saudade", "Onde vivem as nossas melhores memórias e histórias", "O antônimo de futuro no dicionário"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "FOSFORO",
+              "dicas": ["O palito de madeira com cabeça vermelha de enxofre", "Riscava na caixa para acender o fogão a lenha", "A marca Fiat Lux era a mais famosa nas casas"],
+              "indice_letra_oculta": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "Profissões Esquecidas",
+      "assuntos": [
+        {
+          "nome": "O Homem da Rua",
+          "palavra_oculta": "ALFAIATE",
+          "formato_acrostico": "escada_diagonal",
+          "tamanho_palavras_horizontais": 8,
+          "indice_coluna_oculta": null,
+          "palavras": [
+            {
+              "palavra": "AMOLADOR",
+              "dicas": ["O homem que passava tocando a flautinha na rua de terra", "Quem afiava as facas e tesouras antigas na sua roda pesada", "Profissional que fazia muita faísca voar na calçada"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "CLIENTES",
+              "dicas": ["Aqueles que tinham o nome anotado na caderneta de fiado", "Os fregueses fiéis do comércio local do bairro", "Quem o sapateiro atendia com um belo sorriso no rosto"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "ENFEITAR",
+              "dicas": ["Colocar rendas e fitas no vestido novo para o baile", "Ato de deixar a sala bonita e arrumada para a visita", "Decorar o chapéu chique com penas coloridas"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "RETALHOS",
+              "dicas": ["Os restos de tecido que a costureira do bairro juntava", "Pedaços coloridos usados para fazer colchas e fuxicos", "Sobras recortadas da oficina de costura espalhadas pelo chão"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "TRADICAO",
+              "dicas": ["Os costumes passados de pai para filho por muitas gerações", "Aquilo que a família nunca deixa de celebrar todos os anos", "O almoço de domingo na casa da nona é uma verdadeira..."],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "ENGOMADA",
+              "dicas": ["Como ficava a camisa branca depois de passar com goma", "A roupa dura, chique e impecável para ir na missa de domingo", "Colarinho reto, bem passado e sem nenhum amassado"],
+              "indice_letra_oculta": 5
+            },
+            {
+              "palavra": "ALFINETE",
+              "dicas": ["A agulha com cabeça redonda de plástico ou metal brilhante", "Espetava dolorido no dedo da costureira muito distraída", "Usado com muito cuidado para prender a fralda de pano do bebê"],
+              "indice_letra_oculta": 6
+            },
+            {
+              "palavra": "CHARRETE",
+              "dicas": ["A carroça mais chique puxada por apenas um cavalo bonito", "Veículo de madeira com duas rodas grandes e um assento", "Usada para os passeios românticos de domingo pelo parque"],
+              "indice_letra_oculta": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "Letras e Papéis",
+      "assuntos": [
+        {
+          "nome": "Comunicação de Época",
+          "palavra_oculta": "TINTEIRO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 7,
+          "indice_coluna_oculta": 3,
+          "palavras": [
+            {
+              "palavra": "POSTAIS",
+              "dicas": ["Cartões com fotos bonitas de cidades distantes na frente", "Enviados das férias para causar uma inveja boa nos parentes", "Não precisavam de envelope para viajar no correio antigo"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "PAGINAS",
+              "dicas": ["As folhas fininhas do livro grosso de histórias fantásticas", "As partes do jornal lidas pelo avô na mesa de manhã", "Onde o diário trancado a cadeado guardava os maiores segredos"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "AVENTAL",
+              "dicas": ["A roupa de tecido usada por cima do vestido para ir cozinhar", "Protegia a dona de casa dos respingos chatos de óleo quente", "Uniforme clássico das professoras antigas na lousa verde"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "LEITURA",
+              "dicas": ["O hábito de folhear os grandes romances e almanaques famosos", "Passatempo silencioso sob a luz amarela do abajur de sala", "O que se fazia com a radionovela impressa na revista semanal"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "CADERNO",
+              "dicas": ["Onde se praticava a caligrafia com muita perfeição e cuidado", "Tinha pautas azuis, finas e sempre uma margem bem vermelha", "O bloco escolar grosso e cheio de anotações feitas a lápis"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "RECIBOS",
+              "dicas": ["Os comprovantes pequenos de pagamento do carnê na loja", "Papéis assinados que provavam a quitação exata da dívida", "Guardados em pastas de elástico para não perder as contas velhas"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "ESCRITO",
+              "dicas": ["O documento oficial registrado no cartório a bico de pena", "O recado apressado deixado para a mãe no papel de pão", "Algo que foi redigido à mão e não datilografado na máquina"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "TESOURA",
+              "dicas": ["Instrumento pesado de metal brilhante que era do alfaiate", "Cortava o papel de carta bonito e as bordas das fotos antigas", "Ferramenta com duas lâminas afiadas que se cruzam ao meio"],
+              "indice_letra_oculta": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "A Medicina do Passado",
+      "assuntos": [
+        {
+          "nome": "Curas e Crenças",
+          "palavra_oculta": "FARMACIA",
+          "formato_acrostico": "escada_diagonal",
+          "tamanho_palavras_horizontais": 8,
+          "indice_coluna_oculta": null,
+          "palavras": [
+            {
+              "palavra": "FOSFOROS",
+              "dicas": ["Palitos de madeira usados para acender a lamparina à noite", "Risca na caixa para esquentar a agulha antes de tirar a farpa", "Eles vinham na caixinha antiga do famoso Olho de Boi"],
+              "indice_letra_oculta": 0
+            },
+            {
+              "palavra": "GARRAFAS",
+              "dicas": ["Recipientes de vidro verde escuro cheios do xarope ruim", "Onde o boticário guardava as poções secretas e o álcool", "Vasilhames retornáveis de vidro que o leiteiro trazia cedo"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "XAROPADA",
+              "dicas": ["A dose exagerada de remédio doce no copinho para a tosse", "Mistura grossa de ervas medicinais feita no tacho de cobre", "O preparado demorado da avó para curar a gripe forte do neto"],
+              "indice_letra_oculta": 2
+            },
+            {
+              "palavra": "BROMELIA",
+              "dicas": ["Planta de folhas duras que junta água no miolo do vaso", "Flor tropical que enfeitava os jardins das chácaras e sítios", "A parente distante e muito decorativa do amado abacaxi"],
+              "indice_letra_oculta": 3
+            },
+            {
+              "palavra": "CUIDADOS",
+              "dicas": ["Os mimos e atenções da mãe quando a gente ficava doente", "Atenção redobrada na hora de limpar o joelho ralado no chão", "O zelo extremo com a saúde frágil e a dieta dos mais velhos"],
+              "indice_letra_oculta": 4
+            },
+            {
+              "palavra": "ESSENCIA",
+              "dicas": ["O líquido super concentrado com cheiro muito forte e puro", "O extrato medicinal extraído da planta e guardado no vidrinho", "Pingava-se duas gotinhas no lenço para poder respirar melhor"],
+              "indice_letra_oculta": 5
+            },
+            {
+              "palavra": "CIRURGIA",
+              "dicas": ["A grande operação feita no hospital mais moderno da capital", "O procedimento que deixava todos rezando na sala de espera", "Quando o médico experiente finalmente precisava usar o bisturi"],
+              "indice_letra_oculta": 6
+            },
+            {
+              "palavra": "NATUREZA",
+              "dicas": ["A verde mãe de todas as maravilhosas ervas medicinais", "O campo aberto, as matas fechadas e as águas puras dos rios", "Onde os benzedores iam buscar suas raras folhas mágicas"],
+              "indice_letra_oculta": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nome": "O Brasil de Antigamente",
+      "assuntos": [
+        {
+          "nome": "Economia e Moedas",
+          "palavra_oculta": "CRUZEIRO",
+          "formato_acrostico": "coluna_fixa",
+          "tamanho_palavras_horizontais": 6,
+          "indice_coluna_oculta": 1,
+          "palavras": [
+            {
+              "palavra": "ACORDO",
+              "dicas": ["O aperto de mão que valia muito mais que um papel assinado", "A combinação forte de palavra entre duas pessoas honestas", "Trato de confiança feito no famoso 'fio do bigode'"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "TROCOS",
+              "dicas": ["As moedas de cobre que a criança ganhava para comprar doces", "O dinheirinho miúdo que sobrava e voltava da padaria", "O resto que não era nota de papel grande na hora de pagar"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "CUSTOS",
+              "dicas": ["Os preços altos que a mãe da família reclamava na feira", "As despesas pesadas do fim do mês marcadas no caderninho", "O valor total e exato gasto para manter a casa cheia"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "AZEITE",
+              "dicas": ["O óleo dourado vendido na clássica lata quadrada de flandres", "Conhecido como o ouro líquido vindo de Portugal no bacalhau", "O tempero mais caro da grande salada de domingo em família"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "VENDAS",
+              "dicas": ["Os mercadinhos secos e molhados da esquina do bairro tranquilo", "Comércios antigos com os grandes balcões lustrosos de madeira", "Onde a caderneta do fiado ficava pendurada e bem guardada"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "DIVIDA",
+              "dicas": ["O valor pendurado perigosamente no caderno velho do padeiro", "O que tirava completamente o sono do chefe de família trabalhador", "A conta alta para pagar com aperto no fim do longo mês"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "PRECOS",
+              "dicas": ["Os valores marcados nas pequenas etiquetas de papelão do mercado", "Sempre subiam e a dona de casa reclamava muito da dura inflação", "O quanto custava o quilo pesado da carne de primeira na balança"],
+              "indice_letra_oculta": 1
+            },
+            {
+              "palavra": "COBRES",
+              "dicas": ["Nome popular antigo para as moedas escuras que manchavam a mão", "Gíria para dizer 'não tenho absolutamente nenhum tostão'", "Dinheiro muito miúdo que fazia um grande barulho no bolso da calça"],
+              "indice_letra_oculta": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

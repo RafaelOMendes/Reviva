@@ -21,6 +21,7 @@ interface CrosswordGridProps {
   lockedCells: boolean[][];
   onCellPress: (row: number, col: number) => void;
   scrollViewRef?: React.RefObject<any>;
+  acrosticCols?: number[]; // coluna da letra do acróstico por linha
 }
 
 interface CellProps {
@@ -29,11 +30,12 @@ interface CellProps {
   isActiveRow: boolean;
   isCorrect: boolean;
   isLocked: boolean;
+  isAcrostic: boolean;
   size: number;
   onPress: () => void;
 }
 
-function Cell({ letter, isActive, isActiveRow, isCorrect, isLocked, size, onPress }: CellProps) {
+function Cell({ letter, isActive, isActiveRow, isCorrect, isLocked, isAcrostic, size, onPress }: CellProps) {
   const flashAnim = useRef(new Animated.Value(0)).current;
 
   // Flash verde ao acertar
@@ -67,11 +69,15 @@ function Cell({ letter, isActive, isActiveRow, isCorrect, isLocked, size, onPres
     borderColor = '#CBD5E1';
     textColor = Colors.primary;
   } else if (isActive) {
-    baseBgColor = Colors.cellBackground;
+    baseBgColor = isAcrostic ? Colors.acrosticBg : Colors.cellBackground;
     borderColor = Colors.primary;
   } else if (isActiveRow) {
-    baseBgColor = Colors.activeRow;
-    borderColor = Colors.activeRow;
+    baseBgColor = isAcrostic ? Colors.acrosticActiveRow : Colors.activeRow;
+    borderColor = isAcrostic ? Colors.acrosticBorder : Colors.activeRow;
+  } else if (isAcrostic) {
+    baseBgColor = Colors.acrosticBg;
+    borderColor = Colors.acrosticBorder;
+    textColor = Colors.secondary;
   }
 
   // Interpola para um verde claro durante o flash
@@ -126,6 +132,7 @@ export function CrosswordGrid({
   lockedCells,
   onCellPress,
   scrollViewRef,
+  acrosticCols,
 }: CrosswordGridProps) {
   const { width, height } = useWindowDimensions();
   
@@ -175,6 +182,7 @@ export function CrosswordGrid({
               isActiveRow={rowIdx === activeRow && !correctRows[rowIdx]}
               isCorrect={correctRows[rowIdx]}
               isLocked={lockedCells?.[rowIdx]?.[colIdx] || false}
+              isAcrostic={acrosticCols?.[rowIdx] === colIdx}
               size={cellSize}
               onPress={handlePress(rowIdx, colIdx)}
             />

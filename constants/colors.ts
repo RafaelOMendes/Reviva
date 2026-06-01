@@ -22,6 +22,11 @@ export const Colors = {
   cellCorrect: '#4A6762',      // Célula com palavra correta
   cellCorrectText: '#FFFFFF',
 
+  // Acróstico (letras que compõem a palavra oculta)
+  acrosticBg: '#FDEEE4',       // Fundo da célula do acróstico
+  acrosticActiveRow: '#F2D9C8',// Fundo do acróstico quando a linha está ativa
+  acrosticBorder: '#C97C5D',   // Borda da célula do acróstico (coral)
+
   // Sombras
   shadow: 'rgba(0, 0, 0, 0.08)',
 };

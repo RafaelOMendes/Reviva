@@ -1,9 +1,9 @@
-import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import React, { useMemo } from 'react';
+import { View, Text, StyleSheet, SectionList, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Colors } from '../constants/colors';
-import { PUZZLES } from '../constants/puzzleData';
+import { PUZZLES, THEMES, PuzzleData } from '../constants/puzzleData';
 import { useProgress } from '../hooks/useProgress';
 
 function formatTime(seconds: number) {
@@ -12,9 +12,23 @@ function formatTime(seconds: number) {
   return `${m}:${s}`;
 }
 
+interface Section {
+  title: string;
+  data: PuzzleData[];
+}
+
 export default function MenuScreen() {
   const router = useRouter();
   const { progress, loading } = useProgress();
+
+  const sections: Section[] = useMemo(() => {
+    return THEMES.map((t) => ({
+      title: t.name,
+      data: t.puzzleIds
+        .map((id) => PUZZLES.find((p) => p.id === id))
+        .filter((p): p is PuzzleData => Boolean(p)),
+    }));
+  }, []);
 
   const handleSelectPuzzle = (id: string) => {
     router.push(`/game/${id}`);
@@ -24,7 +38,7 @@ export default function MenuScreen() {
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         <View style={styles.header}>
-          <TouchableOpacity 
+          <TouchableOpacity
             style={styles.backButton}
             onPress={() => router.replace('/')}
           >
@@ -37,10 +51,22 @@ export default function MenuScreen() {
         </View>
 
         {!loading && (
-          <FlatList
-            data={PUZZLES}
+          <SectionList
+            sections={sections}
             keyExtractor={(item) => item.id}
             contentContainerStyle={styles.listContent}
+            stickySectionHeadersEnabled={false}
+            renderSectionHeader={({ section }) => {
+              const completed = section.data.filter((p) => progress[p.id]?.completed).length;
+              return (
+                <View style={styles.sectionHeader}>
+                  <Text style={styles.sectionTitle}>{section.title}</Text>
+                  <Text style={styles.sectionCount}>
+                    {completed}/{section.data.length}
+                  </Text>
+                </View>
+              );
+            }}
             renderItem={({ item }) => {
               const pData = progress[item.id];
               const isCompleted = pData?.completed;
@@ -55,11 +81,9 @@ export default function MenuScreen() {
                     <Text style={[styles.cardTitle, isCompleted && styles.textCompleted]}>
                       {item.title}
                     </Text>
-                    {isCompleted && (
-                      <Text style={styles.badgeEmoji}>✅</Text>
-                    )}
+                    {isCompleted && <Text style={styles.badgeEmoji}>✅</Text>}
                   </View>
-                  
+
                   <View style={styles.cardFooter}>
                     <Text style={styles.difficulty}>
                       Dificuldade: {item.difficulty}
@@ -92,7 +116,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     marginTop: 24,
-    marginBottom: 32,
+    marginBottom: 24,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -124,7 +148,30 @@ const styles = StyleSheet.create({
   },
   listContent: {
     paddingBottom: 40,
-    gap: 16,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: Colors.background,
+    paddingTop: 20,
+    paddingBottom: 10,
+  },
+  sectionTitle: {
+    fontSize: 20,
+    color: Colors.primary,
+    fontFamily: 'PlusJakartaSans_700Bold',
+    flex: 1,
+  },
+  sectionCount: {
+    fontSize: 13,
+    color: Colors.textMedium,
+    fontFamily: 'PlusJakartaSans_600SemiBold',
+    backgroundColor: Colors.gridBackground,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 10,
+    overflow: 'hidden',
   },
   card: {
     backgroundColor: Colors.gridBackground,
@@ -132,6 +179,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderWidth: 2,
     borderColor: 'transparent',
+    marginBottom: 12,
   },
   cardCompleted: {
     borderColor: Colors.primary,

@@ -41,6 +41,8 @@ export default function GameScreen() {
   const wordClues = game.puzzle?.words[game.activeRow]?.clues || [];
   const activeClues = wordClues.slice(0, hintLevel + 1);
 
+  const acrosticCols = game.puzzle?.words.map((w) => w.indiceLetraOculta) ?? [];
+
   const isLandscape = width > height;
 
   const modalFontTitle = Math.min(28, width * 0.07);
@@ -77,6 +79,7 @@ export default function GameScreen() {
                   lockedCells={game.lockedCells}
                   onCellPress={game.selectCell}
                   scrollViewRef={scrollViewRef}
+                  acrosticCols={acrosticCols}
                 />
               </Animated.View>
             </ScrollView>
@@ -107,6 +110,12 @@ export default function GameScreen() {
             <Text style={styles.modalSubtitle}>
               Você completou o puzzle no tempo de {formatTime(game.timer)}!
             </Text>
+            {game.puzzle.palavraOculta ? (
+              <View style={styles.acrosticReveal}>
+                <Text style={styles.acrosticLabel}>Palavra oculta</Text>
+                <Text style={styles.acrosticWord}>{game.puzzle.palavraOculta}</Text>
+              </View>
+            ) : null}
             <TouchableOpacity
               style={styles.modalButton}
               onPress={() => router.replace('/levels')}
@@ -177,8 +186,33 @@ const styles = StyleSheet.create({
     color: Colors.textMedium,
     textAlign: 'center',
     lineHeight: 22,
-    marginBottom: 24,
+    marginBottom: 16,
     fontFamily: 'PlusJakartaSans_400Regular',
+  },
+  acrosticReveal: {
+    backgroundColor: Colors.acrosticBg,
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    alignItems: 'center',
+    marginBottom: 24,
+    width: '100%',
+    borderWidth: 1,
+    borderColor: Colors.acrosticBorder,
+  },
+  acrosticLabel: {
+    fontSize: 12,
+    color: Colors.textMedium,
+    fontFamily: 'PlusJakartaSans_600SemiBold',
+    textTransform: 'uppercase',
+    letterSpacing: 1,
+    marginBottom: 4,
+  },
+  acrosticWord: {
+    fontSize: 22,
+    color: Colors.secondary,
+    fontFamily: 'PlusJakartaSans_700Bold',
+    letterSpacing: 4,
   },
   modalButton: {
     backgroundColor: Colors.primary,

@@ -1,56 +1,97 @@
 // Reviva — Dados do Puzzle
-// Grade 7 colunas × 9 linhas (baseada no Figma)
+// Carregados de niveis.json (raiz do projeto)
+
+import niveisData from '../niveis.json';
+
+export type FormatoAcrostico = 'coluna_fixa' | 'escada_diagonal';
 
 export interface PuzzleWord {
   word: string;
   clues: string[];
+  indiceLetraOculta: number; // coluna da letra que compõe o acróstico
 }
 
 export interface PuzzleData {
   id: string;
   title: string;
+  theme: string;
+  themeId: string;
   difficulty: 'Fácil' | 'Médio' | 'Difícil';
   words: PuzzleWord[];
   cols: number;
   rows: number;
+  palavraOculta: string;
+  formatoAcrostico: FormatoAcrostico;
+  indiceColunaOculta: number | null; // null em escada_diagonal
 }
 
-export const PUZZLES: PuzzleData[] = [
-  {
-    id: 'level-1',
-    title: 'Artes e Entretenimento',
-    difficulty: 'Fácil',
-    cols: 7,
-    rows: 9,
-    words: [
-      { word: 'CANTORA', clues: ['Artista que se expressa através da voz e da melodia', 'Costuma se apresentar em shows e grava álbuns', 'Profissional da música com talento vocal'] },
-      { word: 'CINEMAS', clues: ['Espaços onde filmes são exibidos ao público', 'Possui telão, poltronas e cheiro de pipoca', 'Salas escuras dedicadas à sétima arte'] },
-      { word: 'NOVELAS', clues: ['Histórias em série transmitidas pela televisão', 'Dividida em capítulos e muito popular no Brasil', 'Dramaturgia que costuma passar no horário nobre'] },
-      { word: 'ARTISTA', clues: ['Pessoa que cria ou pratica uma forma de arte', 'Pode ser um pintor, escultor ou ator', 'Profissional criativo e talentoso'] },
-      { word: 'QUADROS', clues: ['Pintura ou desenho em uma moldura', 'Costumam ser pendurados nas paredes para decoração', 'Obras de arte expostas em galerias'] },
-      { word: 'TEATROS', clues: ['Locais onde peças e espetáculos são encenados', 'Possui palco, coxias e cortinas vermelhas', 'Casa das artes cênicas e musicais'] },
-      { word: 'MUSICAS', clues: ['Arte de combinar sons de forma harmoniosa', 'Pode ser tocada em instrumentos ou cantada', 'Composições sonoras que emocionam'] },
-      { word: 'JORNAIS', clues: ['Publicações periódicas com notícias e informações', 'Podem ser impressos em papel ou lidos online', 'Trazem as manchetes do dia a dia'] },
-      { word: 'POESIAS', clues: ['Composições literárias com ritmo e beleza expressiva', 'Muitas vezes possuem rimas e estrofes', 'Textos artísticos cheios de sentimento'] },
-    ],
-  },
-  {
-    id: 'level-2',
-    title: 'Animais do Brasil',
-    difficulty: 'Fácil',
-    cols: 6,
-    rows: 5,
-    words: [
-      { word: 'TUCANO', clues: ['Ave de bico longo e colorido', 'Símbolo frequente da fauna brasileira', 'Seu bico grande ajuda a pegar frutas'] },
-      { word: 'JACARE', clues: ['Réptil dos rios e pântanos', 'Tem couro duro e dentes afiados', 'Primo distante dos crocodilos'] },
-      { word: 'MACACO', clues: ['Primata ágil que vive em árvores', 'Adora comer bananas', 'Animal muito inteligente e brincalhão'] },
-      { word: 'CORUJA', clues: ['Ave noturna símbolo da sabedoria', 'Consegue girar a cabeça quase completamente', 'Tem olhos grandes e caça à noite'] },
-      { word: 'IGUANA', clues: ['Lagarto verde de hábitos arborícolas', 'Tem uma crista nas costas', 'Réptil que gosta de tomar sol nos galhos'] },
-    ],
-  }
-];
+export interface Theme {
+  id: string;
+  name: string;
+  puzzleIds: string[];
+}
 
-// Converte o puzzle em uma grade de letras 2D
+function difficultyFromCols(cols: number): PuzzleData['difficulty'] {
+  if (cols <= 5) return 'Fácil';
+  if (cols === 6) return 'Médio';
+  return 'Difícil';
+}
+
+interface RawPalavra {
+  palavra: string;
+  dicas: string[];
+  indice_letra_oculta: number;
+}
+
+interface RawAssunto {
+  nome: string;
+  palavra_oculta: string;
+  formato_acrostico: FormatoAcrostico;
+  tamanho_palavras_horizontais: number;
+  indice_coluna_oculta: number | null;
+  palavras: RawPalavra[];
+}
+
+interface RawTema {
+  nome: string;
+  assuntos: RawAssunto[];
+}
+
+const RAW = niveisData as { temas: RawTema[] };
+
+export const THEMES: Theme[] = [];
+export const PUZZLES: PuzzleData[] = [];
+
+RAW.temas.forEach((tema, ti) => {
+  const themeId = `t${ti + 1}`;
+  const puzzleIds: string[] = [];
+
+  tema.assuntos.forEach((assunto, si) => {
+    const id = `${themeId}-s${si + 1}`;
+    puzzleIds.push(id);
+
+    PUZZLES.push({
+      id,
+      title: assunto.nome,
+      theme: tema.nome,
+      themeId,
+      difficulty: difficultyFromCols(assunto.tamanho_palavras_horizontais),
+      cols: assunto.tamanho_palavras_horizontais,
+      rows: assunto.palavras.length,
+      palavraOculta: assunto.palavra_oculta,
+      formatoAcrostico: assunto.formato_acrostico,
+      indiceColunaOculta: assunto.indice_coluna_oculta,
+      words: assunto.palavras.map((p) => ({
+        word: p.palavra,
+        clues: p.dicas,
+        indiceLetraOculta: p.indice_letra_oculta,
+      })),
+    });
+  });
+
+  THEMES.push({ id: themeId, name: tema.nome, puzzleIds });
+});
+
 export function buildGrid(puzzle: PuzzleData): string[][] {
   return puzzle.words.map((pw) => pw.word.split(''));
 }
