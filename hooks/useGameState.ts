@@ -21,7 +21,6 @@ export interface GameState {
 export interface GameActions {
     handleKeyPress: (key: string) => void;
     handleBackspace: () => void;
-    handleEnter: () => void;
     selectCell: (row: number, col: number) => void;
     useHint: () => void;
     resetGame: () => void;
@@ -47,6 +46,28 @@ export function useGameState(puzzleId: string): GameState & GameActions {
     const [lockedCells, setLockedCells] = useState<boolean[][]>(() =>
         Array.from({ length: ROWS }, () => Array(COLS).fill(false))
     );
+
+    // Refs espelham o estado para que toques rápidos leiam sempre o valor mais
+    // recente — sem isso, digitar rápido usa um `activeCol`/grid defasado do
+    // closure e o app "come" letras (escreve duas vezes na mesma célula).
+    const activeRowRef = useRef(0);
+    const activeColRef = useRef(0);
+    const userGridRef = useRef<string[][]>(userGrid);
+    const correctRowsRef = useRef<boolean[]>(correctRows);
+    const lockedCellsRef = useRef<boolean[][]>(lockedCells);
+    const hintLevelsRef = useRef<number[]>(hintLevels);
+    const gameStatusRef = useRef<GameStatus>('playing');
+    const timerRef = useRef(0);
+
+    useEffect(() => { timerRef.current = timer; }, [timer]);
+
+    // Atualiza posição ativa em ref + estado ao mesmo tempo (ref = síncrono)
+    const setActivePos = useCallback((row: number, col: number) => {
+        activeRowRef.current = row;
+        activeColRef.current = col;
+        setActiveRow(row);
+        setActiveCol(col);
+    }, []);
 
     const { savePuzzleProgress } = useProgress();
 
@@ -125,189 +146,160 @@ export function useGameState(puzzleId: string): GameState & GameActions {
         return grid[row].join('') === SOLUTION[row].join('');
     }, [SOLUTION]);
 
-    const processGridUpdate = useCallback((newGrid: string[][]) => {
-        const isRowFull = newGrid[activeRow].every(cell => cell !== '');
-        const newCorrectRows = [...correctRows];
-
-        if (checkRow(activeRow, newGrid)) {
-            newCorrectRows[activeRow] = true;
-            setCorrectRows(newCorrectRows);
-
-            if (newCorrectRows.every(Boolean)) {
-                setGameStatus('won');
-                playSound('win');
-                savePuzzleProgress(puzzle.id, { completed: true, hintsUsed: 0, timeSpent: timer });
-            } else {
-                playSound('correct');
-                const nextRow = newCorrectRows.findIndex((c, i) => i > activeRow && !c);
-                if (nextRow !== -1) {
-                    setActiveRow(nextRow);
-                    setActiveCol(0);
-                } else {
-                    const firstNextRow = newCorrectRows.findIndex(c => !c);
-                    if (firstNextRow !== -1) {
-                        setActiveRow(firstNextRow);
-                        setActiveCol(0);
-                    }
-                }
-            }
-        } else if (isRowFull) {
-            playSound('wrong');
+    // Recebe a linha explicitamente (lida da ref) para não depender do closure.
+    const processGridUpdate = useCallback((newGrid: string[][], row: number) => {
+        if (!checkRow(row, newGrid)) {
+            const isRowFull = newGrid[row].every(cell => cell !== '');
+            if (isRowFull) playSound('wrong');
+            return;
         }
-    }, [activeRow, correctRows, checkRow, timer, puzzle.id, savePuzzleProgress]);
+
+        const newCorrectRows = [...correctRowsRef.current];
+        newCorrectRows[row] = true;
+        correctRowsRef.current = newCorrectRows;
+        setCorrectRows(newCorrectRows);
+
+        if (newCorrectRows.every(Boolean)) {
+            gameStatusRef.current = 'won';
+            setGameStatus('won');
+            playSound('win');
+            savePuzzleProgress(puzzle.id, { completed: true, hintsUsed: 0, timeSpent: timerRef.current });
+        } else {
+            playSound('correct');
+            let nextRow = newCorrectRows.findIndex((c, i) => i > row && !c);
+            if (nextRow === -1) nextRow = newCorrectRows.findIndex(c => !c);
+            if (nextRow !== -1) setActivePos(nextRow, 0);
+        }
+    }, [checkRow, playSound, savePuzzleProgress, puzzle.id, setActivePos]);
 
     const handleKeyPress = useCallback((key: string) => {
-        if (gameStatus !== 'playing') return;
-        if (correctRows[activeRow]) return;
+        if (gameStatusRef.current !== 'playing') return;
+        const row = activeRowRef.current;
+        if (correctRowsRef.current[row]) return;
 
         const letter = key.toUpperCase();
         if (!/^[A-ZÇ]$/.test(letter)) return;
 
-        let targetCol = activeCol;
-        if (lockedCells[activeRow][targetCol]) {
-            while (targetCol < COLS && lockedCells[activeRow][targetCol]) {
-                targetCol++;
-            }
-            if (targetCol >= COLS) return; // Não há espaço livre
+        const locked = lockedCellsRef.current[row];
+        let targetCol = activeColRef.current;
+        while (targetCol < COLS && locked[targetCol]) targetCol++;
+        if (targetCol >= COLS) return; // Não há espaço livre
+
+        const newGrid = userGridRef.current.map((r) => [...r]);
+        newGrid[row][targetCol] = letter;
+        userGridRef.current = newGrid;
+
+        if (!checkRow(row, newGrid)) {
+            let nextCol = targetCol + 1;
+            while (nextCol < COLS && locked[nextCol]) nextCol++;
+            const landing = nextCol < COLS ? nextCol : targetCol;
+            activeColRef.current = landing;
+            setActiveCol(landing);
         }
 
-        setUserGrid((prev) => {
-            const newGrid = prev.map((r) => [...r]);
-            newGrid[activeRow][targetCol] = letter;
-
-            const isCompleted = checkRow(activeRow, newGrid);
-
-            if (!isCompleted) {
-                let nextCol = targetCol + 1;
-                while (nextCol < COLS && lockedCells[activeRow][nextCol]) {
-                    nextCol++;
-                }
-                if (nextCol < COLS) {
-                    setActiveCol(nextCol);
-                } else if (targetCol !== activeCol) {
-                    setActiveCol(targetCol);
-                }
-            }
-
-            processGridUpdate(newGrid);
-            return newGrid;
-        });
-    }, [activeRow, activeCol, correctRows, gameStatus, COLS, processGridUpdate, lockedCells, checkRow]);
+        setUserGrid(newGrid);
+        processGridUpdate(newGrid, row);
+    }, [COLS, checkRow, processGridUpdate]);
 
     const handleBackspace = useCallback(() => {
-        if (gameStatus !== 'playing') return;
-        if (correctRows[activeRow]) return;
+        if (gameStatusRef.current !== 'playing') return;
+        const row = activeRowRef.current;
+        if (correctRowsRef.current[row]) return;
 
-        setUserGrid((prev) => {
-            const newGrid = prev.map((r) => [...r]);
-            let colToClear = -1;
+        const locked = lockedCellsRef.current[row];
+        const col = activeColRef.current;
+        const newGrid = userGridRef.current.map((r) => [...r]);
+        let colToClear = -1;
 
-            if (!lockedCells[activeRow][activeCol] && newGrid[activeRow][activeCol] !== '') {
-                colToClear = activeCol;
-            } else {
-                let prevCol = activeCol - 1;
-                while (prevCol >= 0 && lockedCells[activeRow][prevCol]) {
-                    prevCol--;
-                }
-                if (prevCol >= 0) {
-                    colToClear = prevCol;
-                }
-            }
-
-            if (colToClear !== -1) {
-                newGrid[activeRow][colToClear] = '';
-                setActiveCol(colToClear);
-            }
-            return newGrid;
-        });
-    }, [activeRow, activeCol, correctRows, gameStatus, lockedCells]);
-
-    const handleEnter = useCallback(() => {
-        if (gameStatus !== 'playing') return;
-
-        const isRowFull = userGrid[activeRow].every(cell => cell !== '');
-        if (isRowFull && !checkRow(activeRow, userGrid)) {
-            playSound('wrong');
-        }
-
-        const nextRow = correctRows.findIndex((c, i) => i > activeRow && !c);
-        if (nextRow !== -1) {
-            setActiveRow(nextRow);
-            setActiveCol(0);
+        if (!locked[col] && newGrid[row][col] !== '') {
+            colToClear = col;
         } else {
-            const firstNextRow = correctRows.findIndex(c => !c);
-            if (firstNextRow !== -1) {
-                setActiveRow(firstNextRow);
-                setActiveCol(0);
-            }
+            let prevCol = col - 1;
+            while (prevCol >= 0 && locked[prevCol]) prevCol--;
+            if (prevCol >= 0) colToClear = prevCol;
         }
-    }, [activeRow, correctRows, gameStatus, userGrid, checkRow]);
+
+        if (colToClear !== -1) {
+            newGrid[row][colToClear] = '';
+            userGridRef.current = newGrid;
+            activeColRef.current = colToClear;
+            setActiveCol(colToClear);
+            setUserGrid(newGrid);
+        }
+    }, []);
 
     const selectCell = useCallback((row: number, col: number) => {
-        if (correctRows[row]) return;
-        if (lockedCells[row][col]) return;
-        setActiveRow(row);
-        setActiveCol(col);
-    }, [correctRows, lockedCells]);
+        if (correctRowsRef.current[row]) return;
+        if (lockedCellsRef.current[row][col]) return;
+        setActivePos(row, col);
+    }, [setActivePos]);
 
     const useHint = useCallback(() => {
-        if (gameStatus !== 'playing' || correctRows[activeRow]) return;
+        if (gameStatusRef.current !== 'playing') return;
+        const row = activeRowRef.current;
+        if (correctRowsRef.current[row]) return;
 
-        if (hintLevels[activeRow] < 2) {
+        if (hintLevelsRef.current[row] < 2) {
             // Revela a próxima dica de texto
-            setHintLevels(prev => {
-                const next = [...prev];
-                next[activeRow]++;
-                return next;
-            });
-        } else {
-            // Já revelou as 3 dicas (índices 0, 1 e 2). Começa a preencher letras
-            const unrevealedCols: number[] = [];
-            for (let c = 0; c < COLS; c++) {
-                if (userGrid[activeRow][c] !== SOLUTION[activeRow][c]) {
-                    unrevealedCols.push(c);
-                }
-            }
-
-            if (unrevealedCols.length > 0) {
-                // Revela de 1 a 3 letras
-                const numToReveal = Math.min(unrevealedCols.length, Math.floor(Math.random() * 3) + 1);
-
-                // Shuffle
-                for (let i = unrevealedCols.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [unrevealedCols[i], unrevealedCols[j]] = [unrevealedCols[j], unrevealedCols[i]];
-                }
-
-                const colsToReveal = unrevealedCols.slice(0, numToReveal);
-
-                setUserGrid(prev => {
-                    const newGrid = prev.map(r => [...r]);
-                    for (const c of colsToReveal) {
-                        newGrid[activeRow][c] = SOLUTION[activeRow][c];
-                    }
-                    processGridUpdate(newGrid);
-                    return newGrid;
-                });
-
-                setLockedCells(prev => {
-                    const newLocked = prev.map(r => [...r]);
-                    for (const c of colsToReveal) {
-                        newLocked[activeRow][c] = true;
-                    }
-                    return newLocked;
-                });
-            }
+            const next = [...hintLevelsRef.current];
+            next[row]++;
+            hintLevelsRef.current = next;
+            setHintLevels(next);
+            return;
         }
-    }, [activeRow, correctRows, gameStatus, hintLevels, COLS, userGrid, SOLUTION, processGridUpdate, lockedCells]);
+
+        // Já revelou as 3 dicas (índices 0, 1 e 2). Começa a preencher letras
+        const grid = userGridRef.current;
+        const unrevealedCols: number[] = [];
+        for (let c = 0; c < COLS; c++) {
+            if (grid[row][c] !== SOLUTION[row][c]) unrevealedCols.push(c);
+        }
+        if (unrevealedCols.length === 0) return;
+
+        // Revela de 1 a 3 letras
+        const numToReveal = Math.min(unrevealedCols.length, Math.floor(Math.random() * 3) + 1);
+
+        // Shuffle
+        for (let i = unrevealedCols.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [unrevealedCols[i], unrevealedCols[j]] = [unrevealedCols[j], unrevealedCols[i]];
+        }
+        const colsToReveal = unrevealedCols.slice(0, numToReveal);
+
+        const newGrid = grid.map(r => [...r]);
+        for (const c of colsToReveal) newGrid[row][c] = SOLUTION[row][c];
+        userGridRef.current = newGrid;
+        setUserGrid(newGrid);
+
+        const newLocked = lockedCellsRef.current.map(r => [...r]);
+        for (const c of colsToReveal) newLocked[row][c] = true;
+        lockedCellsRef.current = newLocked;
+        setLockedCells(newLocked);
+
+        processGridUpdate(newGrid, row);
+    }, [COLS, SOLUTION, processGridUpdate]);
 
     const resetGame = useCallback(() => {
-        setUserGrid(createEmptyGrid());
-        setLockedCells(Array.from({ length: ROWS }, () => Array(COLS).fill(false)));
+        const emptyGrid = createEmptyGrid();
+        const emptyLocked = Array.from({ length: ROWS }, () => Array(COLS).fill(false));
+        const emptyCorrect = Array(ROWS).fill(false);
+        const emptyHints = Array(ROWS).fill(0);
+
+        userGridRef.current = emptyGrid;
+        lockedCellsRef.current = emptyLocked;
+        correctRowsRef.current = emptyCorrect;
+        hintLevelsRef.current = emptyHints;
+        gameStatusRef.current = 'playing';
+        timerRef.current = 0;
+        activeRowRef.current = 0;
+        activeColRef.current = 0;
+
+        setUserGrid(emptyGrid);
+        setLockedCells(emptyLocked);
         setActiveRow(0);
         setActiveCol(0);
-        setCorrectRows(Array(ROWS).fill(false));
-        setHintLevels(Array(ROWS).fill(0));
+        setCorrectRows(emptyCorrect);
+        setHintLevels(emptyHints);
         setGameStatus('playing');
         setTimer(0);
     }, [createEmptyGrid, ROWS, COLS]);
@@ -324,7 +316,6 @@ export function useGameState(puzzleId: string): GameState & GameActions {
         lockedCells,
         handleKeyPress,
         handleBackspace,
-        handleEnter,
         selectCell,
         useHint,
         resetGame,

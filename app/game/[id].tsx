@@ -93,7 +93,6 @@ export default function GameScreen() {
         <Keyboard
           onKeyPress={game.handleKeyPress}
           onBackspace={game.handleBackspace}
-          onEnter={game.handleEnter}
         />
       </View>
 

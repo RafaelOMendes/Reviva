@@ -19,7 +19,6 @@ const KEYS_PER_ROW = ROW1.length; // 10 teclas na linha mais larga
 interface KeyboardProps {
   onKeyPress: (key: string) => void;
   onBackspace: () => void;
-  onEnter: () => void;
 }
 
 interface KeyProps {
@@ -72,7 +71,7 @@ function Key({ label, onPress, isSpecial, keyWidth, keyHeight, flex }: KeyProps)
   );
 }
 
-export function Keyboard({ onKeyPress, onBackspace, onEnter }: KeyboardProps) {
+export function Keyboard({ onKeyPress, onBackspace }: KeyboardProps) {
   const { width, height } = useWindowDimensions();
 
   // Teclas calculadas dinamicamente pela largura disponível
@@ -100,13 +99,12 @@ export function Keyboard({ onKeyPress, onBackspace, onEnter }: KeyboardProps) {
         ))}
       </View>
 
-      {/* Linha 3 — backspace + letras + enter */}
-      <View style={[styles.row, { gap: KEY_GAP }]}>
-        <Key label="⌫" onPress={onBackspace} isSpecial flex={1.4} keyWidth={keyWidth} keyHeight={keyHeight} />
+      {/* Linha 3 — letras (largura fixa) + apagar, deslocada à direita */}
+      <View style={[styles.row, { gap: KEY_GAP, marginLeft: keyWidth * 1.3 }]}>
         {ROW3.map((k) => (
           <Key key={k} label={k} onPress={handleKey(k)} keyWidth={keyWidth} keyHeight={keyHeight} />
         ))}
-        <Key label="↵" onPress={onEnter} isSpecial flex={1.4} keyWidth={keyWidth} keyHeight={keyHeight} />
+        <Key label="⌫" onPress={onBackspace} isSpecial flex={1} keyWidth={keyWidth} keyHeight={keyHeight} />
       </View>
     </View>
   );

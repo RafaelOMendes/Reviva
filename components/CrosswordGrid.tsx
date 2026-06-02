@@ -61,9 +61,9 @@ function Cell({ letter, isActive, isActiveRow, isCorrect, isLocked, isAcrostic, 
   let textColor = Colors.textDark;
 
   if (isCorrect) {
-    baseBgColor = Colors.cellCorrect;
-    borderColor = Colors.cellCorrect;
-    textColor = Colors.cellCorrectText;
+    baseBgColor = isAcrostic ? Colors.acrosticCorrect : Colors.cellCorrect;
+    borderColor = isAcrostic ? Colors.acrosticCorrect : Colors.cellCorrect;
+    textColor = isAcrostic ? Colors.acrosticCorrectText : Colors.cellCorrectText;
   } else if (isLocked) {
     baseBgColor = '#E2E8F0';
     borderColor = '#CBD5E1';

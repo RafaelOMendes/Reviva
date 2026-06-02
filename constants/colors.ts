@@ -26,6 +26,8 @@ export const Colors = {
   acrosticBg: '#FDEEE4',       // Fundo da célula do acróstico
   acrosticActiveRow: '#F2D9C8',// Fundo do acróstico quando a linha está ativa
   acrosticBorder: '#C97C5D',   // Borda da célula do acróstico (coral)
+  acrosticCorrect: '#C97C5D',  // Célula do acróstico em linha já completada
+  acrosticCorrectText: '#FFFFFF',
 
   // Sombras
   shadow: 'rgba(0, 0, 0, 0.08)',
