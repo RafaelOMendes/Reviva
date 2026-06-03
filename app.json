@@ -14,7 +14,11 @@
       "backgroundColor": "#F9F6F0"
     },
     "ios": {
-      "supportsTablet": false
+      "supportsTablet": false,
+      "bundleIdentifier": "com.rafamendes.reviva",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -39,6 +43,12 @@
       "eas": {
         "projectId": "77628fe6-a012-42a2-8d97-ed81f4d39ef4"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/77628fe6-a012-42a2-8d97-ed81f4d39ef4"
     }
   }
 }

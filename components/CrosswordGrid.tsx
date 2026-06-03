@@ -7,6 +7,7 @@ import {
   useWindowDimensions,
   Animated,
 } from 'react-native';
+import { BlurView } from 'expo-blur';
 import { Colors } from '../constants/colors';
 
 const GRID_H_PADDING = 12;
@@ -171,39 +172,54 @@ export function CrosswordGrid({
   );
 
   return (
-    <View style={[styles.container, { marginHorizontal: GRID_MARGIN }]}>
-      {userGrid.map((row, rowIdx) => (
-        <View key={rowIdx} style={styles.row}>
-          {row.map((letter, colIdx) => (
-            <Cell
-              key={`${rowIdx}-${colIdx}`}
-              letter={letter}
-              isActive={rowIdx === activeRow && colIdx === activeCol}
-              isActiveRow={rowIdx === activeRow && !correctRows[rowIdx]}
-              isCorrect={correctRows[rowIdx]}
-              isLocked={lockedCells?.[rowIdx]?.[colIdx] || false}
-              isAcrostic={acrosticCols?.[rowIdx] === colIdx}
-              size={cellSize}
-              onPress={handlePress(rowIdx, colIdx)}
-            />
-          ))}
-        </View>
-      ))}
+    <View style={[styles.glassWrapper, { marginHorizontal: GRID_MARGIN }]}>
+      <BlurView
+        intensity={60}
+        tint="default"
+        experimentalBlurMethod="dimezisBlurView"
+        style={styles.glass}
+      >
+        {userGrid.map((row, rowIdx) => (
+          <View key={rowIdx} style={styles.row}>
+            {row.map((letter, colIdx) => (
+              <Cell
+                key={`${rowIdx}-${colIdx}`}
+                letter={letter}
+                isActive={rowIdx === activeRow && colIdx === activeCol}
+                isActiveRow={rowIdx === activeRow && !correctRows[rowIdx]}
+                isCorrect={correctRows[rowIdx]}
+                isLocked={lockedCells?.[rowIdx]?.[colIdx] || false}
+                isAcrostic={acrosticCols?.[rowIdx] === colIdx}
+                size={cellSize}
+                onPress={handlePress(rowIdx, colIdx)}
+              />
+            ))}
+          </View>
+        ))}
+      </BlurView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: Colors.gridBackground,
-    borderRadius: 16,
+  // Wrapper externo carrega a sombra (o BlurView usa overflow:hidden e cortaria a sombra)
+  glassWrapper: {
+    borderRadius: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.15,
+    shadowRadius: 16,
+    elevation: 6,
+  },
+  // Efeito liquid glass: blur do fundo + leve tonalidade clara e borda translúcida
+  glass: {
+    borderRadius: 20,
+    overflow: 'hidden',
     padding: GRID_H_PADDING,
     gap: CELL_GAP,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
-    elevation: 2,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.4)',
+    backgroundColor: 'transparent',
   },
   row: {
     flexDirection: 'row',

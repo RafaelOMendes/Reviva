@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import {
   View,
   Text,
@@ -8,9 +8,13 @@ import {
   TouchableOpacity,
   Animated,
   Easing,
+  ImageBackground,
+  Platform,
   useWindowDimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
+import * as NavigationBar from 'expo-navigation-bar';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { Colors } from '../../constants/colors';
 import { Header } from '../../components/Header';
@@ -43,6 +47,15 @@ export default function GameScreen() {
 
   const acrosticCols = game.puzzle?.words.map((w) => w.indiceLetraOculta) ?? [];
 
+  // Modo imersivo: esconde a barra de navegação do Android (a status bar é
+  // escondida via <StatusBar hidden />). Reaparecem com swipe na borda.
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      NavigationBar.setVisibilityAsync('hidden');
+      NavigationBar.setBehaviorAsync('overlay-swipe');
+    }
+  }, []);
+
   const isLandscape = width > height;
 
   const modalFontTitle = Math.min(28, width * 0.07);
@@ -51,7 +64,13 @@ export default function GameScreen() {
   if (!game.puzzle) return null;
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
+    <ImageBackground
+      source={require('../../assets/images/background.png')}
+      style={styles.bg}
+      resizeMode="cover"
+    >
+    <StatusBar hidden />
+    <SafeAreaView style={styles.safeArea} edges={[]}>
       <View style={styles.container}>
         <Header
           title={game.puzzle.title}
@@ -126,22 +145,28 @@ export default function GameScreen() {
         </View>
       </Modal>
     </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  bg: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+  },
   safeArea: {
     flex: 1,
-    backgroundColor: Colors.background,
+    backgroundColor: 'transparent',
   },
   container: {
     flex: 1,
-    backgroundColor: Colors.background,
+    backgroundColor: 'transparent',
   },
   mainArea: {
     flex: 1,
     justifyContent: 'space-between',
-    paddingBottom: 6,
+    paddingBottom: 0,
   },
   gridWrapper: {
     flex: 1,
@@ -150,7 +175,8 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
   bannerWrapper: {
-    marginVertical: 4,
+    marginTop: 4,
+    marginBottom: 0,
   },
   modalOverlay: {
     flex: 1,

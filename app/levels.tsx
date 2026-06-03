@@ -1,221 +1,422 @@
 import React, { useMemo } from 'react';
-import { View, Text, StyleSheet, SectionList, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  ImageBackground,
+  Image,
+  useWindowDimensions,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
 import { useRouter } from 'expo-router';
-import { Colors } from '../constants/colors';
 import { PUZZLES, THEMES, PuzzleData } from '../constants/puzzleData';
 import { useProgress } from '../hooks/useProgress';
 
-function formatTime(seconds: number) {
-  const m = Math.floor(seconds / 60).toString().padStart(2, '0');
-  const s = (seconds % 60).toString().padStart(2, '0');
-  return `${m}:${s}`;
-}
+// Paleta quente dos tiles (estilo do mockup)
+const TILE = {
+  bg: '#F6E7C1',
+  bgInner: '#FBF1D5',
+  border: 'rgba(255, 255, 255, 0.85)',
+  text: '#5B4327',
+  shadow: '#3A2C14',
+  done: '#6FAE7C',
+};
 
-interface Section {
-  title: string;
-  data: PuzzleData[];
+// Escolhe um emoji de acordo com palavras-chave do tema/título.
+// (não há arquivos de ícone nos assets, então usamos emoji — sempre renderiza)
+function iconFor(theme: string, title: string): string {
+  const s = `${theme} ${title}`.toLowerCase();
+  const has = (...words: string[]) => words.some((w) => s.includes(w));
+
+  if (has('música', 'musica', 'rádio', 'radio', 'radiola', 'som', 'ritmo', 'viola', 'sertanejo')) return '🎵';
+  if (has('animais', 'animal')) return '🐾';
+  if (has('cozinha', 'comida', 'fome', 'mesa', 'lanche', 'preparo', 'aliment')) return '🍲';
+  if (has('fruta')) return '🍎';
+  if (has('vasilha', 'panela', 'utensílio', 'utensilio')) return '🍳';
+  if (has('escola', 'material', 'aula', 'letras', 'papéis', 'papeis', 'carta', 'mensage', 'comunica')) return '✉️';
+  if (has('vaidade', 'banheiro', 'quarto', 'rosto', 'pessoal')) return '🪞';
+  if (has('moda', 'roupa', 'acessório', 'acessorio', 'varal')) return '👗';
+  if (has('rua', 'comércio', 'comercio', 'cidade', 'centro', 'calçada', 'calcada', 'compras')) return '🏘️';
+  if (has('dinheiro', 'moeda', 'economia')) return '💰';
+  if (has('brincadeira', 'pique', 'jogo', 'infância', 'infancia', 'alegria', 'baile')) return '🎈';
+  if (has('saúde', 'saude', 'cura', 'chá', 'cha', 'benzedura', 'medicina', 'botica', 'profissionais da saúde')) return '🌿';
+  if (has('casa', 'quintal', 'jardim', 'limpeza', 'descans', 'natureza')) return '🏡';
+  if (has('fazenda', 'roça', 'roca', 'plantação', 'plantacao', 'colheita')) return '🌾';
+  if (has('transporte', 'trem', 'estação', 'estacao', 'viagem')) return '🚂';
+  if (has('profiss', 'trabalhador', 'trabalhos manuais', 'manual')) return '🛠️';
+  if (has('festa', 'são joão', 'sao joao', 'tradição', 'tradicao')) return '🎉';
+  if (has('cinema', 'estrela')) return '🎬';
+  if (has('arte')) return '🎨';
+  if (has('luz', 'noite', 'objeto')) return '🕯️';
+  return '🧩';
 }
 
 export default function MenuScreen() {
   const router = useRouter();
+  const { width } = useWindowDimensions();
   const { progress, loading } = useProgress();
 
-  const sections: Section[] = useMemo(() => {
-    return THEMES.map((t) => ({
-      title: t.name,
-      data: t.puzzleIds
-        .map((id) => PUZZLES.find((p) => p.id === id))
-        .filter((p): p is PuzzleData => Boolean(p)),
-    }));
-  }, []);
+  // Caminho contínuo: todos os puzzles, na ordem dos temas (nada bloqueado)
+  const levels: PuzzleData[] = useMemo(
+    () =>
+      THEMES.flatMap((t) =>
+        t.puzzleIds
+          .map((id) => PUZZLES.find((p) => p.id === id))
+          .filter((p): p is PuzzleData => Boolean(p))
+      ),
+    []
+  );
 
-  const handleSelectPuzzle = (id: string) => {
-    router.push(`/game/${id}`);
+  // Geometria da trilha
+  const TILE_SIZE = 152;
+  const offset = width * 0.09; // deslocamento esquerda/direita dos tiles
+  const rowWidth = width - 20; // largura útil (path tem paddingHorizontal 10)
+  const leftCenter = offset + TILE_SIZE / 2; // centro X do tile à esquerda
+  const rightCenter = rowWidth - offset - TILE_SIZE / 2; // centro X do tile à direita
+
+  return (
+    <ImageBackground
+      source={require('../assets/images/background.png')}
+      style={styles.bg}
+      resizeMode="cover"
+    >
+      <StatusBar style="light" />
+      <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
+        <ScrollView
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
+          {/* Logo */}
+          <Image
+            source={require('../assets/images/title.png')}
+            style={[styles.titleImg, { width: width * 0.82 }]}
+            resizeMode="contain"
+          />
+
+          {/* Coruja + balão de fala */}
+          <View style={styles.owlRow}>
+            <Image
+              source={require('../assets/images/owl.png')}
+              style={styles.owlImg}
+              resizeMode="contain"
+            />
+            <View style={styles.bubble}>
+              <Text style={styles.bubbleName}>Saulo:</Text>
+              <Text style={styles.bubbleText}>Comece por aqui!</Text>
+              <View style={styles.bubbleTail} />
+            </View>
+          </View>
+
+          {/* Trilha de níveis */}
+          <View style={styles.path}>
+            {levels.map((p, i) => {
+              const isRight = i % 2 === 1;
+              const prevIsRight = (i - 1) % 2 === 1;
+              const done = Boolean(progress[p.id]?.completed);
+              // Trilha: sai da BORDA lateral do tile anterior, na altura baixa-média e
+              // logo do lado de fora da box; termina no CENTRO da próxima box.
+              const side = prevIsRight ? -1 : 1;
+              const prevCenter = prevIsRight ? rightCenter : leftCenter;
+              const nextCenter = isRight ? rightCenter : leftCenter;
+              const start = {
+                x: prevCenter + side * (TILE_SIZE / 2 + 22), // puxado rumo ao centro da tela
+                y: -TILE_SIZE * 0.19, // altura baixa-média do tile
+              };
+              const end = {
+                x: nextCenter, // metade (centro) da próxima box
+                y: DOTS_HEIGHT - 22, // mais afastado da próxima box
+              };
+              return (
+                <View key={p.id} style={styles.pathRow}>
+                  {i > 0 && <Dots start={start} end={end} />}
+                  <TouchableOpacity
+                    activeOpacity={0.85}
+                    onPress={() => router.push(`/game/${p.id}`)}
+                    style={[
+                      styles.tile,
+                      {
+                        width: TILE_SIZE,
+                        height: TILE_SIZE,
+                        alignSelf: isRight ? 'flex-end' : 'flex-start',
+                        marginLeft: isRight ? 0 : offset,
+                        marginRight: isRight ? offset : 0,
+                      },
+                      done && styles.tileDone,
+                    ]}
+                  >
+                    <View style={styles.tileInner}>
+                      <Text style={styles.tileIcon}>{iconFor(p.theme, p.title)}</Text>
+                      <Text style={styles.tileLabel} numberOfLines={2}>
+                        {p.title}
+                      </Text>
+                    </View>
+                    {done && (
+                      <View style={styles.doneBadge}>
+                        <Text style={styles.doneBadgeText}>✓</Text>
+                      </View>
+                    )}
+                  </TouchableOpacity>
+                </View>
+              );
+            })}
+          </View>
+        </ScrollView>
+
+        {/* Botão voltar flutuante */}
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => router.replace('/')}
+          activeOpacity={0.8}
+          accessibilityLabel="Voltar"
+          accessibilityRole="button"
+        >
+          <Text style={styles.backArrow}>←</Text>
+        </TouchableOpacity>
+      </SafeAreaView>
+    </ImageBackground>
+  );
+}
+
+// Conector pontilhado em CURVA: os pontos saem do canto inferior direito do
+// tile de cima (subindo um pouco) e descem em arco até o topo do próximo tile.
+// startX = X do canto inferior direito do tile anterior; endX = centro X do próximo.
+const DOTS_COUNT = 4;
+const DOTS_HEIGHT = 64;
+const DOT_SIZE = 16;
+
+type Pt = { x: number; y: number };
+
+function Dots({ start, end }: { start: Pt; end: Pt }) {
+  // Curva quadrática de start (borda do tile) até end (centro do próximo tile).
+  const S = start;
+  const E = end;
+  // Arco arredondado: desloca o controle para fora (lado da saída) + leve queda.
+  const mx = (S.x + E.x) / 2;
+  const my = (S.y + E.y) / 2;
+  const BOW = 40; // quanto maior, mais arredondado
+  const C = { x: mx + (E.x >= S.x ? 1 : -1) * BOW, y: my + 16 };
+
+  const bezier = (t: number) => {
+    const mt = 1 - t;
+    return {
+      x: mt * mt * S.x + 2 * mt * t * C.x + t * t * E.x,
+      y: mt * mt * S.y + 2 * mt * t * C.y + t * t * E.y,
+    };
+  };
+
+  // Amostra a curva e mede o comprimento acumulado para espaçar os pontos por
+  // distância igual (amostragem uniforme em t deixaria os pontos desiguais).
+  const SAMPLES = 80;
+  const pts: Pt[] = [bezier(0)];
+  const cum: number[] = [0];
+  for (let i = 1; i <= SAMPLES; i++) {
+    const p = bezier(i / SAMPLES);
+    cum.push(cum[i - 1] + Math.hypot(p.x - pts[i - 1].x, p.y - pts[i - 1].y));
+    pts.push(p);
+  }
+  const total = cum[SAMPLES];
+
+  const pointAtLength = (target: number) => {
+    let i = 1;
+    while (i < SAMPLES && cum[i] < target) i++;
+    const seg = cum[i] - cum[i - 1] || 1;
+    const f = (target - cum[i - 1]) / seg;
+    const a = pts[i - 1];
+    const b = pts[i];
+    return { x: a.x + (b.x - a.x) * f, y: a.y + (b.y - a.y) * f };
   };
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={() => router.replace('/')}
-          >
-            <Text style={styles.backArrow}>←</Text>
-          </TouchableOpacity>
-          <View style={styles.headerTitles}>
-            <Text style={styles.title}>Reviva</Text>
-            <Text style={styles.subtitle}>Selecione um Puzzle</Text>
-          </View>
-        </View>
-
-        {!loading && (
-          <SectionList
-            sections={sections}
-            keyExtractor={(item) => item.id}
-            contentContainerStyle={styles.listContent}
-            stickySectionHeadersEnabled={false}
-            renderSectionHeader={({ section }) => {
-              const completed = section.data.filter((p) => progress[p.id]?.completed).length;
-              return (
-                <View style={styles.sectionHeader}>
-                  <Text style={styles.sectionTitle}>{section.title}</Text>
-                  <Text style={styles.sectionCount}>
-                    {completed}/{section.data.length}
-                  </Text>
-                </View>
-              );
-            }}
-            renderItem={({ item }) => {
-              const pData = progress[item.id];
-              const isCompleted = pData?.completed;
-
-              return (
-                <TouchableOpacity
-                  style={[styles.card, isCompleted && styles.cardCompleted]}
-                  activeOpacity={0.8}
-                  onPress={() => handleSelectPuzzle(item.id)}
-                >
-                  <View style={styles.cardHeader}>
-                    <Text style={[styles.cardTitle, isCompleted && styles.textCompleted]}>
-                      {item.title}
-                    </Text>
-                    {isCompleted && <Text style={styles.badgeEmoji}>✅</Text>}
-                  </View>
-
-                  <View style={styles.cardFooter}>
-                    <Text style={styles.difficulty}>
-                      Dificuldade: {item.difficulty}
-                    </Text>
-                    {isCompleted && pData.timeSpent > 0 && (
-                      <Text style={styles.stats}>
-                        Tempo: {formatTime(pData.timeSpent)}
-                      </Text>
-                    )}
-                  </View>
-                </TouchableOpacity>
-              );
-            }}
+    <View style={styles.dots} pointerEvents="none">
+      {Array.from({ length: DOTS_COUNT }).map((_, k) => {
+        // 1º ponto exatamente no início (borda do tile), espaçamento igual
+        const p = pointAtLength((total * k) / (DOTS_COUNT - 1));
+        return (
+          <View
+            key={k}
+            style={[
+              styles.dot,
+              { position: 'absolute', left: p.x - DOT_SIZE / 2, top: p.y - DOT_SIZE / 2 },
+            ]}
           />
-        )}
-      </View>
-    </SafeAreaView>
+        );
+      })}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  bg: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+  },
   safeArea: {
     flex: 1,
-    backgroundColor: Colors.background,
   },
-  container: {
-    flex: 1,
-    paddingHorizontal: 20,
+  scrollContent: {
+    alignItems: 'center',
+    paddingTop: 56,
+    paddingBottom: 60,
   },
-  header: {
+  titleImg: {
+    height: 120,
+    marginTop: 0,
+  },
+  owlRow: {
     flexDirection: 'row',
-    marginTop: 24,
-    marginBottom: 24,
+    alignItems: 'center',
+    alignSelf: 'stretch',
+    paddingHorizontal: 20,
+    marginTop: 4,
+    marginBottom: 8,
+  },
+  owlImg: {
+    width: 104,
+    height: 104,
+  },
+  bubble: {
+    flex: 1,
+    marginLeft: 6,
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    borderRadius: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.25,
+    shadowRadius: 6,
+    elevation: 5,
+  },
+  bubbleTail: {
+    position: 'absolute',
+    left: -8,
+    top: 22,
+    width: 16,
+    height: 16,
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    transform: [{ rotate: '45deg' }],
+  },
+  bubbleName: {
+    fontSize: 12,
+    color: '#8A6D3B',
+    fontFamily: 'PlusJakartaSans_600SemiBold',
+    marginBottom: 2,
+  },
+  bubbleText: {
+    fontSize: 17,
+    color: '#3A2C14',
+    fontFamily: 'PlusJakartaSans_700Bold',
+  },
+  path: {
+    alignSelf: 'stretch',
+    paddingHorizontal: 10,
+    marginTop: 4,
+  },
+  pathRow: {
+    width: '100%',
+    alignItems: 'center',
+  },
+  dots: {
+    alignSelf: 'stretch',
+    height: DOTS_HEIGHT,
+  },
+  dot: {
+    width: DOT_SIZE,
+    height: DOT_SIZE,
+    borderRadius: DOT_SIZE / 2,
+    backgroundColor: '#fdcc58',
+    borderWidth: 2,
+    borderColor: '#837359',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.35,
+    shadowRadius: 3,
+    elevation: 4,
+  },
+  tile: {
+    borderRadius: 24,
+    backgroundColor: TILE.bg,
+    borderWidth: 4,
+    borderColor: TILE.border,
+    padding: 6,
+    shadowColor: TILE.shadow,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.35,
+    shadowRadius: 8,
+    elevation: 7,
+  },
+  tileDone: {
+    borderColor: TILE.done,
+  },
+  tileInner: {
+    flex: 1,
+    borderRadius: 18,
+    backgroundColor: TILE.bgInner,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 8,
+  },
+  tileIcon: {
+    fontSize: 64,
+    marginBottom: 4,
+  },
+  tileLabel: {
+    fontSize: 12,
+    lineHeight: 14,
+    textAlign: 'center',
+    color: TILE.text,
+    fontFamily: 'PlusJakartaSans_700Bold',
+    textTransform: 'uppercase',
+    letterSpacing: 0.2,
+  },
+  doneBadge: {
+    position: 'absolute',
+    top: -8,
+    right: -8,
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: TILE.done,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: '#FFFFFF',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 4,
+  },
+  doneBadgeText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '700',
+    fontFamily: 'PlusJakartaSans_700Bold',
   },
   backButton: {
     position: 'absolute',
-    left: 0,
-    padding: 8,
-    zIndex: 10,
+    top: 50,
+    left: 16,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: 'rgba(31, 41, 55, 0.45)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
   },
   backArrow: {
-    fontSize: 28,
-    color: Colors.textDark,
-    fontWeight: '600',
-  },
-  headerTitles: {
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 32,
+    fontSize: 26,
+    color: '#FFFFFF',
     fontWeight: '700',
-    color: Colors.primary,
-    fontFamily: 'PlusJakartaSans_700Bold',
-  },
-  subtitle: {
-    fontSize: 16,
-    color: Colors.textMedium,
-    marginTop: 8,
-    fontFamily: 'PlusJakartaSans_400Regular',
-  },
-  listContent: {
-    paddingBottom: 40,
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: Colors.background,
-    paddingTop: 20,
-    paddingBottom: 10,
-  },
-  sectionTitle: {
-    fontSize: 20,
-    color: Colors.primary,
-    fontFamily: 'PlusJakartaSans_700Bold',
-    flex: 1,
-  },
-  sectionCount: {
-    fontSize: 13,
-    color: Colors.textMedium,
-    fontFamily: 'PlusJakartaSans_600SemiBold',
-    backgroundColor: Colors.gridBackground,
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: 10,
-    overflow: 'hidden',
-  },
-  card: {
-    backgroundColor: Colors.gridBackground,
-    borderRadius: 16,
-    padding: 20,
-    borderWidth: 2,
-    borderColor: 'transparent',
-    marginBottom: 12,
-  },
-  cardCompleted: {
-    borderColor: Colors.primary,
-    backgroundColor: '#E8F1F0',
-  },
-  cardHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  cardTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: Colors.textDark,
-    fontFamily: 'PlusJakartaSans_700Bold',
-    flex: 1,
-  },
-  textCompleted: {
-    color: Colors.primary,
-  },
-  badgeEmoji: {
-    fontSize: 18,
-  },
-  cardFooter: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  difficulty: {
-    fontSize: 14,
-    color: Colors.textMedium,
-    fontFamily: 'PlusJakartaSans_600SemiBold',
-  },
-  stats: {
-    fontSize: 14,
-    color: Colors.textMedium,
-    fontFamily: 'PlusJakartaSans_400Regular',
+    marginTop: -10,
   },
 });

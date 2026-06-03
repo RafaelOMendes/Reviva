@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Platform,
 } from 'react-native';
+import { BlurView } from 'expo-blur';
 import { Colors } from '../constants/colors';
 
 interface HeaderProps {
@@ -24,7 +25,12 @@ function formatTime(seconds: number) {
 
 export function Header({ onBack, onUseHint, timer = 0, title = 'Reviva', progressText }: HeaderProps) {
   return (
-    <View style={styles.container}>
+    <BlurView
+      intensity={60}
+      tint="default"
+      experimentalBlurMethod="dimezisBlurView"
+      style={styles.container}
+    >
       <TouchableOpacity
         style={styles.iconButton}
         onPress={onBack}
@@ -52,7 +58,7 @@ export function Header({ onBack, onUseHint, timer = 0, title = 'Reviva', progres
           <Text style={styles.hintIcon}>💡</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </BlurView>
   );
 }
 
@@ -62,9 +68,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
-    paddingTop: Platform.OS === 'android' ? 16 : 8,
+    paddingTop: Platform.OS === 'android' ? 48 : 32,
     paddingBottom: 12,
-    backgroundColor: Colors.background,
+    backgroundColor: 'transparent',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 255, 255, 0.4)',
   },
   iconButton: {
     width: 40,
@@ -79,8 +87,11 @@ const styles = StyleSheet.create({
   },
   backArrow: {
     fontSize: 28,
-    color: Colors.textDark,
+    color: Colors.textLight,
     fontWeight: '600',
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 4,
   },
   centerContainer: {
     alignItems: 'center',
@@ -90,22 +101,31 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: '700',
-    color: Colors.textDark,
+    color: Colors.textLight,
     letterSpacing: 0.5,
     fontFamily: 'PlusJakartaSans_700Bold',
     textAlign: 'center',
+    textShadowColor: 'rgba(0, 0, 0, 0.55)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 4,
   },
   timer: {
     fontSize: 16,
-    color: Colors.textMedium,
+    color: Colors.textLight,
     fontFamily: 'PlusJakartaSans_600SemiBold',
     marginTop: 2,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 4,
   },
   progress: {
     fontSize: 12,
-    color: Colors.textMedium,
+    color: Colors.textLight,
     fontFamily: 'PlusJakartaSans_600SemiBold',
     marginTop: 2,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 4,
   },
   rightActions: {
     flexDirection: 'row',

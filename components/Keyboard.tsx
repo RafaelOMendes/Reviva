@@ -6,6 +6,9 @@ import {
   StyleSheet,
   useWindowDimensions,
 } from 'react-native';
+import { BlurView } from 'expo-blur';
+import { LinearGradient } from 'expo-linear-gradient';
+import MaskedView from '@react-native-masked-view/masked-view';
 import { Colors } from '../constants/colors';
 
 const ROW1 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
@@ -31,7 +34,7 @@ interface KeyProps {
 }
 
 function Key({ label, onPress, isSpecial, keyWidth, keyHeight, flex }: KeyProps) {
-  const fontSize = Math.max(16, Math.min(24, keyWidth * 0.5));
+  const fontSize = Math.max(19, Math.min(28, keyWidth * 0.58));
 
   return (
     <TouchableOpacity
@@ -79,12 +82,31 @@ export function Keyboard({ onKeyPress, onBackspace }: KeyboardProps) {
   const keyWidth = Math.floor((availableWidth - KEY_GAP * (KEYS_PER_ROW - 1)) / KEYS_PER_ROW);
 
   // Altura da tecla um pouco maior para facilitar o toque
-  const keyHeight = Math.min(65, Math.max(45, height * 0.075));
+  const keyHeight = Math.min(74, Math.max(52, height * 0.086));
 
   const handleKey = useCallback((k: string) => () => onKeyPress(k), [onKeyPress]);
 
   return (
     <View style={[styles.container, { paddingHorizontal: H_PADDING }]}>
+      {/* Fundo de vidro com transição bem curta no topo */}
+      <MaskedView
+        style={StyleSheet.absoluteFill}
+        maskElement={
+          <LinearGradient
+            colors={['transparent', '#000', '#000']}
+            locations={[0, 0.06, 1]}
+            style={StyleSheet.absoluteFill}
+          />
+        }
+      >
+        <BlurView
+          intensity={20}
+          tint="default"
+          experimentalBlurMethod="dimezisBlurView"
+          style={[StyleSheet.absoluteFill, { opacity: 0.8 }]}
+        />
+      </MaskedView>
+
       {/* Linha 1 */}
       <View style={[styles.row, { gap: KEY_GAP }]}>
         {ROW1.map((k) => (
@@ -112,10 +134,11 @@ export function Keyboard({ onKeyPress, onBackspace }: KeyboardProps) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.gridBackground,
-    paddingTop: 10,
+    backgroundColor: 'transparent',
+    paddingTop: 28,
     paddingBottom: 14,
     gap: KEY_GAP,
+    overflow: 'hidden',
   },
   row: {
     flexDirection: 'row',
