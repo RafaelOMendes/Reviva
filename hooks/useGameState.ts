@@ -3,6 +3,7 @@ import { Audio } from 'expo-av';
 import { bgMusicRef } from '../app/_layout';
 import { PUZZLES, buildGrid, PuzzleData } from '../constants/puzzleData';
 import { useProgress } from './useProgress';
+import { loadSavedGrid, saveGrid, clearSavedGrid } from './gameStorage';
 
 export type GameStatus = 'playing' | 'won';
 
@@ -16,6 +17,8 @@ export interface GameState {
     hintLevels: number[];        // Quantas dicas de texto já foram reveladas por linha (0 a 2)
     timer: number;
     lockedCells: boolean[][];    // Células bloqueadas (reveladas por dica)
+    hydrated: boolean;           // true quando o estado salvo já foi carregado do AsyncStorage
+    justWon: boolean;            // true só quando a vitória aconteceu agora (não ao reabrir nível concluído)
 }
 
 export interface GameActions {
@@ -46,6 +49,8 @@ export function useGameState(puzzleId: string): GameState & GameActions {
     const [lockedCells, setLockedCells] = useState<boolean[][]>(() =>
         Array.from({ length: ROWS }, () => Array(COLS).fill(false))
     );
+    const [justWon, setJustWon] = useState(false);
+    const [hydrated, setHydrated] = useState(false);
 
     // Refs espelham o estado para que toques rápidos leiam sempre o valor mais
     // recente — sem isso, digitar rápido usa um `activeCol`/grid defasado do
@@ -58,6 +63,8 @@ export function useGameState(puzzleId: string): GameState & GameActions {
     const hintLevelsRef = useRef<number[]>(hintLevels);
     const gameStatusRef = useRef<GameStatus>('playing');
     const timerRef = useRef(0);
+    const hydratedRef = useRef(false);
+    const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     useEffect(() => { timerRef.current = timer; }, [timer]);
 
@@ -69,7 +76,102 @@ export function useGameState(puzzleId: string): GameState & GameActions {
         setActiveCol(col);
     }, []);
 
-    const { savePuzzleProgress } = useProgress();
+    const { savePuzzleProgress, removePuzzleProgress } = useProgress();
+
+    // --- Persistência da grade (palavras digitadas) por nível ---
+    const writeGrid = useCallback(() => {
+        // Não mexe no storage antes de carregar o estado salvo, senão um flush
+        // precoce (sair do nível antes da hidratação) apagaria o que já existia.
+        if (!hydratedRef.current) return;
+        const blank =
+            userGridRef.current.every((r) => r.every((c) => c === '')) &&
+            hintLevelsRef.current.every((h) => h === 0) &&
+            !lockedCellsRef.current.some((r) => r.some(Boolean));
+        if (blank) {
+            // Nada preenchido: não cria/limpa a chave (mantém o storage enxuto).
+            clearSavedGrid(puzzle.id);
+        } else {
+            saveGrid(puzzle.id, {
+                userGrid: userGridRef.current,
+                lockedCells: lockedCellsRef.current,
+                hintLevels: hintLevelsRef.current,
+                timer: timerRef.current,
+            });
+        }
+    }, [puzzle.id]);
+
+    const persistState = useCallback(() => {
+        if (saveTimer.current) clearTimeout(saveTimer.current);
+        saveTimer.current = setTimeout(() => {
+            saveTimer.current = null;
+            writeGrid();
+        }, 300);
+    }, [writeGrid]);
+
+    // Carrega o estado salvo ao montar (ou ao trocar de nível).
+    useEffect(() => {
+        let active = true;
+        (async () => {
+            const saved = await loadSavedGrid(puzzle.id);
+            const dimsOk =
+                !!saved &&
+                saved.userGrid?.length === ROWS &&
+                saved.userGrid.every((r) => r.length === COLS);
+            if (active && dimsOk && saved) {
+                const locked =
+                    saved.lockedCells?.length === ROWS &&
+                    saved.lockedCells.every((r) => r.length === COLS)
+                        ? saved.lockedCells
+                        : Array.from({ length: ROWS }, () => Array(COLS).fill(false));
+                const hints =
+                    saved.hintLevels?.length === ROWS ? saved.hintLevels : Array(ROWS).fill(0);
+                const cr = saved.userGrid.map((r, i) => r.join('') === SOLUTION[i].join(''));
+                const won = cr.every(Boolean);
+                let firstRow = cr.findIndex((c) => !c);
+                if (firstRow === -1) firstRow = 0;
+                let firstCol = 0;
+                while (firstCol < COLS && locked[firstRow]?.[firstCol]) firstCol++;
+                if (firstCol >= COLS) firstCol = 0;
+
+                userGridRef.current = saved.userGrid;
+                lockedCellsRef.current = locked;
+                hintLevelsRef.current = hints;
+                correctRowsRef.current = cr;
+                gameStatusRef.current = won ? 'won' : 'playing';
+                timerRef.current = saved.timer ?? 0;
+                activeRowRef.current = firstRow;
+                activeColRef.current = firstCol;
+
+                setUserGrid(saved.userGrid);
+                setLockedCells(locked);
+                setHintLevels(hints);
+                setCorrectRows(cr);
+                setGameStatus(won ? 'won' : 'playing');
+                setTimer(saved.timer ?? 0);
+                setActiveRow(firstRow);
+                setActiveCol(firstCol);
+            }
+            if (active) {
+                hydratedRef.current = true;
+                setHydrated(true);
+            }
+        })();
+        return () => {
+            active = false;
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [puzzle.id]);
+
+    // Grava o progresso ao sair da tela (flush imediato do que estiver pendente).
+    useEffect(() => {
+        return () => {
+            if (saveTimer.current) {
+                clearTimeout(saveTimer.current);
+                saveTimer.current = null;
+            }
+            writeGrid();
+        };
+    }, [writeGrid]);
 
     // Timer
     useEffect(() => {
@@ -162,6 +264,7 @@ export function useGameState(puzzleId: string): GameState & GameActions {
         if (newCorrectRows.every(Boolean)) {
             gameStatusRef.current = 'won';
             setGameStatus('won');
+            setJustWon(true);
             playSound('win');
             savePuzzleProgress(puzzle.id, { completed: true, hintsUsed: 0, timeSpent: timerRef.current });
         } else {
@@ -173,6 +276,7 @@ export function useGameState(puzzleId: string): GameState & GameActions {
     }, [checkRow, playSound, savePuzzleProgress, puzzle.id, setActivePos]);
 
     const handleKeyPress = useCallback((key: string) => {
+        if (!hydratedRef.current) return;
         if (gameStatusRef.current !== 'playing') return;
         const row = activeRowRef.current;
         if (correctRowsRef.current[row]) return;
@@ -199,9 +303,11 @@ export function useGameState(puzzleId: string): GameState & GameActions {
 
         setUserGrid(newGrid);
         processGridUpdate(newGrid, row);
-    }, [COLS, checkRow, processGridUpdate]);
+        persistState();
+    }, [COLS, checkRow, processGridUpdate, persistState]);
 
     const handleBackspace = useCallback(() => {
+        if (!hydratedRef.current) return;
         if (gameStatusRef.current !== 'playing') return;
         const row = activeRowRef.current;
         if (correctRowsRef.current[row]) return;
@@ -225,8 +331,9 @@ export function useGameState(puzzleId: string): GameState & GameActions {
             activeColRef.current = colToClear;
             setActiveCol(colToClear);
             setUserGrid(newGrid);
+            persistState();
         }
-    }, []);
+    }, [persistState]);
 
     const selectCell = useCallback((row: number, col: number) => {
         if (correctRowsRef.current[row]) return;
@@ -235,6 +342,7 @@ export function useGameState(puzzleId: string): GameState & GameActions {
     }, [setActivePos]);
 
     const useHint = useCallback(() => {
+        if (!hydratedRef.current) return;
         if (gameStatusRef.current !== 'playing') return;
         const row = activeRowRef.current;
         if (correctRowsRef.current[row]) return;
@@ -245,6 +353,7 @@ export function useGameState(puzzleId: string): GameState & GameActions {
             next[row]++;
             hintLevelsRef.current = next;
             setHintLevels(next);
+            persistState();
             return;
         }
 
@@ -277,13 +386,19 @@ export function useGameState(puzzleId: string): GameState & GameActions {
         setLockedCells(newLocked);
 
         processGridUpdate(newGrid, row);
-    }, [COLS, SOLUTION, processGridUpdate]);
+        persistState();
+    }, [COLS, SOLUTION, processGridUpdate, persistState]);
 
     const resetGame = useCallback(() => {
         const emptyGrid = createEmptyGrid();
         const emptyLocked = Array.from({ length: ROWS }, () => Array(COLS).fill(false));
         const emptyCorrect = Array(ROWS).fill(false);
         const emptyHints = Array(ROWS).fill(0);
+
+        if (saveTimer.current) {
+            clearTimeout(saveTimer.current);
+            saveTimer.current = null;
+        }
 
         userGridRef.current = emptyGrid;
         lockedCellsRef.current = emptyLocked;
@@ -301,8 +416,13 @@ export function useGameState(puzzleId: string): GameState & GameActions {
         setCorrectRows(emptyCorrect);
         setHintLevels(emptyHints);
         setGameStatus('playing');
+        setJustWon(false);
         setTimer(0);
-    }, [createEmptyGrid, ROWS, COLS]);
+
+        // Apaga o que estava salvo deste nível: grade digitada + marca de conclusão.
+        clearSavedGrid(puzzle.id);
+        removePuzzleProgress(puzzle.id);
+    }, [createEmptyGrid, ROWS, COLS, puzzle.id, removePuzzleProgress]);
 
     return {
         puzzle,
@@ -314,6 +434,8 @@ export function useGameState(puzzleId: string): GameState & GameActions {
         hintLevels,
         timer,
         lockedCells,
+        hydrated,
+        justWon,
         handleKeyPress,
         handleBackspace,
         selectCell,

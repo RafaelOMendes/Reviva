@@ -10,6 +10,7 @@ import {
   Easing,
   ImageBackground,
   Platform,
+  Alert,
   useWindowDimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -22,6 +23,7 @@ import { CrosswordGrid } from '../../components/CrosswordGrid';
 import { ClueBanner } from '../../components/ClueBanner';
 import { Keyboard } from '../../components/Keyboard';
 import { useGameState } from '../../hooks/useGameState';
+import { setLastLevel } from '../../hooks/gameStorage';
 
 function formatTime(seconds: number) {
   const m = Math.floor(seconds / 60).toString().padStart(2, '0');
@@ -38,6 +40,23 @@ export default function GameScreen() {
   const game = useGameState((id as string) || 'level-1');
   const bounceAnim = useRef(new Animated.Value(1)).current;
   const scrollViewRef = useRef<ScrollView>(null);
+
+  // Registra este como o último nível aberto (para o autoscroll na tela de níveis)
+  useEffect(() => {
+    if (game.puzzle) setLastLevel(game.puzzle.id);
+  }, [game.puzzle?.id]);
+
+  // Botão de resetar no header: confirma antes de apagar as letras do nível
+  const handleReset = () => {
+    Alert.alert(
+      'Recomeçar nível',
+      'Está ação irá apagar as palavras preenchidas. Tem certeza?',
+      [
+        { text: 'Cancelar', style: 'cancel' },
+        { text: 'Recomeçar', style: 'destructive', onPress: () => game.resetGame() },
+      ]
+    );
+  };
 
   // triggerBounce não é mais estritamente necessário aqui, a animação vai para o Cell
   // O nível atual da dica (0 a 2)
@@ -77,6 +96,7 @@ export default function GameScreen() {
           progressText={`${game.correctRows.filter(Boolean).length}/${game.puzzle.rows} palavras`}
           onBack={() => router.replace('/levels')}
           onUseHint={game.useHint}
+          onReset={handleReset}
           timer={game.timer}
         />
 
@@ -116,7 +136,7 @@ export default function GameScreen() {
       </View>
 
       <Modal
-        visible={game.gameStatus === 'won'}
+        visible={game.gameStatus === 'won' && game.justWon}
         transparent
         animationType="fade"
         statusBarTranslucent

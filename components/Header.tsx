@@ -7,11 +7,13 @@ import {
   Platform,
 } from 'react-native';
 import { BlurView } from 'expo-blur';
+import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../constants/colors';
 
 interface HeaderProps {
   onBack?: () => void;
   onUseHint?: () => void;
+  onReset?: () => void;
   timer?: number;
   title?: string;
   progressText?: string;
@@ -23,7 +25,7 @@ function formatTime(seconds: number) {
   return `${m}:${s}`;
 }
 
-export function Header({ onBack, onUseHint, timer = 0, title = 'Reviva', progressText }: HeaderProps) {
+export function Header({ onBack, onUseHint, onReset, timer = 0, title = 'Reviva', progressText }: HeaderProps) {
   return (
     <BlurView
       intensity={60}
@@ -50,10 +52,23 @@ export function Header({ onBack, onUseHint, timer = 0, title = 'Reviva', progres
       </View>
 
       <View style={styles.rightActions}>
+        {onReset ? (
+          <TouchableOpacity
+            style={styles.iconButton}
+            onPress={onReset}
+            activeOpacity={0.7}
+            accessibilityLabel="Recomeçar nível"
+            accessibilityRole="button"
+          >
+            <Ionicons name="refresh" size={24} color={Colors.textLight} />
+          </TouchableOpacity>
+        ) : null}
         <TouchableOpacity
           style={styles.iconButton}
           onPress={onUseHint}
           activeOpacity={0.7}
+          accessibilityLabel="Usar dica"
+          accessibilityRole="button"
         >
           <Text style={styles.hintIcon}>💡</Text>
         </TouchableOpacity>

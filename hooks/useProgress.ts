@@ -55,10 +55,23 @@ export function useProgress() {
     }
   }, []);
 
+  const removePuzzleProgress = useCallback(async (puzzleId: string) => {
+    setProgress((prev) => {
+      if (!prev[puzzleId]) return prev;
+      const next = { ...prev };
+      delete next[puzzleId];
+      AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next)).catch((e) =>
+        console.error('Failed to remove puzzle progress', e)
+      );
+      return next;
+    });
+  }, []);
+
   return {
     progress,
     loading,
     savePuzzleProgress,
+    removePuzzleProgress,
     clearProgress,
     loadProgress,
   };

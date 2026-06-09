@@ -78,6 +78,38 @@ export default function MenuScreen() {
   const { width } = useWindowDimensions();
   const { progress, loading } = useProgress();
 
+  // --- Autoscroll para o último nível aberto ---
+  const scrollRef = useRef<ScrollView>(null);
+  const pathYRef = useRef(0);            // posição vertical do container da trilha
+  const pathReadyRef = useRef(false);
+  const rowYRef = useRef<Record<string, number>>({}); // y de cada tile dentro da trilha
+  const pendingScrollRef = useRef<string | null>(null);
+
+  const tryScroll = useCallback(() => {
+    const id = pendingScrollRef.current;
+    if (!id || !pathReadyRef.current) return;
+    const ry = rowYRef.current[id];
+    if (ry == null) return;
+    scrollRef.current?.scrollTo({ y: Math.max(0, pathYRef.current + ry - 120), animated: true });
+    pendingScrollRef.current = null;
+  }, []);
+
+  // Roda toda vez que a tela ganha foco (abertura e volta de um nível).
+  useFocusEffect(
+    useCallback(() => {
+      let active = true;
+      getLastLevel().then((id) => {
+        if (!active || !id) return;
+        pendingScrollRef.current = id;
+        tryScroll();                       // tenta já (layout pode estar pronto)
+        requestAnimationFrame(tryScroll);  // e de novo no próximo frame
+      });
+      return () => {
+        active = false;
+      };
+    }, [tryScroll])
+  );
+
   // Caminho contínuo: todos os puzzles, na ordem dos temas (nada bloqueado)
   const levels: PuzzleData[] = useMemo(
     () =>
@@ -105,6 +137,7 @@ export default function MenuScreen() {
       <StatusBar style="light" />
       <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
         <ScrollView
+          ref={scrollRef}
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
@@ -130,7 +163,14 @@ export default function MenuScreen() {
           </View>
 
           {/* Trilha de níveis */}
-          <View style={styles.path}>
+          <View
+            style={styles.path}
+            onLayout={(e) => {
+              pathYRef.current = e.nativeEvent.layout.y;
+              pathReadyRef.current = true;
+              tryScroll();
+            }}
+          >
             {levels.map((p, i) => {
               const isRight = i % 2 === 1;
               const prevIsRight = (i - 1) % 2 === 1;
@@ -149,7 +189,14 @@ export default function MenuScreen() {
                 y: DOTS_HEIGHT - 22, // mais afastado da próxima box
               };
               return (
-                <View key={p.id} style={styles.pathRow}>
+                <View
+                  key={p.id}
+                  style={styles.pathRow}
+                  onLayout={(e) => {
+                    rowYRef.current[p.id] = e.nativeEvent.layout.y;
+                    tryScroll();
+                  }}
+                >
                   {i > 0 && <Dots start={start} end={end} />}
                   <TouchableOpacity
                     activeOpacity={0.85}
