@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef, useCallback } from 'react';
 import {
   View,
   Text,
@@ -11,9 +11,10 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
-import { useRouter } from 'expo-router';
+import { useRouter, useFocusEffect } from 'expo-router';
 import { PUZZLES, THEMES, PuzzleData } from '../constants/puzzleData';
 import { useProgress } from '../hooks/useProgress';
+import { getLastLevel } from '../hooks/gameStorage';
 
 // Paleta quente dos tiles (estilo do mockup)
 const TILE = {
@@ -27,30 +28,48 @@ const TILE = {
 
 // Escolhe um emoji de acordo com palavras-chave do tema/título.
 // (não há arquivos de ícone nos assets, então usamos emoji — sempre renderiza)
+// A ordem importa: títulos específicos vêm antes dos genéricos para não colidir
+// (ex.: "Festa Junina" antes de "Festa", "Estação de Trem" antes de "Viagem",
+// "Na Farmácia" antes de "Saúde", "Quintal" antes de "Jardim").
 function iconFor(theme: string, title: string): string {
   const s = `${theme} ${title}`.toLowerCase();
   const has = (...words: string[]) => words.some((w) => s.includes(w));
 
-  if (has('música', 'musica', 'rádio', 'radio', 'radiola', 'som', 'ritmo', 'viola', 'sertanejo')) return '🎵';
-  if (has('animais', 'animal')) return '🐾';
-  if (has('cozinha', 'comida', 'fome', 'mesa', 'lanche', 'preparo', 'aliment')) return '🍲';
-  if (has('fruta')) return '🍎';
-  if (has('vasilha', 'panela', 'utensílio', 'utensilio')) return '🍳';
-  if (has('escola', 'material', 'aula', 'letras', 'papéis', 'papeis', 'carta', 'mensage', 'comunica')) return '✉️';
-  if (has('vaidade', 'banheiro', 'quarto', 'rosto', 'pessoal')) return '🪞';
-  if (has('moda', 'roupa', 'acessório', 'acessorio', 'varal')) return '👗';
-  if (has('rua', 'comércio', 'comercio', 'cidade', 'centro', 'calçada', 'calcada', 'compras')) return '🏘️';
-  if (has('dinheiro', 'moeda', 'economia')) return '💰';
-  if (has('brincadeira', 'pique', 'jogo', 'infância', 'infancia', 'alegria', 'baile')) return '🎈';
-  if (has('saúde', 'saude', 'cura', 'chá', 'cha', 'benzedura', 'medicina', 'botica', 'profissionais da saúde')) return '🌿';
-  if (has('casa', 'quintal', 'jardim', 'limpeza', 'descans', 'natureza')) return '🏡';
-  if (has('fazenda', 'roça', 'roca', 'plantação', 'plantacao', 'colheita')) return '🌾';
-  if (has('transporte', 'trem', 'estação', 'estacao', 'viagem')) return '🚂';
-  if (has('profiss', 'trabalhador', 'trabalhos manuais', 'manual')) return '🛠️';
-  if (has('festa', 'são joão', 'sao joao', 'tradição', 'tradicao')) return '🎉';
-  if (has('cinema', 'estrela')) return '🎬';
-  if (has('arte')) return '🎨';
-  if (has('luz', 'noite', 'objeto')) return '🕯️';
+  // Cozinha
+  if (has('tempero')) return '🧂';
+  if (has('utensílio', 'utensilio', 'panela', 'vasilha')) return '🍳';
+  if (has('cozinha', 'comida', 'lanche', 'aliment')) return '🍲';
+  // Escola e letras
+  if (has('escrever', 'escrita', 'tinteiro', 'leitura')) return '🖋️';
+  if (has('aula', 'escola', 'material')) return '✏️';
+  // Corpo e beleza
+  if (has('rosto', 'sentidos', 'sorriso')) return '😊';
+  if (has('banho', 'beleza', 'perfume', 'vaidade')) return '🧴';
+  // Casa e jardim (quintal antes de jardim — o tema já contém "jardim")
+  if (has('quintal', 'céu', 'ceu', 'natureza')) return '🏡';
+  if (has('jardim', 'flor')) return '🪴';
+  // Mercado
+  if (has('mercado', 'compras', 'comércio', 'comercio')) return '🛒';
+  // Saúde (farmácia antes de saúde para diferenciar os dois níveis)
+  if (has('farmácia', 'farmacia')) return '💊';
+  if (has('saúde', 'saude', 'remédio', 'remedio', 'medicina')) return '🩺';
+  // Festas (junina antes de festa)
+  if (has('junina', 'são joão', 'sao joao', 'fogueira')) return '🔥';
+  if (has('festa', 'festeja', 'comemora', 'baile')) return '🎉';
+  // Música e cinema (palco antes de cinema)
+  if (has('palco', 'cantora', 'cantor')) return '🎤';
+  if (has('cinema', 'filme', 'atriz', 'estrela')) return '🎬';
+  // Viagens (trem antes de viagem)
+  if (has('trem', 'estação', 'estacao')) return '🚂';
+  if (has('viagem', 'viagens', 'passeio', 'lugares', 'transporte')) return '✈️';
+  // Vida no campo (roça/cantiga antes de plantação/campo)
+  if (has('roça', 'roca', 'cantiga')) return '🤠';
+  if (has('plantação', 'plantacao', 'colheita', 'lavoura', 'fazenda', 'campo')) return '🌾';
+  // Infância
+  if (has('brincadeira', 'infância', 'infancia', 'criança', 'crianca')) return '🧸';
+  // Moda
+  if (has('costura', 'estilo', 'moda', 'roupa')) return '👗';
+
   return '🧩';
 }
 
