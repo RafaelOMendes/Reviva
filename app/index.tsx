@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Animated, Easing, Dimensions } from 'react-native';
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { getDailyChallenge } from '../constants/puzzleData';
 
 const { width } = Dimensions.get('window');
 
@@ -54,6 +55,13 @@ export default function SplashScreen() {
     router.push('/levels');
   };
 
+  // Desafio diário: escolhe o nível pelo dia atual do celular.
+  const today = new Date();
+  const handleDaily = () => {
+    const challenge = getDailyChallenge(today);
+    router.push(`/game/${challenge.id}`);
+  };
+
   return (
     <ImageBackground 
       source={require('../assets/images/background.png')} 
@@ -82,14 +90,25 @@ export default function SplashScreen() {
         resizeMode="contain"
       />
 
-      {/* Botão Começar */}
+      {/* Botões: Começar + Desafio Diário */}
       <View style={styles.footerContainer}>
-        <TouchableOpacity 
-          style={styles.button} 
+        <TouchableOpacity
+          style={styles.button}
           activeOpacity={0.8}
           onPress={handleStart}
         >
           <Text style={styles.buttonText}>COMEÇAR</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.dailyButton}
+          activeOpacity={0.8}
+          onPress={handleDaily}
+          accessibilityRole="button"
+          accessibilityLabel={`Desafio diário, nível de hoje, dia ${today.getDate()}`}
+        >
+          <Text style={styles.dailyButtonText}>🗓️  DESAFIO DIÁRIO</Text>
+          <Text style={styles.dailySubtext}>Nível de hoje • dia {today.getDate()}</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>
@@ -139,5 +158,33 @@ const styles = StyleSheet.create({
     color: '#003366', // Azul escuro para o texto do botão
     fontFamily: 'PlusJakartaSans_700Bold',
     letterSpacing: 1.5,
+  },
+  dailyButton: {
+    marginTop: 14,
+    backgroundColor: '#4A6762', // Teal (Colors.primary) — contraste com o amarelo
+    paddingVertical: 14,
+    borderRadius: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 3,
+    borderColor: '#FFF',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 8,
+  },
+  dailyButtonText: {
+    fontSize: 20,
+    fontWeight: '800',
+    color: '#FFFFFF',
+    fontFamily: 'PlusJakartaSans_700Bold',
+    letterSpacing: 1,
+  },
+  dailySubtext: {
+    fontSize: 13,
+    color: '#EAF2F0',
+    fontFamily: 'PlusJakartaSans_600SemiBold',
+    marginTop: 2,
   },
 });

@@ -1,0 +1,1658 @@
+[
+  {
+    "nome": "Metal Brilhante",
+    "palavra_oculta": "PRATA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "PEDRA",
+        "dicas": [
+          "Material duro da natureza",
+          "Serve para construir muros",
+          "Lapidada, vira joia"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "REINO",
+        "dicas": [
+          "Terra governada por um rei",
+          "Domínio de um monarca",
+          "Lugar dos contos de fada"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AMIGO",
+        "dicas": [
+          "Pessoa querida e de confiança",
+          "Companheiro de todas as horas",
+          "O contrário de inimigo"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "TIGRE",
+        "dicas": [
+          "Felino grande de listras",
+          "Parente selvagem do gato",
+          "Laranja com riscas pretas"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "ABACO",
+        "dicas": [
+          "Quadro com bolinhas de contar",
+          "Ajuda a fazer contas deslizando peças",
+          "Calculadora de madeira"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Tapete do Jardim",
+    "palavra_oculta": "GRAMA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "GANSO",
+        "dicas": [
+          "Ave branca de pescoço longo",
+          "Parente grande do pato",
+          "Vive perto do lago"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "RADIO",
+        "dicas": [
+          "Aparelho que toca música e notícias",
+          "Você escuta, mas não vê imagem",
+          "Tem AM e FM"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AMORA",
+        "dicas": [
+          "Frutinha escura e doce",
+          "Nasce no arbusto e mancha a mão",
+          "Prima da framboesa"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "MANGA",
+        "dicas": [
+          "Fruta amarela e suculenta",
+          "Também é parte da camisa",
+          "Doce tropical de caroço grande"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "APITO",
+        "dicas": [
+          "Faz barulho quando você assopra",
+          "O juiz usa no futebol",
+          "Som agudo para chamar atenção"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Vai pelo Correio",
+    "palavra_oculta": "CARTA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "CHAVE",
+        "dicas": [
+          "Abre e fecha a fechadura",
+          "Você guarda no bolso",
+          "Sem ela a porta não abre"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AVIAO",
+        "dicas": [
+          "Voa alto levando passageiros",
+          "Tem asas e turbinas",
+          "Decola do aeroporto"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "ROUPA",
+        "dicas": [
+          "Você veste no corpo",
+          "Camisa e calça são exemplos",
+          "Fica guardada no armário"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "TINTA",
+        "dicas": [
+          "Líquido colorido de pintar",
+          "O pintor usa na parede",
+          "Dá cor ao desenho"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "ARROZ",
+        "dicas": [
+          "Grão branco do almoço",
+          "Acompanha o feijão",
+          "Cozido, fica soltinho"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Calor do Carvão",
+    "palavra_oculta": "BRASA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "BARCO",
+        "dicas": [
+          "Anda sobre a água",
+          "Leva gente pelo rio ou mar",
+          "Tem vela ou motor"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "RELVA",
+        "dicas": [
+          "Grama baixinha",
+          "Tapete verde do campo",
+          "Cobre o jardim de verde"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AMIGO",
+        "dicas": [
+          "Pessoa querida",
+          "Companheiro fiel",
+          "O contrário de inimigo"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "SERRA",
+        "dicas": [
+          "Corta madeira com dentes",
+          "Ferramenta do carpinteiro",
+          "Também é cadeia de montanhas"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AGUIA",
+        "dicas": [
+          "Ave que voa bem alto",
+          "Caçadora de olhar afiado",
+          "Rainha do céu"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Guarda Papéis",
+    "palavra_oculta": "PASTA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "PORTA",
+        "dicas": [
+          "Você abre para entrar",
+          "Tem maçaneta",
+          "Separa um cômodo do outro"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "APITO",
+        "dicas": [
+          "Soa quando você assopra",
+          "O juiz usa no jogo",
+          "Som agudo e fino"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "SONHO",
+        "dicas": [
+          "Acontece quando você dorme",
+          "Também é um doce de padaria",
+          "Desejo do coração"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "TELHA",
+        "dicas": [
+          "Cobre o telhado",
+          "De barro, segura a chuva",
+          "Fica no alto da casa"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AREIA",
+        "dicas": [
+          "Cobre a praia",
+          "Fina e dourada",
+          "Usada na construção"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Selo da Fábrica",
+    "palavra_oculta": "MARCA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "MELAO",
+        "dicas": [
+          "Fruta grande e doce",
+          "Verde por fora, amarelo por dentro",
+          "Refresca no verão"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AMORA",
+        "dicas": [
+          "Frutinha escura",
+          "Mancha os dedos",
+          "Prima da framboesa"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "REINO",
+        "dicas": [
+          "Terra do rei",
+          "Onde governa o monarca",
+          "Lugar dos contos"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "CINTO",
+        "dicas": [
+          "Segura a calça",
+          "Aperta na cintura",
+          "De couro, com fivela"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AVIAO",
+        "dicas": [
+          "Voa no céu",
+          "Leva passageiros",
+          "Decola do aeroporto"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Emoção da Novela",
+    "palavra_oculta": "DRAMA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "DISCO",
+        "dicas": [
+          "Toca música e é redondo",
+          "Gira na vitrola",
+          "Bolacha preta de som"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "RADIO",
+        "dicas": [
+          "Toca música e notícias",
+          "Só som, sem imagem",
+          "Tem AM e FM"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "ANZOL",
+        "dicas": [
+          "Pega peixe na ponta da linha",
+          "Tem forma de gancho",
+          "O pescador usa"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "MUNDO",
+        "dicas": [
+          "O planeta inteiro",
+          "Onde todos vivemos",
+          "A Terra e seus povos"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "ABACO",
+        "dicas": [
+          "Quadro de contas",
+          "Bolinhas que deslizam",
+          "Calculadora de madeira"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Fruta Macia",
+    "palavra_oculta": "BANANA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "BOLSA",
+        "dicas": [
+          "Carrega objetos a tiracolo",
+          "Levada no ombro",
+          "Guarda carteira e chaves"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AMORA",
+        "dicas": [
+          "Frutinha escura",
+          "Mancha a mão",
+          "Prima da framboesa"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "NAVIO",
+        "dicas": [
+          "Barco bem grande",
+          "Cruza o oceano",
+          "Leva carga e gente"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "APITO",
+        "dicas": [
+          "Soa ao assoprar",
+          "Do juiz no jogo",
+          "Som agudo"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "NINHO",
+        "dicas": [
+          "Casa dos passarinhos",
+          "Feito de gravetos",
+          "Onde ficam os ovos"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AREIA",
+        "dicas": [
+          "Cobre a praia",
+          "Fina e dourada",
+          "Da construção"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Verde no Prato",
+    "palavra_oculta": "SALADA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "SUINO",
+        "dicas": [
+          "Animal do chiqueiro",
+          "O porco é um",
+          "De onde vem o bacon"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AMIGO",
+        "dicas": [
+          "Pessoa querida",
+          "Companheiro fiel",
+          "Oposto de inimigo"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "LIMAO",
+        "dicas": [
+          "Fruta azeda e verde",
+          "Faz limonada",
+          "Espreme na água"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AVIAO",
+        "dicas": [
+          "Voa no céu",
+          "Leva passageiros",
+          "Do aeroporto"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "DENTE",
+        "dicas": [
+          "Mastiga a comida",
+          "Fica na boca",
+          "Você escova todo dia"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AREIA",
+        "dicas": [
+          "Cobre a praia",
+          "Fina e dourada",
+          "Da construção"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Verdinha no Vaso",
+    "palavra_oculta": "PLANTA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "PEIXE",
+        "dicas": [
+          "Vive na água",
+          "Nada com barbatanas",
+          "Respira por guelras"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "LEITE",
+        "dicas": [
+          "Bebida branca da vaca",
+          "Vai no café",
+          "Rico em cálcio"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "ABACO",
+        "dicas": [
+          "Quadro de contas",
+          "Bolinhas deslizam",
+          "Calculadora de madeira"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "NEGRO",
+        "dicas": [
+          "Cor bem escura",
+          "Tom da noite sem lua",
+          "Oposto de branco"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "TIGRE",
+        "dicas": [
+          "Felino de listras",
+          "Gato selvagem grande",
+          "Laranja com riscas"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AMORA",
+        "dicas": [
+          "Frutinha escura",
+          "Mancha a mão",
+          "Prima da framboesa"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Tranca a Porta",
+    "palavra_oculta": "TRAVA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "TORTA",
+        "dicas": [
+          "Doce assado de festa",
+          "Pode ser de limão",
+          "Prima do bolo"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "REGUA",
+        "dicas": [
+          "Mede e risca reto",
+          "Da caixa de lápis",
+          "Tem marcas de centímetro"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AMIGO",
+        "dicas": [
+          "Pessoa querida",
+          "Companheiro fiel",
+          "Contrário de inimigo"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "VIOLA",
+        "dicas": [
+          "Instrumento de cordas",
+          "Prima do violão",
+          "Toca moda de viola"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "APITO",
+        "dicas": [
+          "Soa ao assoprar",
+          "Do juiz",
+          "Som agudo"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "No Jogo de Bola",
+    "palavra_oculta": "FALTA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "FORNO",
+        "dicas": [
+          "Assa o bolo e o pão",
+          "Fica abaixo do fogão",
+          "Esquenta a comida"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AREIA",
+        "dicas": [
+          "Cobre a praia",
+          "Fina e dourada",
+          "Da construção"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "LARVA",
+        "dicas": [
+          "Filhote de inseto",
+          "Depois vira borboleta",
+          "Pequena e mole"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "TENDA",
+        "dicas": [
+          "Barraca de acampar",
+          "Abriga da chuva no campo",
+          "De lona, montável"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AVIAO",
+        "dicas": [
+          "Voa no céu",
+          "Leva gente",
+          "Do aeroporto"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Bater de Mãos",
+    "palavra_oculta": "PALMA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "PINTO",
+        "dicas": [
+          "Filhote da galinha",
+          "Amarelinho e fofo",
+          "Sai do ovo"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AMORA",
+        "dicas": [
+          "Frutinha escura",
+          "Mancha a mão",
+          "Prima da framboesa"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "LOUSA",
+        "dicas": [
+          "Quadro de escrever a giz",
+          "Fica na sala de aula",
+          "O professor usa"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "MOLHO",
+        "dicas": [
+          "Cobre o macarrão",
+          "De tomate, é vermelho",
+          "Dá sabor à comida"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "APITO",
+        "dicas": [
+          "Soa ao assoprar",
+          "Do juiz",
+          "Som agudo"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Paz e Sossego",
+    "palavra_oculta": "CALMA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "CORDA",
+        "dicas": [
+          "Fio grosso de amarrar",
+          "Pula no recreio",
+          "Segura o balde no poço"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AVIAO",
+        "dicas": [
+          "Voa no céu",
+          "Leva gente",
+          "Do aeroporto"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "LIVRO",
+        "dicas": [
+          "Cheio de páginas para ler",
+          "Tem capa e história",
+          "Fica na estante"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "MUNDO",
+        "dicas": [
+          "O planeta todo",
+          "Onde vivemos",
+          "A Terra e seus povos"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AREIA",
+        "dicas": [
+          "Cobre a praia",
+          "Fina e dourada",
+          "Da construção"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Bicho do Sertão",
+    "palavra_oculta": "CABRA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "CESTA",
+        "dicas": [
+          "Cesto de palha",
+          "Carrega frutas",
+          "No basquete, vale ponto"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AMIGO",
+        "dicas": [
+          "Pessoa querida",
+          "Companheiro fiel",
+          "Oposto de inimigo"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "BARCO",
+        "dicas": [
+          "Anda na água",
+          "Leva gente no mar",
+          "Tem vela ou motor"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "RELVA",
+        "dicas": [
+          "Grama baixinha",
+          "Tapete verde",
+          "Cobre o jardim"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "ABACO",
+        "dicas": [
+          "Quadro de contas",
+          "Bolinhas deslizam",
+          "Calculadora de madeira"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "O Caminhão Leva",
+    "palavra_oculta": "CARGA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "CHUVA",
+        "dicas": [
+          "Água que cai do céu",
+          "Molha a rua",
+          "Vem com guarda-chuva"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AVIAO",
+        "dicas": [
+          "Voa no céu",
+          "Leva gente",
+          "Do aeroporto"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "ROUPA",
+        "dicas": [
+          "Veste o corpo",
+          "Camisa e calça",
+          "Fica no armário"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "GANSO",
+        "dicas": [
+          "Ave de pescoço longo",
+          "Parente do pato",
+          "Branco, perto do lago"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AREIA",
+        "dicas": [
+          "Cobre a praia",
+          "Fina e dourada",
+          "Da construção"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Antes da Borboleta",
+    "palavra_oculta": "LARVA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "LIMAO",
+        "dicas": [
+          "Fruta azeda e verde",
+          "Faz limonada",
+          "Espreme na água"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AMORA",
+        "dicas": [
+          "Frutinha escura",
+          "Mancha a mão",
+          "Prima da framboesa"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "REINO",
+        "dicas": [
+          "Terra do rei",
+          "Do monarca",
+          "Dos contos de fada"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "VIDRO",
+        "dicas": [
+          "Transparente e quebra fácil",
+          "A janela é feita dele",
+          "A garrafa pode ser"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "APITO",
+        "dicas": [
+          "Soa ao assoprar",
+          "Do juiz",
+          "Som agudo"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Sobe sem Degrau",
+    "palavra_oculta": "RAMPA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "RADIO",
+        "dicas": [
+          "Toca música e notícias",
+          "Só som",
+          "Tem AM e FM"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AMIGO",
+        "dicas": [
+          "Pessoa querida",
+          "Companheiro fiel",
+          "Oposto de inimigo"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "MOEDA",
+        "dicas": [
+          "Dinheiro de metal",
+          "Tine no bolso",
+          "Redonda e pequena"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "PORTA",
+        "dicas": [
+          "Você abre para entrar",
+          "Tem maçaneta",
+          "Separa cômodos"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AREIA",
+        "dicas": [
+          "Cobre a praia",
+          "Fina e dourada",
+          "Da construção"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Fecha o Pote",
+    "palavra_oculta": "TAMPA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "TELHA",
+        "dicas": [
+          "Cobre o telhado",
+          "De barro",
+          "No alto da casa"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AVIAO",
+        "dicas": [
+          "Voa no céu",
+          "Leva gente",
+          "Do aeroporto"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "MANGA",
+        "dicas": [
+          "Fruta amarela e doce",
+          "Também é parte da camisa",
+          "De caroço grande"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "PEIXE",
+        "dicas": [
+          "Vive na água",
+          "Nada com barbatana",
+          "Respira por guelra"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AMORA",
+        "dicas": [
+          "Frutinha escura",
+          "Mancha a mão",
+          "Prima da framboesa"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Pelos do Rosto",
+    "palavra_oculta": "BARBA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 0,
+    "palavras": [
+      {
+        "palavra": "BANCO",
+        "dicas": [
+          "Você senta nele na praça",
+          "Também guarda dinheiro",
+          "Comprido, de madeira"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AMIGO",
+        "dicas": [
+          "Pessoa querida",
+          "Companheiro fiel",
+          "Oposto de inimigo"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "ROUPA",
+        "dicas": [
+          "Veste o corpo",
+          "Camisa e calça",
+          "Fica no armário"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "BOLSA",
+        "dicas": [
+          "Carrega objetos",
+          "Levada no ombro",
+          "Guarda carteira e chaves"
+        ],
+        "indice_letra_oculta": 0
+      },
+      {
+        "palavra": "AREIA",
+        "dicas": [
+          "Cobre a praia",
+          "Fina e dourada",
+          "Da construção"
+        ],
+        "indice_letra_oculta": 0
+      }
+    ]
+  },
+  {
+    "nome": "Cheiro Gostoso",
+    "palavra_oculta": "AROMA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 4,
+    "palavras": [
+      {
+        "palavra": "PEDRA",
+        "dicas": [
+          "Material duro do chão",
+          "Constrói muro",
+          "Pode virar joia"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "VAPOR",
+        "dicas": [
+          "Fumacinha da água quente",
+          "Sai da chaleira fervendo",
+          "Água que virou gás"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "BARCO",
+        "dicas": [
+          "Anda sobre a água",
+          "Leva gente pelo rio",
+          "Tem vela ou motor"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "BATOM",
+        "dicas": [
+          "Pinta os lábios de cor",
+          "Fica na bolsa de maquiagem",
+          "Deixa a boca vermelha"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "CHUVA",
+        "dicas": [
+          "Água que cai do céu",
+          "Molha a rua e o jardim",
+          "Vem com guarda-chuva"
+        ],
+        "indice_letra_oculta": 4
+      }
+    ]
+  },
+  {
+    "nome": "Lição da História",
+    "palavra_oculta": "MORAL",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 4,
+    "palavras": [
+      {
+        "palavra": "ALBUM",
+        "dicas": [
+          "Guarda fotos ou figurinhas",
+          "Coleção encadernada",
+          "Você enche com figurinhas"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "BARCO",
+        "dicas": [
+          "Anda na água",
+          "Leva gente no mar",
+          "Tem vela ou motor"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "VAPOR",
+        "dicas": [
+          "Fumacinha da água quente",
+          "Sai da chaleira",
+          "Água virou gás"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "PEDRA",
+        "dicas": [
+          "Material duro",
+          "Constrói muro",
+          "Vira joia"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "VARAL",
+        "dicas": [
+          "Estende a roupa lavada",
+          "Prende com pregador",
+          "Seca a roupa no sol"
+        ],
+        "indice_letra_oculta": 4
+      }
+    ]
+  },
+  {
+    "nome": "Energia do Sol",
+    "palavra_oculta": "SOLAR",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 4,
+    "palavras": [
+      {
+        "palavra": "PIRES",
+        "dicas": [
+          "Pratinho embaixo da xícara",
+          "Apoia a xícara",
+          "Raso e pequeno"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "CAMPO",
+        "dicas": [
+          "Lugar aberto do interior",
+          "Onde se planta e cria gado",
+          "Verde e amplo"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "ANZOL",
+        "dicas": [
+          "Pega peixe",
+          "Tem forma de gancho",
+          "Do pescador"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "CHUVA",
+        "dicas": [
+          "Água do céu",
+          "Molha a rua",
+          "Vem com guarda-chuva"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "MOTOR",
+        "dicas": [
+          "Faz o carro andar",
+          "Coração da máquina",
+          "Liga com a chave"
+        ],
+        "indice_letra_oculta": 4
+      }
+    ]
+  },
+  {
+    "nome": "Dente do Fundo",
+    "palavra_oculta": "MOLAR",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 4,
+    "palavras": [
+      {
+        "palavra": "ALBUM",
+        "dicas": [
+          "Guarda fotos",
+          "Coleção encadernada",
+          "De figurinhas"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "CAMPO",
+        "dicas": [
+          "Lugar aberto",
+          "Planta e cria gado",
+          "Verde e amplo"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "VARAL",
+        "dicas": [
+          "Estende a roupa",
+          "Com pregador",
+          "Seca ao sol"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "CHUVA",
+        "dicas": [
+          "Água do céu",
+          "Molha a rua",
+          "Guarda-chuva"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "MOTOR",
+        "dicas": [
+          "Faz o carro andar",
+          "Coração da máquina",
+          "Liga com a chave"
+        ],
+        "indice_letra_oculta": 4
+      }
+    ]
+  },
+  {
+    "nome": "Luz Pontuda",
+    "palavra_oculta": "LASER",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 4,
+    "palavras": [
+      {
+        "palavra": "FUNIL",
+        "dicas": [
+          "Largo em cima, fino embaixo",
+          "Passa líquido sem derramar",
+          "Tem forma de cone"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "PEDRA",
+        "dicas": [
+          "Material duro",
+          "Constrói muro",
+          "Vira joia"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "PIRES",
+        "dicas": [
+          "Pratinho da xícara",
+          "Apoia a xícara",
+          "Raso e pequeno"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "DENTE",
+        "dicas": [
+          "Mastiga a comida",
+          "Fica na boca",
+          "Você escova todo dia"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "VAPOR",
+        "dicas": [
+          "Fumacinha quente",
+          "Da chaleira",
+          "Água em gás"
+        ],
+        "indice_letra_oculta": 4
+      }
+    ]
+  },
+  {
+    "nome": "Frutinha Roxa",
+    "palavra_oculta": "AMORA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 4,
+    "palavras": [
+      {
+        "palavra": "CHUVA",
+        "dicas": [
+          "Água do céu",
+          "Molha a rua",
+          "Guarda-chuva"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "ALBUM",
+        "dicas": [
+          "Guarda fotos",
+          "Coleção",
+          "De figurinhas"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "BARCO",
+        "dicas": [
+          "Anda na água",
+          "Leva gente",
+          "Vela ou motor"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "MOTOR",
+        "dicas": [
+          "Faz o carro andar",
+          "Coração da máquina",
+          "Liga com a chave"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "PEDRA",
+        "dicas": [
+          "Material duro",
+          "Constrói muro",
+          "Vira joia"
+        ],
+        "indice_letra_oculta": 4
+      }
+    ]
+  },
+  {
+    "nome": "Vai na Fritura",
+    "palavra_oculta": "OLEO",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 4,
+    "palavras": [
+      {
+        "palavra": "BARCO",
+        "dicas": [
+          "Anda na água",
+          "Leva gente",
+          "Vela ou motor"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "ANZOL",
+        "dicas": [
+          "Pega peixe",
+          "Tem gancho",
+          "Do pescador"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "DENTE",
+        "dicas": [
+          "Mastiga a comida",
+          "Fica na boca",
+          "Você escova todo dia"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "CAMPO",
+        "dicas": [
+          "Lugar aberto",
+          "Planta e cria gado",
+          "Verde e amplo"
+        ],
+        "indice_letra_oculta": 4
+      }
+    ]
+  },
+  {
+    "nome": "Espírito da Gente",
+    "palavra_oculta": "ALMA",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 4,
+    "palavras": [
+      {
+        "palavra": "PEDRA",
+        "dicas": [
+          "Material duro",
+          "Constrói muro",
+          "Vira joia"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "VARAL",
+        "dicas": [
+          "Estende a roupa",
+          "Com pregador",
+          "Seca ao sol"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "ALBUM",
+        "dicas": [
+          "Guarda fotos",
+          "Coleção",
+          "De figurinhas"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "CHUVA",
+        "dicas": [
+          "Água do céu",
+          "Molha a rua",
+          "Guarda-chuva"
+        ],
+        "indice_letra_oculta": 4
+      }
+    ]
+  },
+  {
+    "nome": "Coisa do Coração",
+    "palavra_oculta": "AMOR",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 4,
+    "palavras": [
+      {
+        "palavra": "PEDRA",
+        "dicas": [
+          "Material duro",
+          "Constrói muro",
+          "Vira joia"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "ALBUM",
+        "dicas": [
+          "Guarda fotos",
+          "Coleção",
+          "De figurinhas"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "BARCO",
+        "dicas": [
+          "Anda na água",
+          "Leva gente",
+          "Vela ou motor"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "MOTOR",
+        "dicas": [
+          "Faz o carro andar",
+          "Coração da máquina",
+          "Liga com a chave"
+        ],
+        "indice_letra_oculta": 4
+      }
+    ]
+  },
+  {
+    "nome": "Direção do Caminho",
+    "palavra_oculta": "RUMO",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 4,
+    "palavras": [
+      {
+        "palavra": "VAPOR",
+        "dicas": [
+          "Fumacinha quente",
+          "Da chaleira",
+          "Água em gás"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "URUBU",
+        "dicas": [
+          "Ave preta que voa em círculos",
+          "Faz a limpeza da natureza",
+          "Tem a cabeça pelada"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "ALBUM",
+        "dicas": [
+          "Guarda fotos",
+          "Coleção",
+          "De figurinhas"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "BARCO",
+        "dicas": [
+          "Anda na água",
+          "Leva gente",
+          "Vela ou motor"
+        ],
+        "indice_letra_oculta": 4
+      }
+    ]
+  },
+  {
+    "nome": "Tesouro Dourado",
+    "palavra_oculta": "OURO",
+    "formato_acrostico": "coluna_fixa",
+    "tamanho_palavras_horizontais": 5,
+    "indice_coluna_oculta": 4,
+    "palavras": [
+      {
+        "palavra": "CAMPO",
+        "dicas": [
+          "Lugar aberto",
+          "Planta e cria gado",
+          "Verde e amplo"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "URUBU",
+        "dicas": [
+          "Ave preta em círculos",
+          "Limpa a natureza",
+          "Cabeça pelada"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "MOTOR",
+        "dicas": [
+          "Faz o carro andar",
+          "Coração da máquina",
+          "Liga com a chave"
+        ],
+        "indice_letra_oculta": 4
+      },
+      {
+        "palavra": "BARCO",
+        "dicas": [
+          "Anda na água",
+          "Leva gente",
+          "Vela ou motor"
+        ],
+        "indice_letra_oculta": 4
+      }
+    ]
+  }
+]

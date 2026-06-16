@@ -33,25 +33,34 @@ export function Header({ onBack, onUseHint, onReset, timer = 0, title = 'Reviva'
       experimentalBlurMethod="dimezisBlurView"
       style={styles.container}
     >
-      <TouchableOpacity
-        style={styles.iconButton}
-        onPress={onBack}
-        activeOpacity={0.7}
-        accessibilityLabel="Voltar"
-        accessibilityRole="button"
-      >
-        <Text style={styles.backArrow}>←</Text>
-      </TouchableOpacity>
+      <View style={styles.side}>
+        <TouchableOpacity
+          style={styles.iconButton}
+          onPress={onBack}
+          activeOpacity={0.7}
+          accessibilityLabel="Voltar"
+          accessibilityRole="button"
+        >
+          <Text style={styles.backArrow}>←</Text>
+        </TouchableOpacity>
+      </View>
 
       <View style={styles.centerContainer}>
-        <Text style={styles.title} numberOfLines={1}>{title}</Text>
+        <Text
+          style={styles.title}
+          numberOfLines={1}
+          adjustsFontSizeToFit
+          minimumFontScale={0.6}
+        >
+          {title}
+        </Text>
         {progressText ? (
           <Text style={styles.progress}>{progressText}</Text>
         ) : null}
         <Text style={styles.timer}>{formatTime(timer)}</Text>
       </View>
 
-      <View style={styles.rightActions}>
+      <View style={[styles.side, styles.sideRight]}>
         {onReset ? (
           <TouchableOpacity
             style={styles.iconButton}
@@ -111,13 +120,13 @@ const styles = StyleSheet.create({
   centerContainer: {
     alignItems: 'center',
     flex: 1,
-    paddingHorizontal: 10,
+    paddingHorizontal: 4,
   },
   title: {
     fontSize: 18,
     fontWeight: '700',
     color: Colors.textLight,
-    letterSpacing: 0.5,
+    letterSpacing: 0.3,
     fontFamily: 'PlusJakartaSans_700Bold',
     textAlign: 'center',
     textShadowColor: 'rgba(0, 0, 0, 0.55)',
@@ -142,8 +151,16 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 4,
   },
-  rightActions: {
+  // Os dois lados têm a mesma largura para que o bloco central (nome, contador
+  // e timer) fique exatamente no meio do header, mesmo a esquerda tendo 1 botão
+  // e a direita 2 (resetar + dica).
+  side: {
+    width: 84,
     flexDirection: 'row',
+    alignItems: 'center',
+  },
+  sideRight: {
+    justifyContent: 'flex-end',
     gap: 4,
   },
   hintIcon: {

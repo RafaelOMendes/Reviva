@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useCallback } from 'react';
+import React, { useMemo, useRef, useCallback, useState } from 'react';
 import {
   View,
   Text,
@@ -7,12 +7,15 @@ import {
   TouchableOpacity,
   ImageBackground,
   Image,
+  Animated,
+  Easing,
   useWindowDimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { useRouter, useFocusEffect } from 'expo-router';
 import { PUZZLES, THEMES, PuzzleData } from '../constants/puzzleData';
+import { Colors } from '../constants/colors';
 import { useProgress } from '../hooks/useProgress';
 import { getLastLevel } from '../hooks/gameStorage';
 
@@ -119,6 +122,12 @@ export default function MenuScreen() {
           .filter((p): p is PuzzleData => Boolean(p))
       ),
     []
+  );
+
+  // Todos os níveis concluídos? (muda a mensagem do cartão final)
+  const allDone = useMemo(
+    () => !loading && levels.length > 0 && levels.every((p) => progress[p.id]?.completed),
+    [loading, levels, progress]
   );
 
   // Geometria da trilha
@@ -229,6 +238,9 @@ export default function MenuScreen() {
               );
             })}
           </View>
+
+          {/* Fim da trilha: mensagem carinhosa + easter egg do Saulo */}
+          <TrailEnd allDone={allDone} />
         </ScrollView>
 
         {/* Botão voltar flutuante */}
@@ -243,6 +255,139 @@ export default function MenuScreen() {
         </TouchableOpacity>
       </SafeAreaView>
     </ImageBackground>
+  );
+}
+
+// --- Fim da trilha ---------------------------------------------------------
+// Cartão de encerramento mostrado abaixo do último nível. Avisa, com um tom
+// afetuoso pensado para a terceira idade, que novos níveis estão a caminho —
+// e esconde um easter egg: tocar no Saulo algumas vezes revela um recadinho
+// secreto com uma chuvinha de corações. A dica "psiu" deixa o segredo
+// descobrível para quem não está acostumado a procurar.
+const SECRET_AT = 5; // toques na coruja até liberar o segredo
+const HEART_EMOJIS = ['💛', '🌻', '🌟', '🌷', '✨', '💛'];
+
+// Frases do Saulo a cada toque, antes de revelar o segredo.
+const SAULO_PHRASES = [
+  'Você é especial demais! 💛',
+  'Cada palavra sua vale ouro.',
+  'Que orgulho de você!',
+  'Mais um toquinho, vai…',
+];
+
+function TrailEnd({ allDone }: { allDone: boolean }) {
+  const [secret, setSecret] = useState(false);
+  const [phrase, setPhrase] = useState('Psiu… toque em mim! 🦉');
+  const tapsRef = useRef(0);
+
+  const owlScale = useRef(new Animated.Value(1)).current;
+  const secretAnim = useRef(new Animated.Value(0)).current;
+  const hearts = useRef(HEART_EMOJIS.map(() => new Animated.Value(0))).current;
+
+  const tapOwl = useCallback(() => {
+    // Pulinho da coruja a cada toque
+    Animated.sequence([
+      Animated.spring(owlScale, { toValue: 1.18, useNativeDriver: true, speed: 50, bounciness: 16 }),
+      Animated.spring(owlScale, { toValue: 1, useNativeDriver: true, speed: 50, bounciness: 16 }),
+    ]).start();
+
+    if (secret) return; // segredo já revelado: só o pulinho continua
+
+    const next = tapsRef.current + 1;
+    tapsRef.current = next;
+
+    if (next >= SECRET_AT) {
+      setSecret(true);
+      setPhrase('Você achou o meu segredo! 🌟');
+      Animated.spring(secretAnim, { toValue: 1, useNativeDriver: true, friction: 6 }).start();
+      // Corações sobem e somem
+      hearts.forEach((h, i) => {
+        h.setValue(0);
+        Animated.timing(h, {
+          toValue: 1,
+          duration: 1500,
+          delay: i * 110,
+          easing: Easing.out(Easing.quad),
+          useNativeDriver: true,
+        }).start();
+      });
+    } else {
+      setPhrase(SAULO_PHRASES[(next - 1) % SAULO_PHRASES.length]);
+    }
+  }, [secret, owlScale, secretAnim, hearts]);
+
+  return (
+    <View style={styles.endCard}>
+      {/* Corações flutuantes do easter egg */}
+      <View style={styles.heartsLayer} pointerEvents="none">
+        {hearts.map((h, i) => {
+          const translateY = h.interpolate({ inputRange: [0, 1], outputRange: [0, -150] });
+          const opacity = h.interpolate({ inputRange: [0, 0.15, 0.8, 1], outputRange: [0, 1, 1, 0] });
+          const drift = (i % 2 === 0 ? -1 : 1) * (14 + (i % 3) * 10);
+          const translateX = h.interpolate({ inputRange: [0, 1], outputRange: [0, drift] });
+          return (
+            <Animated.Text
+              key={i}
+              style={[
+                styles.heart,
+                { left: `${18 + i * 12}%`, opacity, transform: [{ translateY }, { translateX }] },
+              ]}
+            >
+              {HEART_EMOJIS[i]}
+            </Animated.Text>
+          );
+        })}
+      </View>
+
+      {/* Saulo (tocável) + balão de fala */}
+      <TouchableOpacity
+        activeOpacity={0.85}
+        onPress={tapOwl}
+        accessibilityRole="button"
+        accessibilityLabel="Toque na coruja Saulo para uma surpresa"
+      >
+        <Animated.Image
+          source={require('../assets/images/owl.png')}
+          style={[styles.endOwl, { transform: [{ scale: owlScale }] }]}
+          resizeMode="contain"
+        />
+      </TouchableOpacity>
+
+      <View style={styles.endBubble}>
+        <Text style={styles.endBubbleText}>{phrase}</Text>
+      </View>
+
+      <Text style={styles.endTitle}>
+        {allDone ? 'Você concluiu tudo! 🏆' : 'Fim da trilha… por enquanto! 🌻'}
+      </Text>
+
+      <Text style={styles.endBody}>
+        Novos níveis já estão sendo preparados com muito carinho e chegam em breve.
+        Enquanto isso, descanse, tome um cafezinho e volte sempre que quiser — o Saulo
+        vai estar aqui te esperando. 💛
+      </Text>
+
+      {secret ? (
+        <Animated.View
+          style={[
+            styles.secretBox,
+            {
+              opacity: secretAnim,
+              transform: [
+                { scale: secretAnim.interpolate({ inputRange: [0, 1], outputRange: [0.85, 1] }) },
+              ],
+            },
+          ]}
+        >
+          <Text style={styles.secretTitle}>🌟 Segredo do Saulo 🌟</Text>
+          <Text style={styles.secretText}>
+            A sua dedicação é o nosso maior presente. Obrigado por jogar com a gente!
+          </Text>
+        </Animated.View>
+      ) : (
+        <Text style={styles.endHint}>Psiu… será que a corujinha guarda um segredo?</Text>
+      )}
+    </View>
   );
 }
 
@@ -484,5 +629,100 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontWeight: '700',
     marginTop: -10,
+  },
+  // --- Cartão de fim de trilha ---
+  endCard: {
+    alignSelf: 'stretch',
+    marginHorizontal: 20,
+    marginTop: 28,
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    borderRadius: 24,
+    paddingTop: 16,
+    paddingBottom: 24,
+    paddingHorizontal: 22,
+    alignItems: 'center',
+    borderWidth: 4,
+    borderColor: TILE.border,
+    shadowColor: TILE.shadow,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.35,
+    shadowRadius: 8,
+    elevation: 7,
+  },
+  heartsLayer: {
+    ...StyleSheet.absoluteFillObject,
+    zIndex: 2,
+  },
+  heart: {
+    position: 'absolute',
+    bottom: 64,
+    fontSize: 30,
+  },
+  endOwl: {
+    width: 110,
+    height: 110,
+  },
+  endBubble: {
+    backgroundColor: '#FBF1D5',
+    borderRadius: 16,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    marginTop: 4,
+    marginBottom: 14,
+    minHeight: 38,
+    justifyContent: 'center',
+  },
+  endBubbleText: {
+    fontSize: 16,
+    color: '#5B4327',
+    textAlign: 'center',
+    fontFamily: 'PlusJakartaSans_700Bold',
+  },
+  endTitle: {
+    fontSize: 22,
+    color: '#3A2C14',
+    textAlign: 'center',
+    fontFamily: 'PlusJakartaSans_700Bold',
+    marginBottom: 10,
+  },
+  endBody: {
+    fontSize: 16,
+    lineHeight: 24,
+    color: '#5B4327',
+    textAlign: 'center',
+    fontFamily: 'PlusJakartaSans_400Regular',
+  },
+  endHint: {
+    fontSize: 14,
+    color: '#8A6D3B',
+    textAlign: 'center',
+    fontFamily: 'PlusJakartaSans_600SemiBold',
+    marginTop: 16,
+    fontStyle: 'italic',
+  },
+  secretBox: {
+    marginTop: 18,
+    backgroundColor: Colors.acrosticBg,
+    borderRadius: 16,
+    paddingVertical: 14,
+    paddingHorizontal: 18,
+    alignItems: 'center',
+    alignSelf: 'stretch',
+    borderWidth: 1,
+    borderColor: Colors.acrosticBorder,
+  },
+  secretTitle: {
+    fontSize: 15,
+    color: Colors.secondary,
+    fontFamily: 'PlusJakartaSans_700Bold',
+    marginBottom: 6,
+    letterSpacing: 0.5,
+  },
+  secretText: {
+    fontSize: 16,
+    lineHeight: 23,
+    color: '#5B4327',
+    textAlign: 'center',
+    fontFamily: 'PlusJakartaSans_600SemiBold',
   },
 });

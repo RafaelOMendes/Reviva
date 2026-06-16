@@ -41,10 +41,11 @@ export default function GameScreen() {
   const bounceAnim = useRef(new Animated.Value(1)).current;
   const scrollViewRef = useRef<ScrollView>(null);
 
-  // Registra este como o último nível aberto (para o autoscroll na tela de níveis)
+  // Registra este como o último nível aberto (para o autoscroll na trilha).
+  // Desafios diários não entram na trilha, então não devem virar "último nível".
   useEffect(() => {
-    if (game.puzzle) setLastLevel(game.puzzle.id);
-  }, [game.puzzle?.id]);
+    if (game.puzzle && game.puzzle.themeId !== 'daily') setLastLevel(game.puzzle.id);
+  }, [game.puzzle?.id, game.puzzle?.themeId]);
 
   // Botão de resetar no header: confirma antes de apagar as letras do nível
   const handleReset = () => {
@@ -77,6 +78,10 @@ export default function GameScreen() {
 
   const isLandscape = width > height;
 
+  // Desafio diário volta para a Home; níveis normais voltam para a trilha.
+  const isDaily = game.puzzle?.themeId === 'daily';
+  const backTarget = isDaily ? '/' : '/levels';
+
   const modalFontTitle = Math.min(28, width * 0.07);
   const modalPadding = Math.min(32, width * 0.08);
 
@@ -94,7 +99,7 @@ export default function GameScreen() {
         <Header
           title={game.puzzle.title}
           progressText={`${game.correctRows.filter(Boolean).length}/${game.puzzle.rows} palavras`}
-          onBack={() => router.replace('/levels')}
+          onBack={() => router.replace(backTarget)}
           onUseHint={game.useHint}
           onReset={handleReset}
           timer={game.timer}
@@ -156,10 +161,10 @@ export default function GameScreen() {
             ) : null}
             <TouchableOpacity
               style={styles.modalButton}
-              onPress={() => router.replace('/levels')}
+              onPress={() => router.replace(backTarget)}
               activeOpacity={0.85}
             >
-              <Text style={styles.modalButtonText}>Voltar ao Menu</Text>
+              <Text style={styles.modalButtonText}>{isDaily ? 'Voltar ao Início' : 'Voltar ao Menu'}</Text>
             </TouchableOpacity>
           </View>
         </View>

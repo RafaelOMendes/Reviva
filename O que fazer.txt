@@ -1,3 +1,0 @@
-fazer as palavras virem do back
-montar o back
-salvar o estado da fase
